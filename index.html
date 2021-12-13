@@ -7,17 +7,24 @@
     <title>movie_2022 완성 - 목표</title>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
+        <div v-if="like">좋아요를 눌렀습니다</div>
+        <button v-else v-on:click="onLike">Like</button>
+    </div>
 
     <script>
         const app = new Vue({
             el: '#root',
             data: {
-
+                like: false,
             },
             methods: {
+                onlike(){
+                    this.like = true;
+                },
 
-            }
+            },
         })
     </script>
 </body>
