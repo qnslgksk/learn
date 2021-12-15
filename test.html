@@ -22,9 +22,18 @@
 #testEle2.testEle {
   height:24px;
   background:#333;
-}</style>
+}
+
+@media print {
+  .content_print{display:none;}
+
+/* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
+
+}
+</style>
 </head>
 <body>
+  <img class="content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
   <button type="button">btn1</button>
 
     <div class="testEle" id="testEle">
@@ -65,6 +74,13 @@
     })
     // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트('menu-ready')개발로직이 실행하고 난 후{실행}})
 
+    // 프린트모드에서 로고 히든처리js
+    window.addEventListener('load', function(){
+      // let printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
+      let printBody = document.body;
+
+      printBody.removeChild(printLogo);
+    });
     </script>
 </body>
 </html>
