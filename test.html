@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script>
+    
     <style>
     .testEle {
   width:100px;
@@ -23,6 +25,8 @@
 }</style>
 </head>
 <body>
+  <button type="button">btn1</button>
+
     <div class="testEle" id="testEle">
         Click Num: <span id="testspan">0</span>
       </div>
@@ -30,13 +34,37 @@
 
       
     <script>
-    sumtest=0;
+
+
+  let sumtest=0;
     $("#testEle").on("click",function() {
           ++sumtest;$("#testspan").text(sumtest);
     });
     $("#testEle2").on("click", function(){
         $("#testspan").trigger("click");
     });
+
+    //console.log(menuReady);
+    $('button').click(function(){
+      $(document).trigger('menu-ready');
+      menuReady = true;
+      // console.log(menuReady);
+    })
+
+    // let menuReady = function(callback){
+    //   if(menuReady){
+    //     callback();
+    //   }
+    //   else{
+    //     $(document).on('menu-ready', callback);
+    //   }
+    // }
+
+    $(document).on('menu-ready', function(){
+      alert('menu-ready true2');
+    })
+    // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트('menu-ready')개발로직이 실행하고 난 후{실행}})
+
     </script>
 </body>
 </html>
