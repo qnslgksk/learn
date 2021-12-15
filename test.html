@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="jsontext.js" defer></script>
     <style>
     .testEle {
   width:100px;
@@ -23,6 +24,7 @@
 }</style>
 </head>
 <body>
+  <button type="button">btn1</button>
     <div class="testEle" id="testEle">
         Click Num: <span id="testspan">0</span>
       </div>
@@ -30,6 +32,7 @@
 
       
     <script>
+      // button
     sumtest=0;
     $("#testEle").on("click",function() {
           ++sumtest;$("#testspan").text(sumtest);
