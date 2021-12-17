@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="jsontext.js" defer></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script>
+    
+
     <style>
     .testEle {
   width:100px;
@@ -21,10 +24,21 @@
 #testEle2.testEle {
   height:24px;
   background:#333;
-}</style>
+}
+
+@media print {
+  .content_print{display:none;}
+
+/* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
+
+}
+</style>
 </head>
 <body>
+
+  <img class="content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
   <button type="button">btn1</button>
+
     <div class="testEle" id="testEle">
         Click Num: <span id="testspan">0</span>
       </div>
@@ -32,13 +46,44 @@
 
       
     <script>
-      // button
-    sumtest=0;
+
+
+  let sumtest=0;
+
     $("#testEle").on("click",function() {
           ++sumtest;$("#testspan").text(sumtest);
     });
     $("#testEle2").on("click", function(){
         $("#testspan").trigger("click");
+    });
+
+    //console.log(menuReady);
+    $('button').click(function(){
+      $(document).trigger('menu-ready');// menu-ready가 커스텀핸들러인셈 click1으로 대신 하면 이해가 가능함
+      menuReady = true;
+      // console.log(menuReady);
+    })
+
+    // let menuReady = function(callback){
+    //   if(menuReady){
+    //     callback();
+    //   }
+    //   else{
+    //     $(document).on('menu-ready', callback);
+    //   }
+    // }
+
+    $(document).on('menu-ready', function(){ //click1으로 대신 하면 이해가 가능함
+      alert('menu-ready true2');
+    })
+    // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
+
+    // 프린트모드에서 로고 히든처리js
+    window.addEventListener('load', function(){
+      // let printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
+      let printBody = document.body;
+
+      printBody.removeChild(printLogo);
     });
     </script>
 </body>
