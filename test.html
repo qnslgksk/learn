@@ -55,7 +55,7 @@
 
     //console.log(menuReady);
     $('button').click(function(){
-      $(document).trigger('menu-ready');
+      $(document).trigger('menu-ready');// menu-ready가 커스텀핸들러인셈 click1으로 대신 하면 이해가 가능함
       menuReady = true;
       // console.log(menuReady);
     })
@@ -69,10 +69,10 @@
     //   }
     // }
 
-    $(document).on('menu-ready', function(){
+    $(document).on('menu-ready', function(){ //click1으로 대신 하면 이해가 가능함
       alert('menu-ready true2');
     })
-    // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트('menu-ready')개발로직이 실행하고 난 후{실행}})
+    // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
 
     // 프린트모드에서 로고 히든처리js
     window.addEventListener('load', function(){
