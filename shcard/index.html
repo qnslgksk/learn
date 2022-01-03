@@ -23,7 +23,7 @@
         <header id="header" class="header">
             <div class="header-util">
                 <div class="inner">
-                    <h2 class="a11y-b">자회사 사이트</h2>
+                    <!-- <h2 class="a11y-b">자회사 사이트</h2> -->
                     <div class="util">
                         <ul class="util-wrap">
                             <li class=""><a class="util__item" href=""><span>개인</span></a></li>
@@ -32,8 +32,8 @@
                         </ul>
                         
                         <div class="dropdown-wrap">
-                            <h2 class="a11y-b">패밀리사이트</h2>            
-                            <button class="drop-btn open">마이카</button>
+                            <!-- <h2 class="a11y-b">패밀리사이트</h2> -->
+                            <button  type="button" class="drop-btn open">마이카</button>
                             <div class="dropdown-menu">
                                 <div>
                                     <a href=""><span>마이카</span></a>
@@ -44,7 +44,7 @@
                                     <a href=""><span>올댓쇼핑</span></a>
                                     <a href=""><span>BIGDATA</span></a>
                                 </div>
-                                <button class="btn-close">닫기</button>
+                                <button type="button" class="btn-close">닫기</button>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <!-- 로그인 후 -->
                         <!-- <ul class="login-state">
                             <li><span></span>님!</li>
-                            <li><span>timer</span><button>연장</button></li>
+                            <li><span>timer</span><button type="button">연장</button></li>
                             <li><a href="">로그아웃</a></li>
                             <li><a href="">상품공시실</a></li>
                         </ul> -->
@@ -691,14 +691,16 @@
                         </ul>
                     </nav>
                     <!-- modal-menu -->
-                    <button class="menu-btn open">
+                    <button type="button" class="menu-btn open" aria-haspopup="dialog" aria-pressed="false">
                         <span class="a11y-b">메뉴 열기</span>
-                        <i></i>
-                        <i></i>
-                        <i></i>
+                        <i>1</i>
+                        <i>2</i>
+                        <i>3</i>
                     </button>
-                    <!-- <div class="modal-menu-wrap">
+                    <!-- <div class="modal-menu-wrap" role="dialog" aria-modal="true" aria-labelledby="dialogTit1">
                         <div class="modal-menu">
+                            <h3 id="dialogTit1">제목을뭐라고해야해</h3>
+
                             <div role="tab">자주찾는메뉴</div>
                             <div role="tabpanel">
                                 <div>
@@ -833,7 +835,7 @@
                                     
                                 </div>
                             </div>
-                            <button class="close">메뉴 닫기</button>
+                            <button type="button" class="close" arialabel="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
                         </div>
                     </div> -->
                     <!-- modal-menu -->
@@ -869,14 +871,14 @@
                     <div class="banner-area">
                         <h2 class="a11y-b">배너영역</h2>
                         <div class="banner-wrap">
-                            <button class="prev btn"><span class="a11y-b">prev</span></button>
-                            <button class="next btn"><span class="a11y-b">next</span></button>
+                            <button type="button" class="prev btn"><span class="a11y-b">prev</span></button>
+                            <button type="button" class="next btn"><span class="a11y-b">next</span></button>
                             <div>
                                 <div class="control-area">
                                     <div class="pagenation">
                                         <span>1</span> /5
                                     </div>
-                                    <button class="btn-pause">
+                                    <button type="button" class="btn-pause">
                                         <span class="a11y-b">pause/play</span>
                                     </button>
                                 </div>
@@ -896,28 +898,30 @@
                 <div class="inner">
                     <ul class="favorit-menu">
                         <li>
-                            <a class="favorit-item" href=""><span>월별 명세서</span></a>
+                            <a class="favorit-item" href="">
+                                <!-- <span>월별 명세서</span> -->
+                            </a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>이용내역</span></a>
+                            <a class="favorit-item" href=""><!--<span>이용내역</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>다음달결제예정</span></a>
+                            <a class="favorit-item" href=""><!--<span>다음달결제예정</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>내가받은혜택</span></a>
+                            <a class="favorit-item" href=""><!--<span>내가받은혜택</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>이용한도</span></a>
+                            <a class="favorit-item" href=""><!--<span>이용한도</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>이용금액결제</span></a>
+                            <a class="favorit-item" href=""><!--<span>이용금액결제</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>전자민원접수</span></a>
+                            <a class="favorit-item" href=""><!--<span>전자민원접수</span>--></a>
                         </li>
                         <li>
-                            <a class="favorit-item" href=""><span>카드신청</span></a>
+                            <a class="favorit-item" href=""><!--<span>카드신청</span>--></a>
                         </li>
                     </ul>
                 </div>
@@ -927,10 +931,10 @@
                     <div class="tab-wrap">
                         <div clsss="tab">
                             <ul>
-                                <li><button>BEST카드</button></li>
-                                <li><button>디지털</button></li>
-                                <li><button>프리미엄</button></li>
-                                <li><button>위버스</button></li>
+                                <li><button type="button">BEST카드</button></li>
+                                <li><button type="button">디지털</button></li>
+                                <li><button type="button">프리미엄</button></li>
+                                <li><button type="button">위버스</button></li>
                             </ul>
                         </div>
                         <div class="tab_cont">
