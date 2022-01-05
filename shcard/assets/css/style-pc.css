@@ -76,10 +76,14 @@ button {border: 0; background: transparent; cursor: pointer;}
 .header-body .main-nav a {display: block; padding: 0 15px; font-size: 2rem; color:#fff;}
 
 .header-body .menu-btn {position: relative; width: 20px; height: 20px; border: none; background: transparent}
-.header-body .menu-btn i {position: absolute;  left: 0; width: 100%; height: 2px; background:#fff;}
+.header-body .menu-btn i {position: absolute;  left: 0; width: 100%; height: 2px; background:#fff; color:transparent}
 .header-body .menu-btn i:nth-of-type(1) {top: 0;}
 .header-body .menu-btn i:nth-of-type(2) {top: 50%; transform: translateY(-50%);}
 .header-body .menu-btn i:nth-of-type(3) {bottom: 0;} 
+
+.header-body .menu-btn.on + .modal-menu-wrap{display: flex;}
+.header-body .menu-btn + .modal-menu-wrap{display:none;justify-content:center; align-items: center; position:absolute; top:0; left:0; min-width:100%; min-height:100vh; background:rgba(1,1,1,.5)}
+.header-body .menu-btn + .modal-menu-wrap .modal-menu{width:80vw; height:80vh; background:#fff;}
 
 /* main */
 .main {background: black; padding-top: 162px;}
@@ -128,10 +132,11 @@ button {border: 0; background: transparent; cursor: pointer;}
 
 .card-area .tab_cont{}
 .card-area .tab_cont .card-list{display: flex; margin:0 -2rem;}
-.card-area .tab_cont .card-list .card-item{margin:0 2rem;}
-.card-area .tab_cont .card-list .card-item .card-link{display: block; text-align: center;}
-.card-area .tab_cont .card-list .card-item .card-link .card-img{position: relative; height:200px;}
-.card-area .tab_cont .card-list .card-item .card-link .card-img.portrait img{position: absolute; top:20%; left:0; transform: rotate(90deg);}
+.card-area .tab_cont .card-list .card-item{}
+.card-area .tab_cont .card-list .card-item .card-link{}
+.card-area .tab_cont .card-list .card-item .card-link .card-img{width:auto; height:auto;}
+.card-area .tab_cont .card-list .card-item .card-link .card-img img{}
+.card-area .tab_cont .card-list .card-item .card-link .card-img.portrait img{transform: rotate(90deg);}
 
 .card-area .cardbtn-wrap {position:absolute; top:0; right:0;}
 .card-area .cardbtn-wrap .cardbtn-list {display:flex; margin:0 -.5rem;}

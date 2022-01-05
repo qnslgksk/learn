@@ -10,6 +10,7 @@
     <title>Shinhan Card Clone Page</title>
     <link rel="stylesheet" href="assets/css/style.css" rel="stylesheet" type="text/css"
         media="screen, projection">
+    <script src="assets/js/main.js"></script>
 
 </head>
 <!-- 명명법 안고치기 누가봐도 알아볼수 있는 명명법 -->
@@ -691,13 +692,14 @@
                     <!-- modal-menu -->
                     <button type="button" class="menu-btn open" aria-haspopup="dialog" aria-pressed="false">
                         <span class="a11y-b">메뉴 열기</span>
-                        <i>1</i>
-                        <i>2</i>
-                        <i>3</i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
                     </button>
-                    <!-- <div class="modal-menu-wrap" role="dialog" aria-modal="true" aria-labelledby="dialogTit1">
+                    
+                    <div class="modal-menu-wrap" role="dialog" aria-modal="true" aria-labelledby="dialogTit1">
                         <div class="modal-menu">
-                            <h3 id="dialogTit1">제목을뭐라고해야해</h3>
+                            <h3 class="a11y-b" id="dialogTit1">전체메뉴</h3>
 
                             <div role="tab">자주찾는메뉴</div>
                             <div role="tabpanel">
@@ -835,7 +837,7 @@
                             </div>
                             <button type="button" class="close" arialabel="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- modal-menu -->
                 </div>
             </div>
@@ -924,19 +926,26 @@
             </section>
             <section class="card-area">
                 <div class="inner">
+                    <h2 class="a11y-b">카드슬라이드</h2>
                     <div class="tab-wrap">
-                        <ul class="tab">
-                            <li class="on"><button type="button">BEST카드</button></li>
-                            <li><button type="button">디지털</button></li>
-                            <li><button type="button">프리미엄</button></li>
-                            <li><button type="button">위버스</button></li>
+
+                        <div class="controller">
+                            <button type="button"><span class="a11y-b">이전</span></button>
+                            <button type="button"><span class="a11y-b">다음</span></button>
+                        </div>
+
+                        <ul class="tab" role="tablist">
+                            <li id="tab1" class="tab-item on" role="tab" aria-controls="tabCont1" aria-selected="true"><button type="button">BEST카드</button></li>
+                            <li class="tab-item" role="tab"><button type="button">디지털</button></li>
+                            <li class="tab-item" role="tab"><button type="button">프리미엄</button></li>
+                            <li class="tab-item" role="tab"><button type="button">위버스</button></li>
                         </ul>
                         
-                        <div class="tab_cont">
+                        <div id="tabCont1" class="tab_cont" role="tappanel" aria-labelledby="tab1">
                             <ul class="card-list">
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img portrait">
+                                        <div class="card-img ">
                                             <img src="assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
@@ -944,7 +953,7 @@
                                 </li>
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img portrait">
+                                        <div class="card-img ">
                                             <img src="assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
@@ -952,7 +961,7 @@
                                 </li>
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img portrait">
+                                        <div class="card-img ">
                                             <img src="assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
@@ -960,7 +969,7 @@
                                 </li>
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img portrait">
+                                        <div class="card-img ">
                                             <img src="assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
@@ -968,7 +977,7 @@
                                 </li>
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img portrait">
+                                        <div class="card-img "><!--portrait-->
                                             <img src="assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
@@ -977,6 +986,7 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="cardbtn-wrap">
                         <ul class="cardbtn-list">
                             <li><a class="card-btn" href=""><span>카드발급조회</span></a></li>
