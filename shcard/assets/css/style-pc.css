@@ -13,7 +13,7 @@
 /* base */
 *, *::before, *::after {box-sizing: border-box; word-break: keep-all; word-wrap: break-word;}
 /* word-break: 비아시아+아시아언어 줄바꿈, word-wrap:비아시아언어 줄바꿈 */
-html {height: 100%; font-size: 10px}
+html {height: 100%; font-size: 10px;}
 body {min-width: 320px; height:100%; font: normal 16px/1.53 'Shinhan-Card'; color:#111;}
 body, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dt, dd {margin: 0; padding: 0;}
 a {text-decoration:none;}

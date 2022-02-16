@@ -1,90 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>착한마크업- AOA11Y, VueTest..</title>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-    <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script>
-    
+  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+  <!-- <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <style>
+  <style>
+    /* 단위테스트 */
+    html {
+      font-size: 62.5%
+    }
+
+    body {
+      font-size: 16px
+    }
+
+    section {
+      font-size: 200%;
+    }
+
+    section>article {
+      font-size: 4.44444vw
+    }
+
+    article {
+      font-size: 1.8rem
+    }
+
+    ul {
+      margin-top: 2.8rem;
+    }
+
+    li:not(:last-child) {
+      background: coral;
+      margin-bottom: 2.8rem;
+    }
+
+    /* 클릭 테스트 */
     .testEle {
-  width:100px;
-  height:100px;
-  background: #f80;
-  text-align:center;
-  color:#fff;
-  display:table-cell;
-  vertical-align:middle;
-  cursor:pointer;
-}
+      width: 100px;
+      height: 100px;
+      background: #f80;
+      text-align: center;
+      color: #fff;
+      display: table-cell;
+      vertical-align: middle;
+      cursor: pointer;
+    }
 
-#testEle2.testEle {
-  height:24px;
-  background:#333;
-}
+    #testEle2.testEle {
+      height: 24px;
+      background: #333;
+    }
 
-@media print {
-  .content_print{display:none;}
+    @media print {
+      .content_print {
+        display: none;
+      }
 
-/* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
+      /* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
 
-}
-</style>
+    }
+    /* 반응형이미지 */
+    .item{width:50%}
+    .item .logo{overflow:hidden; position:relative; padding-top:50%; border:1px solid red;}
+    .item .logo .img{position:absolute; top:0; right:0; bottom:0; left:0; transform: translate(50%,50%);border:1px solid red;}
+    .item .logo .img img{position: absolute; top:0; right:0; bottom:0; left:0; max-width:100%; height:100%; transform:translate(-50%, -50%); border: 1px solid red;}
+  </style>
 </head>
+
 <body>
+  <!-- 착한마크업- AOA11Y -->
+  <header><!-- div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
+    <button title="메뉴 열기" aria-label="메뉴 열기">
+      <!-- aria-label속성을 읽어주도록 함 --><span>></span>
+    </button>
+    <nav>
+      <h2>메인 메뉴</h2>
+      <ul>
+        <li></li>
+      </ul>
+      <button title="메뉴 닫기" aria-label="메뉴 닫기">
+        <!-- aria-label속성을 읽어주도록 함 --><span aria-hidden="true">X<!-- 읽어 주지 않음 --></span>
+      </button>
+    </nav>
+  </header>
+  <main><!-- div로 작업하는 경우에는 role="main"속성을 활용한다 -->
+    <ul>
+      <li>
+        <a role="button" aria-haspopup="dialog" aria-pressed="false"><!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
+          <!-- 
+                aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
+                aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
+                -->
+          <figure>
+            <img src="" alt="제품명">
+            <figcaption>제품명</figcaption>
+          </figure>
+        </a>
+        <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
+          <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
+          <p>제품설명 블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
+          <dl>
+            <dt>포화지방</dt>
+            <dd>(1.8g)</dd>
+          </dl>
+          <button type="button" arialabel="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
+        </div>
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <!-- div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
+  </footer>
+  <!-- // 착한마크업- AOA11Y -->
 
-  <img class="content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
-  <button type="button">btn1</button>
 
-    <div class="testEle" id="testEle">
-        Click Num: <span id="testspan">0</span>
+  <!--  font-size test -->
+  font size test 16px
+  <section>
+    font size test 200% === 32px
+    <article>
+      font size test 4.44444vw === 16px(viewport 360)
+    </article>
+  </section>
+  <article>font size test 1.8rem === 18px</article>
+
+  <ul>
+    <li>nventore aspernatur consectetur.</li>
+    <li class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+    <li>Facere autem assumenda beatae culpa cupiditate iusto.</li>
+  </ul>
+  <!-- // font-size test -->
+
+
+  <button class="testBtn" type="button" onclick="pp()">qq</button>
+  <a class="testBtn" href="javascript:;" onclick="pp()">qq</a>
+
+
+  <!-- Vue 입문중 -->
+  <div id="root">
+    <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
+    <div v-if="like">좋아요를 눌렀습니다</div>
+    <button v-else v-on:click="onlike">Like</button>
+  </div>
+
+
+  <!-- img 태그 가리기 -->
+  <img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+  <button class="btn1" type="button">btn1</button>
+  <!--// img 태그 가리기 -->
+
+  
+
+
+  <div class="testEle" id="testEle">
+    Click Num: <span id="testspan">0</span>
+  </div>
+  <div class="testEle" id="testEle2">Switch!</div>
+
+  <!-- 반응형 이미지 -->
+  <div class="item">
+    <div class="logo">
+      <div class="img">
+        <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
       </div>
-      <div class="testEle" id="testEle2">Switch!</div>
+    </div>
+  </div>
+  
 
-      
-    <script>
+  <script>
+    //"use strict";
+    // 자기 자신을 출력하는 함수
+    // let testBtn = document.querySelector('.testBtn')
+    function pp(){
+      console.log('hi');
+    
+    }
 
 
-  let sumtest=0;
+    /* Vue 연습
+    https://kr.vuejs.org/v2/guide/index.html
+    */
+    const app = new Vue({
+      el: '#root',
+      data: {
+        like: false,
+      },
+      methods: {
+        onlike() {
+          this.like = true;
+        },
 
-    $("#testEle").on("click",function() {
-          ++sumtest;$("#testspan").text(sumtest);
-    });
-    $("#testEle2").on("click", function(){
-        $("#testspan").trigger("click");
-    });
-
-    //console.log(menuReady);
-    $('button').click(function(){
-      $(document).trigger('menu-ready');// menu-ready가 커스텀핸들러인셈 click1으로 대신 하면 이해가 가능함
-      menuReady = true;
-      // console.log(menuReady);
+      },
     })
+    
+    // 프린트모드에서 로고 히든처리js
+    window.addEventListener('load', function () {
+      const printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
+      const printBody = document.body;
+      const btn1 = document.querySelector('.btn1');
+      btn1.addEventListener('click', function(){
+        printBody.removeChild(printLogo);
+      })
 
-    // let menuReady = function(callback){
-    //   if(menuReady){
-    //     callback();
-    //   }
-    //   else{
-    //     $(document).on('menu-ready', callback);
-    //   }
-    // }
+    });
 
-    $(document).on('menu-ready', function(){ //click1으로 대신 하면 이해가 가능함
+    
+    // trigger 다시이해하기ㅠ
+    // .trigger() 자바스크립트화 하기
+    let sumtest = 0;
+    const testEle = document.querySelector('#testEle');
+    const testEle2 = document.querySelector('#testEle2');
+    const testspan = document.querySelector('#testspan');
+    testEle.addEventListener('click', trig);
+    testEle2.addEventListener('click', trig);
+    
+    function trig(){
+      testspan.innerHTML = ++sumtest;
+    }
+
+    // $("#testEle").on("click", function () {
+    //   ++sumtest; $("#testspan").text(sumtest);
+    // });
+    // $("#testEle2").on("click", function () {
+    //   $("#testspan").trigger("click");
+    // });
+
+
+    console.log(menuReady);
+    $('.btn2').click(function () {
+      $(document).trigger('menu-ready');// menu-ready가 커스텀 핸들러인셈 click1으로 대신 하면 이해가 가능함
+      menuReady = true;
+      console.log(menuReady);
+    })
+    
+    let menuReady = function(callback){
+      if(menuReady){
+        callback();
+      }
+      else{
+        $(document).on('menu-ready', callback);
+      }
+    }
+    $('.btn2').on('menu-ready', function () { //click1으로 대신 하면 이해가 가능함
       alert('menu-ready true2');
     })
-    // $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
+    $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
 
-    // 프린트모드에서 로고 히든처리js
-    window.addEventListener('load', function(){
-      // let printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
-      let printBody = document.body;
-
-      printBody.removeChild(printLogo);
-    });
-    </script>
+  </script>
 </body>
+
 </html>
