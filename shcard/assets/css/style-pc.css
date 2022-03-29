@@ -13,8 +13,8 @@
 /* base */
 *, *::before, *::after {box-sizing: border-box; word-break: keep-all; word-wrap: break-word;}
 /* word-break: 비아시아+아시아언어 줄바꿈, word-wrap:비아시아언어 줄바꿈 */
-html {height: 100%; font-size: 10px;}
-body {min-width: 320px; height:100%; font: normal 16px/1.53 'Shinhan-Card'; color:#111;}
+html {width:100%; font-size: 62.5%;}
+body {width:100%; font: normal 16px/1.53 'Shinhan-Card'; color:#111;}
 body, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dt, dd {margin: 0; padding: 0;}
 a {text-decoration:none;}
 img {max-width:100%;}
@@ -42,8 +42,9 @@ button {border: 0; background: transparent; cursor: pointer;}
     clip-path:inset(50%);
 }
 
-#wrap{display: flex; flex-direction: column; min-height:100vh;}
-#main{flex-grow: 1;}
+/* #wrap{display: flex; flex-direction: column; min-height:100vh;}
+#main{flex-grow: 1;} */
+
 /* header */
 .header {position: fixed; left:0; right:0; background: #6e5ad4; z-index:100;}
 .header ul {list-style: none;}
@@ -62,13 +63,13 @@ button {border: 0; background: transparent; cursor: pointer;}
 .header-util .dropdown-wrap .drop-btn.open + .dropdown-menu {display: flex}
 .header-util .dropdown-wrap .dropdown-menu a {display:inline-block; padding:5px; font-size:1.4rem;}
 .header-util .dropdown-wrap .dropdown-menu .btn-close {position:absolute; top:16px; right:14px; width:15px; height:15px;  background: no-repeat center url(../images/top_dropdown_up.png);color:transparent;}
-.header-util .state-wrap {margin-left: auto}/* justify-content로 안되는 경우 margin을 활용하자!*/
-.header-util .state-wrap .logout-state {display: flex;}
+.header-util .state-wrap {margin-left: auto}/* justify-content로 안되는 경우 margin을 활용하자!
+/* .header-util .state-wrap .logout-state {display: flex;}
 .header-util .state-wrap .logout-state li:last-child a {padding-right:0;}
-.header-util .state-wrap .logout-state .state__item {display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;}
+.header-util .state-wrap .logout-state .state__item {display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;} */
 
 /* header-body */
-.header-body {padding-top: 33px;}
+/* .header-body {padding-top: 33px;}
 .header-body .inner {display: flex; justify-content: space-between; align-items: center; height:88px;}
 .header-body .logo {width: 141px;}
 .header-body .logo a {display: block;}
@@ -83,10 +84,10 @@ button {border: 0; background: transparent; cursor: pointer;}
 
 .header-body .menu-btn.on + .modal-menu-wrap{display: flex;}
 .header-body .menu-btn + .modal-menu-wrap{display:none;justify-content:center; align-items: center; position:absolute; top:0; left:0; min-width:100%; min-height:100vh; background:rgba(1,1,1,.5)}
-.header-body .menu-btn + .modal-menu-wrap .modal-menu{width:80vw; height:80vh; background:#fff;}
+.header-body .menu-btn + .modal-menu-wrap .modal-menu{width:80vw; height:80vh; background:#fff;} */
 
 /* main */
-.main {background: black; padding-top: 162px;}
+/* .main {width:100%; background: black; padding-top: 162px;}
 .header-bg {width:100%; position: relative; background: #6e5ad4; height: 350px; }
 .header-bg .search-area {width: 600px; padding-top: 76px; margin: 0 auto; border-bottom: 2px solid #fff;}
 .header-bg .search-area input {width: 100%; height: 52px; border: none; background: transparent;}
@@ -119,10 +120,10 @@ button {border: 0; background: transparent; cursor: pointer;}
 .favorit-menu li:nth-child(6) .favorit-item{background-image: url(../images/ico_card02.png)}
 .favorit-menu li:nth-child(7) .favorit-item{background-image: url(../images/ico_center01.png)}
 .favorit-menu li:nth-child(8) .favorit-item{background-image: url(../images/ico_center02.png)}
-.favorit-menu .favorit-item span{display:block; padding-top:55px; font-size:1.4rem;}
+.favorit-menu .favorit-item span{display:block; padding-top:55px; font-size:1.4rem;} */
 
 /* card-area */
-.card-area{width:100%; padding:3rem 0; background:#f7f7f9}
+/* .card-area{width:100%; padding:3rem 0; background:#f7f7f9}
 .card-area .inner {position: relative;}
 .card-area ul{list-style: none;}
 .card-area .tab-wrap{position:relative;}
@@ -156,4 +157,4 @@ button {border: 0; background: transparent; cursor: pointer;}
 
 .consucenter{width:100%; padding:3rem 0; background:#fff;}
 .consucenter .inner{display: flex;}
-.news-area,.consumer-area{flex:1 auto;}
+.news-area,.consumer-area{flex:1 auto;} */
