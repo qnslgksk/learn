@@ -125,9 +125,10 @@ button {border: 0; background: transparent; cursor: pointer;}
 .card-area{width:100%; padding:3rem 0; background:#f7f7f9}
 .card-area .inner {position: relative;}
 .card-area ul{list-style: none;}
-.card-area .tab-wrap{}
-.card-area .tab-wrap .controller .cont-l{position:absolute;top:50%; left:0;}
-.card-area .tab-wrap .controller .cont-l{position:absolute;top:50%; right:0;}
+.card-area .tab-wrap{position:relative;}
+.card-area .tab-wrap .controller{position:absolute; top:50%; left:0; width:100%; color:#fff; z-index:10;}
+.card-area .tab-wrap .controller .cont-l{position:absolute; left:0;}
+.card-area .tab-wrap .controller .cont-r{position:absolute; right:0;}
 .card-area .tab-wrap .tab{display: flex; margin:0 -1.5rem;}
 .card-area .tab-wrap .tab li{margin:0 1.5rem;}
 .card-area .tab-wrap .tab li.on button::after{content:''; position: absolute; bottom:-10px; left:50%;  width:90%; height:2px; background: #111; transform: translateX(-50%)}
@@ -135,15 +136,16 @@ button {border: 0; background: transparent; cursor: pointer;}
 
 .card-area .tab_cont{margin-top:10px;}
 .card-area .tab_cont .card-list{display: flex; margin:0 -2rem;}
-.card-area .tab_cont .card-list .card-item{width:20%}
-.card-area .tab_cont .card-list .card-item .card-link{display: block; padding:10px;}
-.card-area .tab_cont .card-list .card-item .card-link .card-img{position:relative; width:100%; height:0; padding-top:100%}
+.card-area .tab_cont .card-list .card-item{width:20%; margin:0 1rem;}
+.card-area .tab_cont .card-list .card-item .card-link{display: block; padding-left:8%; text-align:center;}
+.card-area .tab_cont .card-list .card-item .card-link .card-img{position:relative; width:100%; height:0; padding-top:120%; margin:2rem 0; box-shadow: 5px 5px 15px rgb(0 0 0 / 10%); border-radius:8px;}
 .card-area .tab_cont .card-list .card-item .card-link .card-img img{position:absolute; top:0; left:0;}
-/* .card-area .tab_cont .card-list .card-item .card-link .card-img.portrait img{transform: rotate(90deg) translate(-50%, -50%);} */
+
+.card-area .tab_cont .card-list .card-item .card-link .card-img.portrait img{transform: rotate(90deg) translate(20%, 30%);}
 
 .card-area .cardbtn-wrap {position:absolute; top:0; right:0;}
-.card-area .cardbtn-wrap .cardbtn-list {display:flex; margin:0 -.5rem;}
-.card-area .cardbtn-wrap .cardbtn-list li{margin:.5rem;}
+.card-area .cardbtn-wrap .cardbtn-list {display:flex; margin:0 -1rem;}
+.card-area .cardbtn-wrap .cardbtn-list li{margin:0 .5rem;}
 .card-area .cardbtn-wrap .cardbtn-list .card-btn{display: block; padding:1rem 1.6rem; background:#fff; border:1px solid #ccc; font-size:1.4rem;}
 .card-area .cardbtn-wrap .cardbtn-list .card-btn span::after{content:'>'; display:inline-block; margin-left:1px;}
 
