@@ -66,11 +66,7 @@
       /* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
 
     }
-    /* 반응형이미지 */
-    .item{width:50%}
-    .item .logo{overflow:hidden; position:relative; padding-top:50%; border:1px solid red;}
-    .item .logo .img{position:absolute; top:0; right:0; bottom:0; left:0; transform: translate(50%,50%);border:1px solid red;}
-    .item .logo .img img{position: absolute; top:0; right:0; bottom:0; left:0; max-width:100%; height:100%; transform:translate(-50%, -50%); border: 1px solid red;}
+    
   </style>
 </head>
 
@@ -129,7 +125,7 @@
       font size test 4.44444vw === 16px(viewport 360)
     </article>
   </section>
-  <article>font size test 1.8rem === 18px</article>
+  <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
 
   <ul>
     <li>nventore aspernatur consectetur.</li>
@@ -164,7 +160,15 @@
   </div>
   <div class="testEle" id="testEle2">Switch!</div>
 
+  <style>
+    /* 반응형이미지 */
+    .item{width:25%}
+    .item .logo{overflow:hidden; position:relative; padding-top:19.6%; border:1px solid red;}
+    .item .logo .img{position:absolute; top:0; right:0; bottom:0; left:0; transform: translate(50%,50%);border:1px solid red;}
+    .item .logo .img img{position: absolute; top:0; right:0; bottom:0; left:0; max-width:100%; height:100%; transform:translate(-50%, -50%); border: 1px solid red;}
+  </style>
   <!-- 반응형 이미지 -->
+  <p>비율 반응형(이미지태그)</p>
   <div class="item">
     <div class="logo">
       <div class="img">
@@ -173,6 +177,15 @@
     </div>
   </div>
   
+  <p>비율 반응형(배경이미지)</p>
+  
+  <style>
+    .lloggo_cover{width:50%;}
+    .lloggo{position:relative; width:100%; height:0; padding-top:16.9%; background:url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;}
+  </style>
+  <div class="lloggo_cover">
+    <div class="lloggo"></div>
+  </div>
 
   <script>
     //"use strict";
