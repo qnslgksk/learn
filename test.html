@@ -6,12 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>착한마크업- AOA11Y, VueTest..</title>
 
-  <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-  <!-- <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
   <style>
-    /* 단위테스트 */
+    /* 공통으로 사용할 클래스*/
+    .blind{
+      overflow:hidden;
+      position: absolute;
+      top:0; left:0;
+      width: 1px;
+      height:1px;
+      clip-path: rect(0 0 0 0);
+      margin:-1px;
+      border:0;
+      clip-path:inset(50%);
+    }
+
+    /* font-size test */
     html {
       font-size: 62.5%
     }
@@ -41,7 +54,7 @@
       margin-bottom: 2.8rem;
     }
 
-    /* 클릭 테스트 */
+    /* trigger 다시이해하기 */
     .testEle {
       width: 100px;
       height: 100px;
@@ -57,38 +70,128 @@
       height: 24px;
       background: #333;
     }
+    /* size: cover, contain 반응형 test */
+    .rego1{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / cover}
+    .rego2{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / contain}
 
+    /* 이미지 반응형(배경) */
+    .lloggo_cover {
+      width: 70%;
+    }
+
+    .lloggo {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 16.9%;
+      background: url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;
+    }
+
+    /* 이미지 반응형(이미지) */
+    .item {
+      width: 50%
+    }
+
+    .item .logo {
+      overflow: hidden;
+      position: relative;
+      padding-top: 19.6%; /* 이미지 비율% */
+      border: 1px solid red;
+    }
+
+    .item .logo .img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transform: translate(50%, 50%);
+      border: 1px solid red;
+    }
+
+    .item .logo .img img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      max-width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      border: 1px solid red;
+    }
+
+    #text-box{border:1px solid #f80}
+    /* 프린트모드에서 로고 히든처리 */  
     @media print {
       .content_print {
         display: none;
       }
-
-      /* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
-
     }
-
-    #output{border:1px solid #333;}
-    
+    /* 키보드이벤트 key, code, keyCode 차이 */
+    #output {
+      border: 1px solid #333;
+    }  
   </style>
 </head>
 
 <body>
-<!-- 
+  <!-- (S) font-size test -->
+  font size test 16px
+  <section>
+    font size test 200% === 32px
+    <article>
+      font size test 4.44444vw === 16px(viewport 360)
+    </article>
+  </section>
+  <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
+  <ul>
+    <li>nventore aspernatur consectetur.</li>
+    <li class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+    <li>Facere autem assumenda beatae culpa cupiditate iusto.</li>
+  </ul>
+  <!-- (E) font-size test -->
+  
+  <!-- (S) size: cover, contain 반응형 test -->
+  <div class="rego1">cover</div>
+  <div class="rego2">contain</div>
+  <!-- (E) size: cover, contain 반응형 test -->
+
+
+  <!-- (S) 이미지 반응형(배경) -->
+  <div class="lloggo_cover">
+    <div class="lloggo"></div>
+  </div>
+  <!-- (E) 이미지 반응형(배경) -->
+
+
+  <!-- (S) 이미지 반응형(이미지) -->
+  <div class="item">
+    <div class="logo">
+      <div class="img">
+        <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+      </div>
+    </div>
+  </div>
+<!-- (E) 이미지 반응형(이미지) -->
+
+
+<!-- (S) 키보드이벤트 key, code, keyCode 차이 -->
+  <!-- 
   KeyboardEvent.code속성은 키보드의 물리적 키를 나타냅니다 
   Browser compatibility - IE는 지원하지 않습니다
   value - OS마다 나오는 코드
--->        
-<!-- 
+-->
+  <!-- 
   keyboardEvent.key 속성은 키 이벤트에 해당하는 문자를 나타냅니다 
   Browser compatibility - FF안드로이드, FF, IE Dead key는 지원하지 않습니다
   value - 문자열 
--->  
-
-<!-- 
+-->
+  <!-- 
   KeyboardEvent.keyCode
   웹 표준에서 이미 제거되었거나 삭제 과정에 있거나 호환성 목적으로만 유지
   .key, .code가 일부브라우저 지원이 되지 않으므로 조건문으로 .key또는 .code가 인식되지 않는 경우에 같이 사용하도록함
-
+예시)
   window.addEventListener("keydown", function (event) {
   if (event.defaultPrevented) {
     return; // Should do nothing if the default action has been cancelled
@@ -107,153 +210,101 @@
   }
 }, true);
  -->
+ <div id="text-box">
   <p>Press keys on the keyboard to see what the KeyboardEvent's key and code
     values are for each one.</p>
- <div id="output">
- </div>
-       
-         
-             <script>
-                 window.addEventListener("keydown", function(event) {
-   const p = document.createElement("p");
-   event.preventDefault();
-   p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
-   document.getElementById("output").appendChild(p);
- }, true);
- </script>
-  <!-- 키보드이벤트 key, code, keyCode 차이점 분석하기 -->
-  <!-- <iframe class="sample-code-frame" title="KeyboardEvent 샘플 운동" id="frame_exercising_keyboardevent" width="600" height="300" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/KeyboardEvent/code/_sample_.exercising_keyboardevent.html" loading="lazy"></iframe> -->
+  <div id="output">
+  </div>
+</div>
+<!-- <iframe class="sample-code-frame" title="KeyboardEvent 샘플 운동" id="frame_exercising_keyboardevent" width="600" height="300" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/KeyboardEvent/code/_sample_.exercising_keyboardevent.html" loading="lazy"></iframe> -->
+<!-- (E) 키보드이벤트 key, code, keyCode 차이 -->
+
+<!-- (S) Vue 연습 -->
+<div id="root">
+  <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
+  <div v-if="like">좋아요를 눌렀습니다</div>
+  <button v-else v-on:click="onlike">Like</button>
+</div>
+<!-- (E) Vue 연습 -->
+
+<!-- (S) 프린트모드에서 로고 히든처리 -->
+<img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+<button class="btn1" type="button">btn1</button>
+<!-- (E) 프린트모드에서 로고 히든처리 -->
 
 
-  <!-- 착한마크업- AOA11Y -->
-  <header><!-- div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
-    <button title="메뉴 열기" aria-label="메뉴 열기">
-      <!-- aria-label속성을 읽어주도록 함 --><span>></span>
-    </button>
-    <nav>
-      <h2>메인 메뉴</h2>
-      <ul>
-        <li></li>
-      </ul>
-      <button title="메뉴 닫기" aria-label="메뉴 닫기">
-        <!-- aria-label속성을 읽어주도록 함 --><span aria-hidden="true">X<!-- 읽어 주지 않음 --></span>
-      </button>
-    </nav>
-  </header>
-  <main><!-- div로 작업하는 경우에는 role="main"속성을 활용한다 -->
+<!-- (S) trigger 다시이해하기 -->
+<div class="testEle" id="testEle">
+  Click Num: <span id="testspan">0</span>
+</div>
+<div class="testEle" id="testEle2">Switch!</div>
+<!-- (S) trigger 다시이해하기 -->
+
+<!-- (S) 착한마크업- AOA11Y -->
+<header>
+<!-- header대신 div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
+  <button title="메뉴 열기" aria-label="메뉴 열기">
+    <!-- aria-label속성을 읽어주도록 함 --><span>&gt;</span>
+  </button>
+  <nav>
+    <h2>메인 메뉴</h2>
     <ul>
-      <li>
-        <a role="button" aria-haspopup="dialog" aria-pressed="false"><!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
-          <!-- 
-                aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
-                aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
-                -->
-          <figure>
-            <img src="" alt="제품명">
-            <figcaption>제품명</figcaption>
-          </figure>
-        </a>
-        <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
-          <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
-          <p>제품설명 블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
-          <dl>
-            <dt>포화지방</dt>
-            <dd>(1.8g)</dd>
-          </dl>
-          <button type="button" arialabel="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
-        </div>
-      </li>
+      <li></li>
     </ul>
-  </main>
-  <footer>
-    <!-- div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
-  </footer>
-  <!-- // 착한마크업- AOA11Y -->
-
-
-  <!--  font-size test -->
-  font size test 16px
-  <section>
-    font size test 200% === 32px
-    <article>
-      font size test 4.44444vw === 16px(viewport 360)
-    </article>
-  </section>
-  <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
-
+    <button title="메뉴 닫기" aria-label="메뉴 닫기">
+      <!-- aria-label속성을 읽어주도록 함 --><span aria-hidden="true">X
+        <!-- 읽어 주지 않음 -->
+      </span>
+    </button>
+  </nav>
+</header>
+<main>
+  <!-- main 대신 div로 작업하는 경우에는 role="main"속성을 활용한다 -->
   <ul>
-    <li>nventore aspernatur consectetur.</li>
-    <li class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-    <li>Facere autem assumenda beatae culpa cupiditate iusto.</li>
-  </ul>
-  <!-- // font-size test -->
-
-
-  <button class="testBtn" type="button" onclick="pp()">qq</button>
-  <a class="testBtn" href="javascript:;" onclick="pp()">qq</a>
-
-
-  <!-- Vue 입문중 -->
-  <div id="root">
-    <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
-    <div v-if="like">좋아요를 눌렀습니다</div>
-    <button v-else v-on:click="onlike">Like</button>
-  </div>
-
-
-  <!-- img 태그 가리기 -->
-  <img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
-  <button class="btn1" type="button">btn1</button>
-  <!--// img 태그 가리기 -->
-
-  
-
-
-  <div class="testEle" id="testEle">
-    Click Num: <span id="testspan">0</span>
-  </div>
-  <div class="testEle" id="testEle2">Switch!</div>
-
-  <style>
-    /* 반응형이미지 */
-    .item{width:25%}
-    .item .logo{overflow:hidden; position:relative; padding-top:19.6%; border:1px solid red;}
-    .item .logo .img{position:absolute; top:0; right:0; bottom:0; left:0; transform: translate(50%,50%);border:1px solid red;}
-    .item .logo .img img{position: absolute; top:0; right:0; bottom:0; left:0; max-width:100%; height:100%; transform:translate(-50%, -50%); border: 1px solid red;}
-  </style>
-  <!-- 반응형 이미지 -->
-  <p>비율 반응형(이미지태그)</p>
-  <div class="item">
-    <div class="logo">
-      <div class="img">
-        <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+    <li>
+      <a role="button" aria-haspopup="dialog" aria-pressed="false">
+        <!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
+        <!-- 
+              aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
+              aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
+              -->
+        <figure>
+          <img src="" alt="제품명">
+          <figcaption>제품명</figcaption>
+        </figure>
+      </a>
+      <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
+        <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
+        <p>제품설명 블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
+        <dl>
+          <dt>포화지방</dt>
+          <dd>(1.8g)</dd>
+        </dl>
+        <button type="button" aria-label="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
       </div>
-    </div>
-  </div>
-  
-  <p>비율 반응형(배경이미지)</p>
-  
-  <style>
-    .lloggo_cover{width:50%;}
-    .lloggo{position:relative; width:100%; height:0; padding-top:16.9%; background:url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;}
-  </style>
-  <div class="lloggo_cover">
-    <div class="lloggo"></div>
-  </div>
+    </li>
+  </ul>
+</main>
+<footer>
+  <!-- footer 대신 div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
+</footer>
+<!-- (E) 착한마크업- AOA11Y -->
+
 
   <script>
-    //"use strict";
-    // 자기 자신을 출력하는 함수
-    // let testBtn = document.querySelector('.testBtn')
-    function pp(){
-      console.log('hi');
+  "use strict";
+
+  // 키보드이벤트 key, code, keyCode 차이
+  window.addEventListener("keydown", function (event) {
+    const p = document.createElement("p");
+    event.preventDefault();
+    p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+    document.getElementById("output").appendChild(p);
+  }, true);
+
     
-    }
 
-
-    /* Vue 연습
-    https://kr.vuejs.org/v2/guide/index.html
-    */
+    // Vue 연습 https://kr.vuejs.org/v2/guide/index.html
     const app = new Vue({
       el: '#root',
       data: {
@@ -266,39 +317,39 @@
 
       },
     })
-    
-    // 프린트모드에서 로고 히든처리js
+
+    // 프린트모드에서 로고 히든처리
     window.addEventListener('load', function () {
       const printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
       const printBody = document.body;
       const btn1 = document.querySelector('.btn1');
-      btn1.addEventListener('click', function(){
+      btn1.addEventListener('click', function () {
         printBody.removeChild(printLogo);
       })
 
     });
 
-    
-    // trigger 다시이해하기ㅠ
-    // .trigger() 자바스크립트화 하기
+
+    // trigger 다시이해하기 
     let sumtest = 0;
     const testEle = document.querySelector('#testEle');
     const testEle2 = document.querySelector('#testEle2');
     const testspan = document.querySelector('#testspan');
     testEle.addEventListener('click', trig);
     testEle2.addEventListener('click', trig);
-    
-    function trig(){
+
+    function trig() {
       testspan.innerHTML = ++sumtest;
     }
-
+    // (++.trigger() 자바스크립트화 하기)
     // $("#testEle").on("click", function () {
-    //   ++sumtest; $("#testspan").text(sumtest);
+    //   ++sumtest; 
+    //  $("#testspan").text(sumtest);
     // });
+
     // $("#testEle2").on("click", function () {
     //   $("#testspan").trigger("click");
     // });
-
 
     console.log(menuReady);
     $('.btn2').click(function () {
@@ -306,19 +357,20 @@
       menuReady = true;
       console.log(menuReady);
     })
-    
-    let menuReady = function(callback){
-      if(menuReady){
+
+    let menuReady = function (callback) {
+      if (menuReady) {
         callback();
       }
-      else{
+      else {
         $(document).on('menu-ready', callback);
       }
     }
     $('.btn2').on('menu-ready', function () { //click1으로 대신 하면 이해가 가능함
       alert('menu-ready true2');
     })
-    $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
+    $(document).on('menu-ready', function () { //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}
+    })
 
   </script>
 
