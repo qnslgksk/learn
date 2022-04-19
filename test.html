@@ -66,11 +66,65 @@
       /* 프린트 모드 일 경우 https://edgeworks.tistory.com/6 */
 
     }
+
+    #output{border:1px solid #333;}
     
   </style>
 </head>
 
 <body>
+<!-- 
+  KeyboardEvent.code속성은 키보드의 물리적 키를 나타냅니다 
+  Browser compatibility - IE는 지원하지 않습니다
+  value - OS마다 나오는 코드
+-->        
+<!-- 
+  keyboardEvent.key 속성은 키 이벤트에 해당하는 문자를 나타냅니다 
+  Browser compatibility - FF안드로이드, FF, IE Dead key는 지원하지 않습니다
+  value - 문자열 
+-->  
+
+<!-- 
+  KeyboardEvent.keyCode
+  웹 표준에서 이미 제거되었거나 삭제 과정에 있거나 호환성 목적으로만 유지
+  .key, .code가 일부브라우저 지원이 되지 않으므로 조건문으로 .key또는 .code가 인식되지 않는 경우에 같이 사용하도록함
+
+  window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Should do nothing if the default action has been cancelled
+  }
+
+  var handled = false;
+  if (event.key !== undefined) {
+    // Handle the event with KeyboardEvent.key and set handled true.
+  } else if (event.keyCode !== undefined) {
+    // Handle the event with KeyboardEvent.keyCode and set handled true.
+  }
+
+  if (handled) {
+    // Suppress "double action" if event handled
+    event.preventDefault();
+  }
+}, true);
+ -->
+  <p>Press keys on the keyboard to see what the KeyboardEvent's key and code
+    values are for each one.</p>
+ <div id="output">
+ </div>
+       
+         
+             <script>
+                 window.addEventListener("keydown", function(event) {
+   const p = document.createElement("p");
+   event.preventDefault();
+   p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+   document.getElementById("output").appendChild(p);
+ }, true);
+ </script>
+  <!-- 키보드이벤트 key, code, keyCode 차이점 분석하기 -->
+  <!-- <iframe class="sample-code-frame" title="KeyboardEvent 샘플 운동" id="frame_exercising_keyboardevent" width="600" height="300" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/KeyboardEvent/code/_sample_.exercising_keyboardevent.html" loading="lazy"></iframe> -->
+
+
   <!-- 착한마크업- AOA11Y -->
   <header><!-- div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
     <button title="메뉴 열기" aria-label="메뉴 열기">
@@ -267,6 +321,7 @@
     $(document).on('menu-ready',function(){ //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}})
 
   </script>
+
 </body>
 
 </html>
