@@ -132,10 +132,47 @@
     #output {
       border: 1px solid #333;
     }  
+    .clamp{width: clamp(280px, 70%, 800px); background: #f80;}
+
+
+/* card */
+    .card{
+      display:flex;
+      flex-wrap:wrap;
+      border: 1px solid rgb(245, 201, 8);
+    }
+    .card .img{
+      flex:1 1 210px;
+      aspect-ratio: 1 / 1; /*ie 지원안함ㅋ*/
+    }
+    .card .img img{
+      max-width: 100%;
+    }
+    .card .content{
+      flex: 1 1 200px;
+    }
   </style>
 </head>
 
 <body>
+  <div class="card">
+    <div class="img">
+      <img src="https://assets.styleship.com/fila/data/banner/%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%A9%94%EC%9D%B8%EB%B0%B0%EB%84%88_10_1.jpg" alt="">
+    </div>
+    <div class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quod aliquam provident earum facere dolore asperiores dolores, nemo animi similique reiciendis magni. Odio molestiae expedita similique nisi asperiores enim dolorem.</div>
+  </div>
+
+  <div class="clamp">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum asperiores corporis et architecto est officia earum eveniet maiores ex quo magnam enim magni in, vel atque dignissimos, odit totam aliquid?
+  </div>
+  <!-- remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기 -->
+  <!--(S) Alert Box -->
+  <div class="alert_box">
+
+  </div>
+  <!--(E) Alert Box -->
+
+
   <!-- (S) font-size test -->
   font size test 16px
   <section>
@@ -233,13 +270,6 @@
 <!-- (E) 프린트모드에서 로고 히든처리 -->
 
 
-<!-- (S) trigger 다시이해하기 -->
-<div class="testEle" id="testEle">
-  Click Num: <span id="testspan">0</span>
-</div>
-<div class="testEle" id="testEle2">Switch!</div>
-<!-- (S) trigger 다시이해하기 -->
-
 <!-- (S) 착한마크업- AOA11Y -->
 <header>
 <!-- header대신 div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
@@ -275,7 +305,7 @@
       </a>
       <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
         <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
-        <p>제품설명 블라블라블라블라블라블라블라블라블라블라블라블라블라블라</p>
+        <p style=" width:50%; word-break: break-all">제품설명 신한카드 공식쇼핑몰 올댓쇼핑 상품권부터 사무용품, 골프용품 까지 법인카드로, 법인포인트로 전 상품 구매가 가능합니다.blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</p>
         <dl>
           <dt>포화지방</dt>
           <dd>(1.8g)</dd>
@@ -328,50 +358,6 @@
       })
 
     });
-
-
-    // trigger 다시이해하기 
-    let sumtest = 0;
-    const testEle = document.querySelector('#testEle');
-    const testEle2 = document.querySelector('#testEle2');
-    const testspan = document.querySelector('#testspan');
-    testEle.addEventListener('click', trig);
-    testEle2.addEventListener('click', trig);
-
-    function trig() {
-      testspan.innerHTML = ++sumtest;
-    }
-    // (++.trigger() 자바스크립트화 하기)
-    // $("#testEle").on("click", function () {
-    //   ++sumtest; 
-    //  $("#testspan").text(sumtest);
-    // });
-
-    // $("#testEle2").on("click", function () {
-    //   $("#testspan").trigger("click");
-    // });
-
-    console.log(menuReady);
-    $('.btn2').click(function () {
-      $(document).trigger('menu-ready');// menu-ready가 커스텀 핸들러인셈 click1으로 대신 하면 이해가 가능함
-      menuReady = true;
-      console.log(menuReady);
-    })
-
-    let menuReady = function (callback) {
-      if (menuReady) {
-        callback();
-      }
-      else {
-        $(document).on('menu-ready', callback);
-      }
-    }
-    $('.btn2').on('menu-ready', function () { //click1으로 대신 하면 이해가 가능함
-      alert('menu-ready true2');
-    })
-    $(document).on('menu-ready', function () { //$menu에 있는 커스텀이벤트핸들러('menu-ready')개발로직이 실행하고 난 후{실행}
-    })
-
   </script>
 
 </body>
