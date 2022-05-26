@@ -151,6 +151,12 @@
     .card .content{
       flex: 1 1 200px;
     }
+
+    /* Alert Box */
+      .alert_box{display:none}
+      .alert_box.bg1{background-color:#f80}
+      .alert_box.bg2{background-color:#f09}
+
   </style>
 </head>
 
@@ -166,10 +172,22 @@
     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum asperiores corporis et architecto est officia earum eveniet maiores ex quo magnam enim magni in, vel atque dignissimos, odit totam aliquid?
   </div>
   <!-- remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기 -->
+  
   <!--(S) Alert Box -->
   <div class="alert_box">
-
+    <p>Alert</p>
+    <button type="button" onclick="toggle('none')">Close</button>
   </div>
+  <button type="button" onclick="toggle('block', '아이디를 입력하세요', 'bg1')">아이디</button>
+  <button type="button" onclick="toggle('block', '패스워드를 입력하세요', 'bg2')">패스워드</button>
+  <script>
+    function toggle(state, txt, bg){
+      document.querySelector('.alert_box').style.display = state;
+      document.querySelector('.alert_box p').innerHTML = txt;
+      document.querySelector('.alert_box').className = `alert_box ${bg}`;
+
+    }
+  </script>
   <!--(E) Alert Box -->
 
 
