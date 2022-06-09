@@ -174,13 +174,18 @@
   <!-- remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기 -->
   
   <!--(S) Alert Box -->
+  
   <div class="alert_box">
     <p>Alert</p>
     <button type="button" onclick="toggle('none')">Close</button>
   </div>
   <button type="button" onclick="toggle('block', '아이디를 입력하세요', 'bg1')">아이디</button>
   <button type="button" onclick="toggle('block', '패스워드를 입력하세요', 'bg2')">패스워드</button>
+  <!-- 코딩애플 -->
   <script>
+    // JavaScript를 사용하는 이유: html 조작과 변경을 위해서
+    // 길게 작성해야하는 이유: 컴퓨터에게 명확히 일을 시키기 위해서
+    // 파라미터를 사용하는 이유: 파라미터에 주는 값에 따라 다르게 보여줄 수 있다
     function toggle(state, txt, bg){
       document.querySelector('.alert_box').style.display = state;
       document.querySelector('.alert_box p').innerHTML = txt;
@@ -200,11 +205,33 @@
     </article>
   </section>
   <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
-  <ul>
-    <li>nventore aspernatur consectetur.</li>
-    <li class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
-    <li>Facere autem assumenda beatae culpa cupiditate iusto.</li>
-  </ul>
+  
+  <div class="list_wrap">
+    <ul>
+      <li><a class="list">nventore aspernatur consectetur.</a></li>
+      <li class="item"><a class="list">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+      <li><a class="list">Facere autem assumenda beatae culpa cupiditate iusto.</a></li>
+    </ul>
+    <!-- href="javascript:output();" -->
+    <script>
+      const target = document.querySelectorAll('.list');
+      // console.log(target)
+      const ele = [];
+
+      for(let i=0; i<target.length; i++){
+        ele.push({
+          title: target[i],
+          content: target[i].innerHTML = target[i],
+        })
+      }
+
+      ele[1].title.style.color = 'blue';
+
+      let ele0 = ele[0].content = textContent = `<div>one</div>`;
+      let ele1 = ele[1].content = textContent = `<div>two</div>`;
+      let ele2 = ele[2].content = textContent = `<div>tree</div>`;
+    </script>
+  </div>
   <!-- (E) font-size test -->
   
   <!-- (S) size: cover, contain 반응형 test -->
