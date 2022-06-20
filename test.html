@@ -55,7 +55,7 @@
       margin-bottom: 2.8rem;
     }
     /* slide_acco */
-    .slide_acco .slide_dl.on a::after{
+    .slide_acco .slide_dl button::after{
       content:'';
       position:absolute;
       top:50%;
@@ -66,7 +66,7 @@
       border-left-color:transparent;      
       transform: translateY(-20%);
     }
-    .slide_acco .slide_dl a::after{
+    .slide_acco .slide_dl.open button::after{
       content:'';
       position:absolute;
       top:50%;
@@ -80,14 +80,20 @@
     .slide_acco .slide_dl{
       border:1px solid #ddd;
     }
-    .slide_acco dt a{
+    .slide_acco dt button{
       display:block;
       position: relative;
+      width:100%;
       padding:20px 15px;
       background: #e4decf;
+      border:0;
+      text-align: left;
+      font-size:1.6rem;
       text-decoration: none;
+    
     }
-    .slide_acco dd{margin:0;}
+    .slide_acco .slide_dl.open dd{display:block;}
+    .slide_acco .slide_dl dd{display: none; margin:0;}
     .slide_acco dd ul{
       margin:0;
       padding:0;
@@ -195,16 +201,45 @@
       .alert_box{display:none}
       .alert_box.bg1{background-color:#f80}
       .alert_box.bg2{background-color:#f09}
-
+    
+    /* flex-container */
+    .flex-container {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.flex-item {
+			width: 33.33333%;
+			/* flex: 0 33.33333%; */
+			box-sizing: border-box;
+			padding: 5px;
+			color: white;
+			background: mediumseagreen;
+		}
+		.box {
+			width: 50vw;
+			background: red;
+		}
   </style>
 </head>
 
 <body>
+  <div class="flex-container">
+		<div class="flex-item">Lorem, ipsum.</div>
+		<div class="flex-item">
+			<div class="box">BOX</div>
+		</div>
+		<div class="flex-item">Lorem, ipsum dolor.</div>
+		<div class="flex-item">Lorem, ipsum.</div>
+		<div class="flex-item">B</div>
+		<div class="flex-item">Lorem, ipsum dolor.</div>
+  </div>
+  <!-- https://www.inflearn.com/questions/29818 -->
+
   <!-- slide_acco -->
   <div class="slide_acco">
-    <dl class="slide_dl">
-      <dt><a href="#none" role="button" aria-expanded="true" aria-controls="note1" id="acco1">유의사항</a><span class="blind">열기</span></dt>
-      <dd id="note1" aria-labelledby="acco1">
+    <dl class="slide_dl open">
+      <dt><button type="button" aria-expanded="true" aria-controls="note1" id="acc1">유의사항</button><span class="blind">열기</span></dt>
+      <dd id="accNote1" aria-labelledby="acc1">
         <ul>
           <li>조아조아조아 완전 재미있엉</li>
           <li>제이쿼리 다시하고</li>
@@ -215,45 +250,67 @@
       </dd>
     </dl>
     <script>
-       
-       
-        function slide(){
-          let accBtn = $('#acco1'),
-          accParent = accBtn.parents('.slide_dl'),
-          accBlind = accParent.find('.blind'),
-          accNote = $('#note1');
-          
-          $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
-            e.preventDefault();
-            $(accParent).toggleClass('on');
-            $(accNote).slideToggle();
-
-            if(accParent.hasClass('on')){
-              // console.log('close')
-              $(accBtn).attr('aria-expanded','false')
-              $(accBlind).text('열기')
-            }else{
-              // console.log('open')
-              $(accBtn).attr('aria-expanded','true')
-              $(accBlind).text('닫기')
-            }
-            if(e.keyCode === 32){
-              $(accParent).toggleClass('on');
-            }
-          })
-        }
-        slide();
-        $(function(){
-        console.log('hey!')})();
-        
-
-        // 1. dt a 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스로) .slideToggle
-        // 2. 보이면 aria-expanded="true" 안보이면 "false" 
-        // 3. 키보드로 (엔터+스페이스)키로 동작하게 함
-        // 4. 열기, 닫기 텍스트 변경
-
-        
       
+      //   function slide(){
+      //   let accBtn = $('#acco1'),
+      //   accParent = accBtn.parents('.slide_dl'),
+      //   accBlind = accParent.find('.blind'),
+      //   accNote = $('#note1');
+      // }
+      //   $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
+      //     e.preventDefault();
+      //     $(accParent).toggleClass('on');
+      //     $(accNote).slideToggle();
+
+      //      if(accParent.hasClass('on')){
+      //        // console.log('close')
+      //        $(accBtn).attr('aria-expanded','false')
+      //        $(accBlind).text('열기')
+      //      }else{
+      //        // console.log('open')
+      //        $(accBtn).attr('aria-expanded','true')
+      //        $(accBlind).text('닫기')
+      //      }
+      //    if(e.keyCode === 32){
+      //      $(accParent).toggleClass('on');
+      //    }else{
+      //      $(accParent).removeClass('on');
+      //    }
+      //   })
+      // }
+      // slide();
+      
+      (function(){
+        var accParent = document.querySelector('.slide_dl');
+        var accBtn = document.querySelector('#acc1');
+        var accBody = document.getElementById('accNote1');
+        var onAccParent = accParent.classList.contains('open');
+        
+        if(onAccParent == true){
+            console.log('있다')
+            accParent.classList.remove('open');
+        } else {
+            console.log('없다')
+            accBtn.addEventListener('click', classAdd)
+          accParent.classList.add('open');
+        }
+     
+                
+        function classAdd(){
+         
+        }
+        
+        function classRemove (){
+         
+        }
+
+      })();
+      
+
+      // 1. dt안에 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스로) .slideToggle구현하기
+      // 2. 보이면 aria-expanded="true" 안보이면 "false" 
+      // 3. 키보드로 (엔터+스페이스)키로 동작하게 함
+      // 4. 열기, 닫기 텍스트 변경
 
     </script>
   </div>
@@ -324,9 +381,9 @@
 
       ele[1].title.style.color = 'blue';
 
-      let ele0 = ele[0].content = textContent = `<div>one</div>`;
-      let ele1 = ele[1].content = textContent = `<div>two</div>`;
-      let ele2 = ele[2].content = textContent = `<div>tree</div>`;
+      let ele0 = ele[0].content.textContent = `<div>one(textContent)</div>`;
+      let ele1 = ele[1].content.innerHTML = `<div>two(innerHTML)</div>`;
+      let ele2 = ele[2].content.innerText = `<div>tree(innerText)</div>`;
     </script>
   </div>
   <!-- (E) font-size test -->

@@ -10,10 +10,10 @@
     <title>Shinhan Card Clone Page</title>
     <link rel="stylesheet" href="assets/css/style.css" rel="stylesheet" type="text/css"
         media="screen, projection">
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
 
 </head>
-<!-- 명명법 안고치기 누가봐도 알아볼수 있는 명명법 짓기-->
+<!-- 명명법 안고치게 끔 누가봐도 알아볼수 있는 명명법 짓기-->
 <body>
     <!-- <div role="header ,banner, contentinfo"></div> role 속성을 사용하거나 시멘틱태그를 사용하거나 함-->
     <div class="skip">
@@ -24,33 +24,31 @@
         <header id="header" class="header">
             <div class="header-util">
                 <div class="inner">
-                    <!-- <h2 class="a11y-b">자회사 사이트</h2> -->
-                    <ul class="util-wrap">
-                        <li class=""><a class="util__item" href=""><span>개인</span></a></li>
-                        <li class=""><a class="util__item" href=""><span>법인</span></a></li>
-                        <li class=""><a class="util__item" href=""><span>가맹점</span></a></li>
-                    </ul>
-                    
-                    <div class="dropdown-wrap">
-                        <!-- <h2 class="a11y-b">패밀리사이트</h2> -->
-                        <button  type="button" class="drop-btn">마이카</button><!-- open -->
-                        <div class="dropdown-menu">
-                            <div>
+                    <div class="util-wrap">
+                        <h2 class="a11y-b">자회사 사이트</h2>
+                        <ul class="util-list">
+                            <li class=""><a class="util__item" href=""><span>개인</span></a></li>
+                            <li class=""><a class="util__item" href=""><span>법인</span></a></li>
+                            <li class=""><a class="util__item" href=""><span>가맹점</span></a></li>
+                        </ul>
+                        
+                        <div class="dropdown-wrap">
+                            <h2 class="a11y-b">패밀리 사이트</h2>
+                            <div class="dropdown-menu" style="display:none">
+                                <button type="button" class="btn-close"><!--열기-->닫기</button>
                                 <a href=""><span>마이카</span></a>
                                 <a href=""><span>신한아름인</span></a>
                                 <a href=""><span>신한은행</span></a>
-                            </div>
-                            <div>
                                 <a href=""><span>올댓쇼핑</span></a>
                                 <a href=""><span>BIGDATA</span></a>
                             </div>
-                            <button type="button" class="btn-close">닫기</button>
+                            <button type="button" class="drop-btn open">마이카</button>
                         </div>
                     </div>
-                    
+
                     <div class="state-wrap">
                         <!-- 로그인 전 -->
-                        <ul class="logout-state">
+                        <ul class="logout-state" style="display:none;">
                             <li><a class="state__item" href="">로그인</a></li>
                             <li><a class="state__item" href="">회원가입</a></li>
                             <li><a class="state__item" href="">아이디찾기</a></li>
@@ -59,12 +57,12 @@
                         <!-- //로그인 전 -->
             
                         <!-- 로그인 후 -->
-                        <!-- <ul class="login-state">
-                            <li><span></span>님!</li>
-                            <li><span>timer</span><button type="button">연장</button></li>
-                            <li><a href="">로그아웃</a></li>
-                            <li><a href="">상품공시실</a></li>
-                        </ul> -->
+                        <ul class="login-state">
+                            <li><span><span>김남준</span>님!</span></li>
+                            <li><span>timer</span><button type="button" class="extension-btn">연장</button></li>
+                            <li><a class="state__item" href="">로그아웃</a></li>
+                            <li><a class="state__item" href="">상품공시실</a></li>
+                        </ul>
                         <!-- //로그인 후 -->
                     </div>
                 </div>
@@ -72,7 +70,7 @@
 
             <div class="header-body">
                 <div class="inner">
-                    <h1 class="logo"><a href="/"><img src="assets/images/shinhancard_logo_main.png" alt="신한카드로고"></a></h1>
+                    <h1 class="logo"><a href="/"><img src="assets/images/shinhancard_logo_main.png" alt="신한카드"></a></h1>
                     <nav id="nav" class="nav">
                         <ul class="main-nav">
                             <li>
@@ -846,8 +844,7 @@
 
         <!-- main -->
         <main id="main" class="main">
-            <section class="header-bg">
-                
+            <!-- <section class="header-bg">
                 <div class="inner">
                     <div class="search-area">
                         <h2 class="a11y-b">검색영역</h2>
@@ -892,8 +889,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="favorit-area">
+            </section> -->
+            <!-- <section class="favorit-area">
                 <h2 class="a11y-b">즐겨찾는 메뉴</h2>
                 <div class="inner">
                     <ul class="favorit-menu">
@@ -923,8 +920,8 @@
                         </li>
                     </ul>
                 </div>
-            </section>
-            <section class="card-area">
+            </section> -->
+            <!-- <section class="card-area">
                 <div class="inner">
                     <h2 class="a11y-b">카드슬라이드</h2>
                     <div class="tab-wrap">
@@ -943,8 +940,8 @@
                             <ul class="card-list">
                                 <li class="card-item">
                                     <a class="card-link" href="">
-                                        <div class="card-img"><!-- portrait -->
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                        <div class="card-img portrait">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -956,7 +953,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -964,7 +961,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -972,7 +969,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -980,7 +977,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -988,7 +985,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1000,7 +997,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1008,7 +1005,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1016,7 +1013,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1024,7 +1021,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1032,7 +1029,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1044,7 +1041,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1052,7 +1049,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1060,7 +1057,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1068,7 +1065,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1076,7 +1073,7 @@
                                 <li class="card-item">
                                     <a class="card-link" href="">
                                         <div class="card-img portrait">
-                                            <img src="assets/images/cdCheckBRBCHZs.png" alt="">
+                                            <img src="./assets/images/cdCheckBRBCHZs.png" alt="">
                                         </div>
                                         <div class="card-name">메리어트 본보이 더 베스트 신한카드</div>
                                     </a>
@@ -1093,8 +1090,8 @@
                         </ul>
                     </div>
                 </div>
-            </section>
-            <section class="finance">
+            </section> -->
+            <!-- <section class="finance">
                 <div class="inner">
                     <h2 class="">금융</h2>
                     <ul class="finance-list">
@@ -1120,8 +1117,8 @@
                         </li>
                     </ul>
                 </div>
-            </section>
-            <section class="consucenter">
+            </section> -->
+            <!-- <section class="consucenter">
                 <div class="inner">
                     
                     <div class="news-area">
@@ -1134,13 +1131,13 @@
                         <p>사이다공지사항테스트</p>
                     </div>
                 </div>
-            </section>
+            </section> -->
         </main>
         <!-- //main -->
 
         <!-- footer -->
         <footer id="footer" class="footer">
-            <div class="inner">Footer</div>
+            <!-- <div class="inner">Footer</div> -->
         </footer>
         
         <!-- //footer -->

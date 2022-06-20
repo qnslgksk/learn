@@ -22,7 +22,7 @@ button {border: 0; background: transparent; cursor: pointer;}
 
 /* 접근성 */
 .skip a {position:absolute; top:-100px; left:0; padding:0 4rem; color:#Fff; background:#111;}
-.skip a:focus {top:0;}
+.skip a:focus{top:0;}
 .a11y-b {
     overflow: hidden;
     position: absolute;
@@ -42,20 +42,19 @@ button {border: 0; background: transparent; cursor: pointer;}
     clip-path:inset(50%);
 }
 
-/* #wrap{display: flex; flex-direction: column; min-height:100vh;}
-#main{flex-grow: 1;} */
+#wrap{background:#ddd; min-height:100vh;}/* display: flex; flex-direction: column; */
+#main{background:#bbb;}/* flex-grow: 1; */
 
 /* header */
-.header {position: fixed; left:0; right:0; background: #6e5ad4; z-index:100;}
+.header {background: #6e5ad4;}/* position: fixed; left:0; right:0; z-index:100; */
 .header ul {list-style: none;}
 .inner {width :1080px; margin:0 auto;}
     
 /* header-util */
-.header-util {width: 100%; background: rgba(1,1,1,.5);}
-.header-util .inner {display: flex; align-items: center;}
-.header-util .util {}
-.header-util .util-wrap {display: flex; justify-content: space-between; align-items: center;}
-.header-util .util-wrap li .util__item {display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;}
+.header-util {background: rgba(1,1,1,.5);}
+.header-util .inner{display: flex; justify-content: space-between;}
+.header-util .util-wrap, .header-util .util-list, .logout-state, .login-state{display: flex;}
+.header-util .util-wrap .util__item, .drop-btn{display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;}
 .header-util .util-wrap li:first-child a {padding-left:0;}
 .header-util .dropdown-wrap {height: 100%;}
 .header-util .dropdown-wrap .drop-btn {position:relative; height: 100%; padding: 1rem 1.1rem .9rem; border: none; background: transparent; font-size: 1.5rem; color:#fff;}
@@ -63,14 +62,17 @@ button {border: 0; background: transparent; cursor: pointer;}
 .header-util .dropdown-wrap .drop-btn.open + .dropdown-menu {display: flex}
 .header-util .dropdown-wrap .dropdown-menu a {display:inline-block; padding:5px; font-size:1.4rem;}
 .header-util .dropdown-wrap .dropdown-menu .btn-close {position:absolute; top:16px; right:14px; width:15px; height:15px;  background: no-repeat center url(../images/top_dropdown_up.png);color:transparent;}
-.header-util .state-wrap {margin-left: auto}/* justify-content로 안되는 경우 margin을 활용하자!
-/* .header-util .state-wrap .logout-state {display: flex;}
+*/
+
 .header-util .state-wrap .logout-state li:last-child a {padding-right:0;}
-.header-util .state-wrap .logout-state .state__item {display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;} */
+.header-util .state-wrap .logout-state .state__item,
+.header-util .state-wrap .login-state .state__item{display: block; padding: 9px 11px; font-size: 1.5rem; color:#fff;}
+.header-util .state-wrap .login-state span,.extension-btn{color:#fff;}
+
 
 /* header-body */
-/* .header-body {padding-top: 33px;}
-.header-body .inner {display: flex; justify-content: space-between; align-items: center; height:88px;}
+/* .header-body {padding-top: 33px;} */
+/*.header-body .inner {display: flex; justify-content: space-between; align-items: center; height:88px;}
 .header-body .logo {width: 141px;}
 .header-body .logo a {display: block;}
 .header-body .main-nav {display: flex; align-items: center; height: 40px;}
@@ -87,8 +89,8 @@ button {border: 0; background: transparent; cursor: pointer;}
 .header-body .menu-btn + .modal-menu-wrap .modal-menu{width:80vw; height:80vh; background:#fff;} */
 
 /* main */
-/* .main {width:100%; background: black; padding-top: 162px;}
-.header-bg {width:100%; position: relative; background: #6e5ad4; height: 350px; }
+ .main {background: #333;}/* width:100%; padding-top: 162px; */
+/*.header-bg {width:100%; position: relative; background: #6e5ad4; height: 350px; }
 .header-bg .search-area {width: 600px; padding-top: 76px; margin: 0 auto; border-bottom: 2px solid #fff;}
 .header-bg .search-area input {width: 100%; height: 52px; border: none; background: transparent;}
 .header-bg .keyword-area {width: 600px; margin: 0 auto; padding: 12px 0 10px;}
@@ -158,3 +160,5 @@ button {border: 0; background: transparent; cursor: pointer;}
 .consucenter{width:100%; padding:3rem 0; background:#fff;}
 .consucenter .inner{display: flex;}
 .news-area,.consumer-area{flex:1 auto;} */
+
+footer{background:#111}
