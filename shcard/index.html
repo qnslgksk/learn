@@ -298,6 +298,10 @@
             </div>
         </footer>
         
+        <div class="chabot">
+            
+        </div>
+
         <!-- //footer -->
     </div>
     <!-- Swiper JS -->
@@ -305,6 +309,14 @@
 
     <!-- Initialize Swiper -->
     <script>
+var n = navigator.userAgent;
+var html = document.querySelector('html')
+if(n.indexOf('Windows')>-1||n.indexOf('Macintosh')>-1){
+	html.classList.add('PC')
+}else{
+	html.classList.add('Mobile')
+}
+
     //banner_area
       var swiper = new Swiper(".mySwiper", {
         spaceBetween: 30,

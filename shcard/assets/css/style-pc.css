@@ -45,23 +45,26 @@ ul{margin:0; padding:0; list-style:none;}
     clip-path:inset(50%);
 }
 
-.wrap{background:#fff; min-height:100vh;}
-.inner {width :1080px; height:100%; margin:0 auto;}
+.wrap{position:relative; background:#fff; min-height:100vh;}
+.inner {max-width:1080px; height:100%; margin:0 auto; padding:0 12px;}
 
-.top-bg_area{background:#3a60c2}
+.top-bg_area{padding-top:146px; background:#3a60c2;}
 /* header */
-.header{font-size: 1.4rem;}
+.header{position:fixed; top:0; left:0; right:0; font-size: 1.4rem; background:#3a60c2; z-index:10}
 .header a{text-decoration:none; color:#111;}
-.header-util{height:56px; background:rgba(1,1,1,.5)}
+.header-util{height:56px; background:rgba(1,1,1,.3)}
 .header-util > .inner{display:flex; justify-content:space-between; align-items:center;}
 .util_area{display:flex;}
 .util_area ul{display:flex;}
 .util_area a,.util_area .drop-btn,.status-area a{display: block; padding: 9px 11px; color:rgba(255,255,255,.5);}
 .util_area a,.status-area a{position:relative;}
 .util_area a::after,.status-area a::after{content:''; position:absolute; top:50%; right:0; width:1px; height:10px; background:rgba(255,255,255,.5); transform:translateY(-50%);}
+.status-area li:last-child a::after{display:none;}
 .status-area .logout ul,.status-area .login ul{display:flex;}
 
-.header-body{height:88px;}
+
+.is_scroll .header-body{padding-top:0;}
+.header-body{height:88px; padding-top:33px}
 .header-body .inner{display:flex; justify-content:space-between; align-items:center;}
 .header-body nav ul{display:flex;}
 .header-body nav a{display: block; padding: 0 15px; font-size: 2rem; color:#fff;}
@@ -158,4 +161,8 @@ footer .tel-list li{position:relative; padding:0 14px;}
 footer .tel-list li + li::before, footer .link-list li + li::before{content:''; position:absolute; top:50%; left:0; width:1px; height:10px; background:#ddd; transform:translateY(-50%)}
 
 footer .link-list{display:flex; margin:30px -10px 0;}
-footer .link-list li{position:relative; padding:0 10px;}
+footer .link-list li{position:relative; padding:0 10px;}.chabot{position:absolute; bottom:50%; right:3%; width:50px; height:50px; background:#111; border-radius:50%; animation-name:chatbot; animation-duration: 1s; animation-iteration-count: infinite; animation-direction: alternate; animation-timing-function: steps(2,end);}
+@keyframes chatbot{
+    0%{bottom:51%}
+    100%{bottom:50%}
+}
