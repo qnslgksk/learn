@@ -32,13 +32,13 @@
       
       <style>
             html{font-size:62.5%;}
-            body{margin:0; font-size:16px; overflow:hidden}
+            body{margin:0; font-size:14px; overflow-y:scroll}
             *{box-sizing:border-box;}
-            img{max-width:100%; height:60vh; object-fit: cover;} 
+            img{max-width:100%; height:auto; object-fit: cover;} 
             /* .menu .food{position:relative; padding-top:66%;}
             .menu .food .img{position:absolute; top:0; right:0; bottom:0; left:0; transform:translate(50%, 50%)}
             .menu .food .img img{position:absolute; top:0; right:0; bottom:0; left:0; transform:translate(-50%, -50%)} */
-            .menu .desc{position:relative; height:100vh; padding:50px 20px 0}
+            .menu .desc{position:relative; height:auto; padding:50px 20px 200px}
             .menu .tit{font-size:28px; font-weight:bold;}
             .menu .tit.best .badge{position:relative;}
             .menu .tit.best .badge::after{content:'BEST'; position:absolute; top:50%; right:-60px; padding:1px 6px; border-radius:4px; background:firebrick; font-size:16px; color:#fff; transform:translateY(-50%)}
@@ -48,7 +48,8 @@
             .menu .price-info .unit{font-size:16px;}
             .menu .desc .prec{position:absolute; bottom:20px; font-size:10px; color:rgb(126, 125, 125)}
             
-            @media only screen and (min-width: 768px) {
+            @media only screen and (min-width: 769px) {
+                  body{margin:0; font-size:16px; overflow:hidden}
                   .menu{display:flex;}
                   .menu .desc{padding:180px 20px 0}
                   img{height:100vh; object-fit: cover;}
