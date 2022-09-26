@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* common */
+        html{font-size:62.5%;}
+        body{margin:0; font-size:16px; color:#333;}
+        ul{margin:0; padding:0;}
+        li{list-style:none;}
+        button{all:unset}
+
+        /* tab */
+        .tap_wrap{width:980px; margin:0 auto;}
+        .tab_list{display: flex;}
+        .tab{flex:1 0 auto; text-align: center; border:1px solid #ccc;}
+        .tab.on{border-top:2px solid blue; border-bottom:0;}
+        .tab_panel_wrap{border:1px solid #ccc; border-top:0;}
+        .tab_panel{display:none; padding:10px 24px;}
+        .tab_panel.on{display:block;}
+    </style>
+</head>
+<body>
+    <div class="tap_wrap">
+        <ul class="tab_list" role="tablist">
+            <li id="tab01" class="tab on" role="presentation"><button type="button" role="tab" aria-controls="tabCont1" aria-selected="true">A</button></li>
+            <li id="tab02" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont2" aria-selected="false">B</button></li>
+            <li id="tab03" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont3" aria-selected="false">C</button></li>
+            <li id="tab04" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont4" aria-selected="false">D</button></li>
+        </ul>
+        <div class="tab_panel_wrap">
+            <div id="tabCont1" class="tab_panel on" aria-labelledby="tab01" aria-selected="true">
+                <div>
+                    <h1>A</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, eius consectetur facere a, doloremque sint animi illum, aliquid veritatis quisquam nemo odio deserunt? Dolorum dicta saepe natus quibusdam nisi voluptate.</div>
+            </div>
+            <div id="tabCont2" class="tab_panel" aria-labelledby="tab02" aria-selected="false">
+                <div>
+                    <h1>B</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi.</div>
+            </div>
+            <div id="tabCont3" class="tab_panel" aria-labelledby="tab03" aria-selected="false">
+                <div>
+                    <h1>C</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem molestias libero velit, deserunt blanditiis aspernatur reiciendis eaque facilis similique maxime optio, ea consectetur. Recusandae officia nihil itaque eveniet expedita nisi.</div>
+            </div>
+            <div id="tabCont4" class="tab_panel" aria-labelledby="tab04" aria-selected="false">
+                <div>
+                    <h1>D</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus debitis ad similique reiciendis, iure culpa a repudiandae libero cupiditate voluptate voluptatem ipsum provident! Perferendis consectetur soluta recusandae ducimus mollitia.</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        /* 
+            기본상태: 첫번째 탭과 탭 패널에만 class="on"이 있어 보여짐
+            노출되는 조건: 세번째 탭을 누르면 세번째 탭 패널이 보여짐
+            비노출 되는 조건: 선택 한 탭이 아닌 패널은 비노출
+            상태에 따른 변화: 선택한 탭 상단에만 보더가 추가 됨 나머지 탭에는 없음
+        */
+    (function(){
+        // val
+        let idx = null;
+        const tab = [];
+        const tabPan = [];
+        const tabList = document.querySelectorAll(".tab");
+        const tabPanList = document.querySelectorAll(".tab_panel")
+        
+        for(let i = 0; i < tabList.length; i++){
+            tab[i] = tabList[i]
+        }
+        
+        // func
+        function tabOn(i){
+            for(let i = 0; i < tabPanList.length; i++){
+                tabPan[i] = tabPanList[i];
+                !(tab[i]).classList.remove('on');
+                !(tabPan[i]).classList.remove('on');
+            }
+            tab[i].classList.add('on');
+            tabPan[i].classList.add('on');
+
+        }
+        
+        // event
+        for(let i = 0; i < tabList.length; i++){
+            tab[i].addEventListener('click', function(){
+                // console.log(tabList[i]);
+                tabOn(i);
+            })
+            
+        }
+    })()       
+    </script>
+</body>
+</html>
