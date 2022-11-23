@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TueniTueni</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/common.js"></script>
+
+</head>
+<body>
+    <!-- 
+        1. 이미지의 배수 확인
+        2. px보다 rem
+        3. image export
+    -->
+    <header>
+        <div class="header_top">
+            <h1 class="logo"><a href=""><span class="hide">트니트니</span></a></h1>
+            <div class="icon_wrap">
+                <a class="icon_map" href=""><span class="hide">위치보기</span></a>
+                <a class="icon_bell" href=""><span class="hide">알람</span></a>
+            </div>
+        </div>
+        <h2 class="hide">주요메뉴</h2>
+        <nav class="gnb">
+            <ul>
+                <li class="active"><a href="">홈</a></li>
+                <li><a href="">트니TV</a></li>
+                <li><a href="">커뮤니티</a></li>
+                <li><a href="">제품</a></li>
+                <li><a href="">이벤트</a></li>
+            </ul>
+        </nav>
+        <button class="btn_program_view"><span class="hide">프로그램보기</span></button>
+    </header>
+    <section>
+        <div class="swiper visual">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="visual_page1" style="background:#F17785">
+                        <p class="txt"><span>튼튼한 신체놀이와<br>유대감 형성의 마음놀이</span><br><em>트니캠프!</em></p>
+                        <img class="img" src="images/tuenitueni-champ.png" alt="트니트니챔프">
+                        <a class="btn_go" href="">Go<i class="arr_go"></i></a>
+                    </div>
+                </div>
+                <div class="swiper-slide" style="background:#ABCD05">
+                    <div class="visual_page2">
+                        <p class="txt"><span>부담없이 집에서<br>전문가와 함께 즐기는</span><br><em>트니홈!</em></p>
+                        <img class="img" src="images/tuenitueni-home.png" alt="트니트니홈">
+                        <a class="btn_go" href="">Go<i class="arr_go"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+    
+</body>
+</html>

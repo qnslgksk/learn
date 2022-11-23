@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
         html{font-size:62.5%}
-        body{margin:0; font-size:16px;}
+        body{margin:0; font-size:16px; background:gray}
         ul{margin:0; padding:0;}
         li{list-style:none;}
 
@@ -28,18 +29,22 @@
     </style>
 </head>
 <body>
+    <!-- <div class="a">font</div>
+    <div class="b">font</div>
+    <div class="c">font</div>
+    <div class="d">font</div> -->
     <div class="container">
         <button type="button" class="pause"></button>
         <button type="button" class="prev"></button>
         <button type="button" class="next"></button>
         <div class="slider_wrap">
             <ul class="slides">
-                <!-- <li class="slide slide3">slide 4</li> -->
+                <!-- last Object.assign() -->
                 <li class="slide slide0" data-idx="1">slide 1</li>
                 <li class="slide slide1" data-idx="2">slide 2</li>
                 <li class="slide slide2" data-idx="3">slide 3</li>
                 <li class="slide slide3" data-idx="4">slide 4</li>
-                <!-- <li class="slide slide0">slide 1</li> -->
+                <!-- first Object.assign() -->
             </ul>
         </div>
     </div>
@@ -50,6 +55,23 @@
         <button type="button" class="btn">4</button>
     </div>
     <script>
+        // $('.a').click(function(){
+        //     $(this).siblings().css({'color': 'red'});
+        //     $(this).css('color','white');
+        // })
+        // $('.b').click(function(){
+        //     $(this).siblings().css({'color': 'red'});
+        //     $(this).css('color','white');
+        // })
+        // $('.c').click(function(){
+        //     $(this).siblings().css({'color': 'red'});
+        //     $(this).css('color','white');
+        // })
+        // $('.d').click(function(){
+        //     $(this).siblings().css({'color': 'red'});
+        //     $(this).css('color','white');
+        // })
+
         /* 
             기본상태: 자동으로 슬라이드가 이동 1-2-3-4-1-2-3-4...
             + 슬라이드 갯수에 맞게 페이지네이션(인디케이터) 생성해보기
@@ -64,6 +86,7 @@
         // 슬라이드들을 배열에 담고
         // 슬라이들을 감싸고 있는 슬라이드 가로값이 바뀐다.
         
+
         (function(){
             // val
             let idx = null;
