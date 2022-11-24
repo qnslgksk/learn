@@ -1,7 +1,7 @@
 /* 2x */
-body{background:lightgray}
+*{box-sizing:border-box;}
 /* header */
-header{padding:7rem 2rem 0;}
+header{position:absolute; top:0; right:0; left:0; padding:7rem 2rem 0; z-index:100;}
 .header_top{display:flex; justify-content:space-between;}
 .logo a{display:block; width:9.4rem; height:4rem; background:url(../images/tuenitueni-logo.png) no-repeat 0 0 / 100% auto}
 .icon_wrap{display:flex;}
@@ -16,13 +16,15 @@ header{padding:7rem 2rem 0;}
 .gnb ul a{display:block; padding:0 1.2rem; font-size:1.8rem; font-weight:500; color:#fff;}
 
 /* visual */
-.visual{font-family: 'NanumSquareRound';}
-.visual [class*="visual_page"]{display:flex; flex-direction: column; justify-content:flex-end; height:50rem;}
-[class*="visual_page"]{padding:0 0 0 4rem}
+section{}
+.visual{overflow:hidden; border-bottom-left-radius:9.7rem; font-family:'NanumSquareRound';}
+[class*="visual_page"]{display:flex; flex-direction: column; justify-content:flex-end; height:50rem; padding:0 0 11.7rem 4rem;}
+[class*="visual_page"] .txt{line-height:2.76rem; letter-spacing:-2.5%}
 [class*="visual_page"] .txt span{font-weight:800; font-size:1.8rem; text-shadow:0 0.15rem rgba(0, 0, 0, 0.15)}
 [class*="visual_page"] .txt em{font-weight:800; font-size:1.8rem; color:#FFFFFF}
-.visual_page1 .txt span{ color:#FFD8BC;}
+[class*="visual_page"] .img{width:7.5rem; padding:.6rem 0 1.5rem 0}
+.visual_page1{background: #F17785 url(../images/kids-1.png) no-repeat bottom right -1rem/ 23.9rem auto;}
+.visual_page2{background: #ABCD05 url(../images/kids-2.png) no-repeat bottom right -1rem/ 22.6rem auto;}
+.visual_page1 .txt span{color:#FFD8BC;}
 .visual_page2 .txt span{color:#FFF8BC;}
-
-.btn_go{display:block;width:5.25rem; height:3rem; padding:.3rem 1rem;background:#FFFFFF; box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.1); border-radius: 5rem; font-weight:700; font-size:1.4rem;  line-height:3rem;}
-.arr_go{display:inline-block; width:0.85rem; height:0.8rem; background:url(../images/arrow-right.png) no-repeat 0 0;}
+.btn_go{display:block;width:5.25rem; height:3rem; padding:0 1rem; background:#FFFFFF url(../images/arrow-right.png) no-repeat center right 1rem / auto .8rem; box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.1); border-radius: 5rem; font-weight:700; font-size:1.4rem; line-height:3rem; color:#999999;}
