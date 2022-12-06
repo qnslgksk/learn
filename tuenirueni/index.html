@@ -14,11 +14,54 @@
 
 </head>
 <body>
-    <!-- 
+    <!-- 모바일웹 작업 시 주의사항
         1. 이미지의 배수 확인
-         
         2. px보다 rem
         3. image export
+
+        구조
+        h1. 트니트니
+        └h2. 주요메뉴
+            nav>ul>li>a
+            - 홈
+            - 트니TV
+            - 커뮤니티
+            - 제품
+            - 이벤트
+
+        └h2. 프로그램 슬라이드 배너
+            ul>li
+
+        └h2. 메인프로그램
+            ul>li>a
+
+        └h2. 사용자정보 
+            사용자이름
+            수강중프로그램
+            즐겨찾기한프로그램
+            스탬프
+            사진
+
+        └h2. 감사편지
+            ul>li>a
+
+        └h2. 트니트니 다시 만나볼까요?
+            swiper>ul>li>a
+            이미지배너(슬라이드여부모름)
+
+        └h2. 트니TV
+            ul>li+더보기아이콘(해당목록?)>a영상플레이(상세화면 또는 팝업형태)
+
+        └h2. 트니 추천상품
+            ul>li+더보기아이콘(해당목록?)>a상품소개(상세화면 또는 팝업형태)
+
+        └h2. 커뮤니티
+            ul>li+더보기아이콘(해당목록?)>a커뮤니티상세페이지
+
+        └h2. 캠페인 배너
+            div>txt>a(링크이동이라면)
+        └h2. 공지사항
+            ul>li+더보기아이콘(해당목록?)>a공지상세페이지
     -->
     <header>
         <div class="header_top">
@@ -41,6 +84,7 @@
         <button class="btn_program_view"><span class="hide">프로그램보기</span></button>
     </header>
     <section>
+        <h2 class="hide">프로그램배너</h2>
         <div class="swiper visual">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -59,32 +103,83 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="user_info">
-        <div class="user">
+    </section> 
+    <section class="user">
+        <h2 class="hide">사용자정보</h2>
+        <div class="user_info">
             <!-- login -->
-            안녕하세요. <span>승호 트니맘</span> 님
-            <ul class="status">
-                <li>3<span>수강중</span></li>
-                <li>46<span>즐겨찾기</span></li>
-                <li><img src="" alt=""><span>스템프</span></li>
-                <li>87<span>사진</span></li>
-            </ul>
-            <div class="chidren">
-                <img src="" alt="">
-                <img src="" alt="">
+            <div>안녕하세요. <span class="name">승호 트니맘</span> 님
+                <div class="kids">
+                    <div class="hide">자녀정보
+                        <span>아이1</span><span>아이2</span>
+                    </div>
+                </div>
             </div>
-
+            <div class="status">
+                <ul>
+                    <li>3<span>수강중</span></li>
+                    <li>46<span>즐겨찾기</span></li>
+                    <li><img src="" alt=""><span>스템프</span></li>
+                    <li>87<span>사진</span></li>
+                </ul>
+                <div class="chidren">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                </div>
+            </div>
             <!-- logout -->
-            <span>트니트니 회원가입 후</span><br>다양한 트니 활동 및 혜택을 경험하세요!
+            <!-- <span>트니트니 회원가입 후</span><br>다양한 트니 활동 및 혜택을 경험하세요!
             <a href="" class="join">회원가입</a>
-            <a href="" class="login">로그인</a>
-            
-
-            
+            <a href="" class="login">로그인</a> -->
         </div>
     </section>
-    <footer></footer>
+    <section class="review">
+        <h2 class="">감사편지</h2>
+    </section>
+    <section>
+        <h2 class="hide">참여프로그램</h2>
+        트니트니, 다시 만나볼까요?
+    </section>
+    <section>
+        <h2 class="title">트니TV</h2>
+    </section>
+    <section>
+        <h2 class="title">트니 추천상품</h2>
+    </section>
+    <section>
+        <h2 class="title">커뮤니티</h2>
+    </section>
+    <section>
+        <h2 class="hide">응원캠페인배너</h2>
+    </section>
+    <section>
+        <h2 class="title">공지사항</h2>
+        <ul>
+            <li>
+                <h3>[트니홈] 신규 프로그램 안내</h3>
+                <p>트니홈에 신규 프로그램이 추가되었습니다</p>                
+                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
+            </li>
+            <li>
+                <h3>[트니그라운드] 부산 아난티코브 센터 오픈</h3>
+                <p>아난티코브 2층에 트니그라운드가 새롭게...</p>                
+                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
+            </li>
+            <li>
+                <h3>[전체공지] 홈플러스 문화센터 프로그램 안내</h3>
+                <p>2021년 하반기 홈플러스 트니트니 프로그램...</p>                
+                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
+            </li>
+        </ul>
+    </section>    
+    <footer>
+        <ul>
+            <li><a href="">첫화면</a></li>
+            <li><a href="">수강하기</a></li>
+            <li><a href="">수강목록</a></li>
+            <li><a href="">마이트니</a></li>
+        </ul>
+    </footer>
     
 </body>
 </html>

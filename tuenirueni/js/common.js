@@ -1,6 +1,10 @@
+// Swiper
 $(function () {
     const swiper = new Swiper('.visual', {
         loop: true,
+        slidesPerView: 1,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true,
     });
     swiper.on('slideChange', function () {
         var idx = swiper.realIndex;
