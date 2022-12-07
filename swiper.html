@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<title>swiper accessbility</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta name="keywords" content="swiper accessbility slider">
+	<meta name="description" content="swiper 웹접근성맞추기">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<style>
+	body{margin:0;}
+	.a11y{
+		position: absolute;
+		width:1px; height:1px;
+		clip-path: inset(-50%);
+		border: 0;
+	}
+	a{text-decoration:none;}
+	.swiper {
+		overflow: hidden;
+		position: relative;
+		top:0; left:0;
+		width: 100%;
+		height: 100vh;
+	}
+	.swiper::before,.swiper::after {
+		content: '';
+		position: absolute;
+		top: 0; left: 0;
+		width: 33.333333%;
+		height: 100%;
+		background:rgb(0, 0, 0);
+		opacity: 0.5;
+		z-index: 2;
+	}
+	.swiper::after{
+		left: auto;
+		right: 0;
+	}
+	.swiper-wrapper{
+		position: relative;
+		display: flex;
+	}
+	.swiper-slide img{
+		height:100%;
+	}
+	.swiper-slide .txt-box{
+		position:absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		transform: translate(-50%);
+		text-align: center;
+		z-index:3;
+	}
+	.swiper-slide .txt-box h3{
+		font-size: 40px;
+		color:#fff;
+	}
+	.swiper-slide .txt-box a{
+		padding: 15px 30px;
+		border: 2px solid #fff;
+		border-radius: 10vw;
+		color:#fff;
+		font-size:1vw;
+	}
+	.mySwiper > .swiper-pagination-bullets .swiper-pagination-bullet{
+		margin:0 6px;
+	}
+	.swiper-pagination-bullet{
+		width:50px;
+		height:4px;
+		border-radius:0;
+	}
+	.swiper-pagination-bullet-active{
+		background:rgba(255,255,255,.5)
+	}
+	.swiper-button-prev,
+	.swiper-container-rtl .swiper-button-next {
+		left: 0;
+	}
+	.swiper-button-next,
+	.swiper-container-rtl .swiper-button-prev {
+		right: 0;
+	}
+	.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after,
+	.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+		content:'';
+	}
+	.swiper-button-next,
+	.swiper-button-prev {
+		top: 0;
+		margin-top: 0;
+		width: 33.33%;
+		height: 100%;
+	}
+	.swiper-button-play, 
+	.swiper-button-pause{
+		position:absolute; 
+		top:0; left:50%; 
+		width:18px; height:18px;
+		border:1px solid rgba(255,255,255,.2);
+		z-index:1;
+	}
+	.swiper-button-play::before, 
+	.swiper-button-pause::before{
+		position:absolute;
+		top:50%;
+		left:50%;
+		transform:translate(-50%, -50%);
+	}
+	.swiper-button-pause::before{
+		content:'pause';
+		width:2px; height:10px;
+		font-size:0;
+		border-left:2px solid rgb(140, 0, 255);
+		border-right:2px solid rgb(140, 0, 255);
+	}
+	
+	.swiper-button-play::before{
+		content:'play';
+		border-top:4px solid transparent;
+		border-bottom:4px solid transparent;
+		border-left:6px solid rgb(140, 0, 255);
+		font-size:0;
+	}
+	
+	@media (max-width:768px){
+		.swiper::before,.swiper::after {display:none;}
+	}
+	</style>
+</head>
+
+<body>
+<h1 class="a11y">Swiper 웹접근성</h1>
+
+<!-- 슬라이드 -->
+<h2 class="a11y">슬라이드 배너</h2>
+<!-- Slider main container -->
+<!-- Slider main container -->
+<div class="swiper mySwiper">
+	<!-- Additional required wrapper -->
+	<div class="swiper-wrapper">
+		<!-- Slides -->
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2017/01/06/23/09/tree-1959267_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 1</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/soap-bubble-1958650_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 2</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2014/12/02/22/05/snowflakes-554635_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 3</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2018/10/19/12/14/train-3758523_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 4</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2015/11/27/08/50/snowflake-1065155_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 5</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+		<div class="swiper-slide">
+			<img src="https://cdn.pixabay.com/photo/2017/02/14/03/03/ama-dablam-2064522_960_720.jpg" alt="">
+			<div class="txt-box">
+				<h3>Slide 6</h3>
+				<a href="javascript:;">바로가기</a>
+			</div>
+		</div>
+	</div>
+	<!-- If we need pagination -->
+	<div class="swiper-pagination"></div>
+  
+	<!-- If we need navigation buttons -->
+	<div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+
+	<div class="swiper-button-play" style="display:none"></div>
+	<div class="swiper-button-pause"></div>
+
+</div>
+<!--/ 슬라이드 -->
+
+<script>
+
+	const $playBtn = document.querySelector('.swiper-button-play');
+	const $pauseBtn = document.querySelector('.swiper-button-pause');
+	const mySwiper = new Swiper('.mySwiper', {
+		pagination:{
+			el: '.swiper-pagination',
+			clickable: 'true',
+		},
+		slidesPerView: 1,
+		loop: 'true',
+		navigation:{
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev'
+		},
+		a11y: {
+			prevSlideMessage: '이전 슬라이드',
+			nextSlideMessage: '다음 슬라이드',
+			slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+		},
+		autoplay: {  
+			delay: 3000, 
+			disabalOnInteraction: 'true',
+		},
+		direction:'horizontal', // 슬라이드방향
+		slideToClickedSlide : 'true',// 해당 슬라이드누르면 슬라이드 위치로 이동?
+		allowTouchMove : 'true',// 스와이핑 여부 (버튼으로만 조작)
+		watchOverflow: 'true',//슬라이드가 1개 일때 pager, button 숨김
+		breakpoints: {
+			768:{
+				slidesPerView: 3,
+				centeredSlides : 'true', // 슬라이드 가운데로 배치
+				loop: 'true',
+				pagination:{
+					el: '.swiper-pagination',
+					clickable: 'true',
+				},
+				keyboard: {
+					enabled: true,
+				},				
+			},
+		},
+	});
+	function control(swiper, pauseBtn, playBtn){
+		if(swiper.autoplay.running){
+			console.log('true')
+			$pauseBtn.hide();
+		}else{
+			console.log('false')
+			$playBtn.hide();
+		}
+	}
+	$playBtn.addEventListener('click', function(){
+		swiper.autoplay.run()
+		control(mySwiper, $pauseBtn, $playBtn)
+	});
+	$pauseBtn.addEventListener('click', function(){
+		swiper.autoplay.stop()
+		control(mySwiper, $pauseBtn, $playBtn)
+	});
+	// swiper.slideNext(); 다음 슬라이드로 이동
+	// if('.mySwiper'.length > 0){if문에 Swiper를 담으면 swiper.autoplay.running를 찾을 수 없음 왜?}
+</script>
+</body>
+</html>
