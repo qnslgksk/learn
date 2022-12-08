@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -11,6 +10,8 @@
 	<meta name="keywords" content="swiper accessbility slider">
 	<meta name="description" content="swiper 웹접근성맞추기">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 	<style>
 	body{margin:0;}
@@ -21,14 +22,14 @@
 		border: 0;
 	}
 	a{text-decoration:none;}
-	.swiper {
+	.mySwiper {
 		overflow: hidden;
 		position: relative;
 		top:0; left:0;
 		width: 100%;
-		height: 100vh;
+		height: 800px;
 	}
-	.swiper::before,.swiper::after {
+	.mySwiper::before,.mySwiper::after {
 		content: '';
 		position: absolute;
 		top: 0; left: 0;
@@ -38,7 +39,7 @@
 		opacity: 0.5;
 		z-index: 2;
 	}
-	.swiper::after{
+	.mySwiper::after{
 		left: auto;
 		right: 0;
 	}
@@ -100,16 +101,17 @@
 		width: 33.33%;
 		height: 100%;
 	}
-	.swiper-button-play, 
-	.swiper-button-pause{
+	.swiper-button-next:focus,
+	.swiper-button-prev:focus {padding:100px;}
+	.swiper-controll-button{
 		position:absolute; 
 		top:0; left:50%; 
 		width:18px; height:18px;
 		border:1px solid rgba(255,255,255,.2);
+		background:transparent;
 		z-index:1;
 	}
-	.swiper-button-play::before, 
-	.swiper-button-pause::before{
+	.swiper-controll-button::before{
 		position:absolute;
 		top:50%;
 		left:50%;
@@ -138,76 +140,91 @@
 </head>
 
 <body>
+<a href="#">테스트링</a>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h1 class="a11y">Swiper 웹접근성</h1>
-
 <!-- 슬라이드 -->
 <h2 class="a11y">슬라이드 배너</h2>
 <!-- Slider main container -->
 <!-- Slider main container -->
-<div class="swiper mySwiper">
+<div class="swiper mySwiper" tabindex="0">
+	<div class="swiper-button-next"></div>
 	<!-- Additional required wrapper -->
 	<div class="swiper-wrapper">
 		<!-- Slides -->
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2017/01/06/23/09/tree-1959267_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 1</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/soap-bubble-1958650_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 2</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2014/12/02/22/05/snowflakes-554635_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 3</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2018/10/19/12/14/train-3758523_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 4</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2015/11/27/08/50/snowflake-1065155_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 5</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
-		<div class="swiper-slide">
+		<div class="swiper-slide" tabindex="0">
 			<img src="https://cdn.pixabay.com/photo/2017/02/14/03/03/ama-dablam-2064522_960_720.jpg" alt="">
 			<div class="txt-box">
 				<h3>Slide 6</h3>
-				<a href="javascript:;">바로가기</a>
+				<!-- <a href="javascript:;">바로가기</a> -->
 			</div>
 		</div>
 	</div>
-	<!-- If we need pagination -->
-	<div class="swiper-pagination"></div>
-  
-	<!-- If we need navigation buttons -->
+	
 	<div class="swiper-button-prev"></div>
-	<div class="swiper-button-next"></div>
 
-	<div class="swiper-button-play" style="display:none"></div>
-	<div class="swiper-button-pause"></div>
+	<!-- Swiper paganations -->
+	<div class="swiper-pagination"></div>
+  	
+	<!-- Swiper controll buttons -->
+	<button class="swiper-button-play swiper-controll-button" style="display:none"></button>
+	<button class="swiper-button-pause swiper-controll-button"></button>
 
 </div>
 <!--/ 슬라이드 -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a href="#">상위</a>
 
 <script>
+// Swiper 알게 된 점
+// 1. Swiper에 포커스가 들어오면 autolay 멈추기
+// -- 자체작동 swiper-slide에 tabindex="0"를 주어 포커스가 들어오면 auto가 멈춘다 
+	// ++ 컨트롤 아이콘 히든 또는 play버튼이 보이게 하기
+	// 레이블을 토글하기 위해서 aria-pressed 값을 추가하기 보다는 button요소를 사용하자
+// 2. Swiper에 포커스가 들어오면 loop제거
+// -- swiper.removeSlide([0,1,2]) 기존만 삭제 clone은 안없어짐ㅠ  
 
-	const $playBtn = document.querySelector('.swiper-button-play');
-	const $pauseBtn = document.querySelector('.swiper-button-pause');
+$(function(){	
+    $mySwiperPlay = $('.mySwiper .swiper-button-play'),
+	$mySwiperPause = $('.mySwiper .swiper-button-pause'),
+	$mySwiperControll = $('.mySwiper .swiper-controll-button');
+
+if('.mySwiper'.length > 0){
 	const mySwiper = new Swiper('.mySwiper', {
 		pagination:{
 			el: '.swiper-pagination',
@@ -228,9 +245,6 @@
 			delay: 3000, 
 			disabalOnInteraction: 'true',
 		},
-		direction:'horizontal', // 슬라이드방향
-		slideToClickedSlide : 'true',// 해당 슬라이드누르면 슬라이드 위치로 이동?
-		allowTouchMove : 'true',// 스와이핑 여부 (버튼으로만 조작)
 		watchOverflow: 'true',//슬라이드가 1개 일때 pager, button 숨김
 		breakpoints: {
 			768:{
@@ -246,26 +260,61 @@
 				},				
 			},
 		},
+		on:{
+			init: function(){
+				var self = this;
+				var checkswiper = $('.swiper.mySwiper');
+				// console.log(checkswiper); 
+				setTimeout(function() {
+					if(checkswiper.focus() === true){
+						console.log('t')
+						self.autoplay.stop();
+						// clone 슬라이드 remove
+						// self.loop = false;
+					} else {			
+						console.log('f')
+						self.autoplay.start();
+						// clone 슬라이드 add
+						// self.loop = true;
+					}
+				},0)
+			}
+
+		},
 	});
-	function control(swiper, pauseBtn, playBtn){
-		if(swiper.autoplay.running){
-			console.log('true')
-			$pauseBtn.hide();
-		}else{
-			console.log('false')
-			$playBtn.hide();
+
+	function controllSwiper(swiper, pauseBtn, playBtn){
+		if(swiper.autoplay.running === true){
+			swiper.autoplay.stop();
+			$mySwiperPause.hide();
+			$mySwiperPlay.show();
+		} else {
+			swiper.autoplay.start();
+			$mySwiperPlay.hide();
+			$mySwiperPause.show();
 		}
 	}
-	$playBtn.addEventListener('click', function(){
-		swiper.autoplay.run()
-		control(mySwiper, $pauseBtn, $playBtn)
+
+	$mySwiperControll.off('click').on('click', function(){
+		controllSwiper(mySwiper, $mySwiperPause, $mySwiperPlay)
 	});
-	$pauseBtn.addEventListener('click', function(){
-		swiper.autoplay.stop()
-		control(mySwiper, $pauseBtn, $playBtn)
-	});
-	// swiper.slideNext(); 다음 슬라이드로 이동
-	// if('.mySwiper'.length > 0){if문에 Swiper를 담으면 swiper.autoplay.running를 찾을 수 없음 왜?}
+	
+	var agent = navigator.userAgent;
+	agent = agent.toLowerCase();
+	console.log(agent)
+
+	if(agent.indexOf('windows') > -1){
+		console.log('Iam PC');
+		//'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+	} else if(agent.indexOf('mobile') > -1){
+		console.log('Iam Mobile');
+		//'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36'
+
+	}
+}
+})
+	
+	
 </script>
 </body>
 </html>
