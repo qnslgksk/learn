@@ -226,11 +226,13 @@ $(function(){
     $mySwiperPlay = $('.mySwiper .swiper-button-play'),
 	$mySwiperPause = $('.mySwiper .swiper-button-pause'),
 	$mySwiperControll = $('.mySwiper .swiper-controll-button');
+	$mySwiperSlides = $('.mySwiper .swiper-slide');
 
-if('.mySwiper'.length > 0){
+if($('.mySwiper').length > 0){
 	const mySwiper = new Swiper('.mySwiper', {
 		pagination:{
 			el: '.swiper-pagination',
+			// type:'fraction',
 			clickable: 'true',
 		},
 		slidesPerView: 1,
@@ -245,7 +247,7 @@ if('.mySwiper'.length > 0){
 			slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
 		},
 		autoplay: {  
-			delay: 3000, 
+			delay: 4000, 
 			disabalOnInteraction: 'true',
 		},
 		watchOverflow: 'true',//슬라이드가 1개 일때 pager, button 숨김
@@ -254,10 +256,6 @@ if('.mySwiper'.length > 0){
 				slidesPerView: 3,
 				centeredSlides : 'true', // 슬라이드 가운데로 배치
 				loop: 'true',
-				pagination:{
-					el: '.swiper-pagination',
-					clickable: 'true',
-				},
 				keyboard: {
 					enabled: true,
 				},				
@@ -265,22 +263,30 @@ if('.mySwiper'.length > 0){
 		},
 		on:{
 			init: function(){
-				var self = this;
-				 
+				var self = this; // binding을 위함
 				var checkswiper = $('.swiper.mySwiper');
 				// console.log(checkswiper); 
+				
 				setTimeout(function() {
-					if(checkswiper.focus() === true){
-						console.log('t')
+					// console.log(self)
+					self.el.addEventListener('focus', function(){
 						self.autoplay.stop();
-						// clone 슬라이드 remove
-						// self.loop = false;
-					} else {			
-						console.log('f')
-						self.autoplay.start();
-						// clone 슬라이드 add
-						// self.loop = true;
+					})
+
+					if (self.autoplay.running === true){
+						$(self.el).find('.swiper-button-next').hide();
+					} else {
+						$(self.el).find('.swiper-button-prev').hide();
 					}
+
+					for(let i = 0; i < $mySwiperSlides.length; i++){
+						$(self.wrapperEl).find('.swiper-slide').on('focus', function(e){
+							console.log(e);
+						})
+					}
+					// 	// clone 슬라이드 add
+					// 	// self.loop = true;
+					// }
 				},0)
 			}
 
@@ -305,10 +311,10 @@ if('.mySwiper'.length > 0){
 	
 	var agent = navigator.userAgent;
 	agent = agent.toLowerCase();
-	console.log(agent)
+	// console.log(agent)
 
 	if(agent.indexOf('windows') > -1){
-		console.log('Iam PC');
+		// console.log('Iam PC');
 		//'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
 	} else if(agent.indexOf('mobile') > -1){
 		console.log('Iam Mobile');

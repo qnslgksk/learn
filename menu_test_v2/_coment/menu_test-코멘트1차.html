@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+      <meta http-equiv="Cache-Control" content="no-cache">
+      <meta http-equiv="Pragma" content="no-cache"><!-- https://webclub.tistory.com/354 -->
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <link rel="canonical" href=""><!-- https://growthacking.kr/%EC%BA%90%EB%85%B8%EB%8B%88%EC%BB%AC-%ED%83%9C%EA%B7%B8-canonical-tag%EB%A1%9C-%EA%B2%80%EC%83%89%EC%97%94%EC%A7%84-%EC%B5%9C%EC%A0%81%ED%99%94%ED%95%98%EA%B8%B0/ -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0 maximum-scale=1.0 user-scalable=no">
+      <!-- https://dev-hyun.tistory.com/186 -->
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="콘텐츠 페이지의 제목(사이트의 이름과 같지 않아도 됨)">
+      <meta property="og:image" content="페이지 공유시 보여질 이미지">
+      <meta property="og:url" content="페이지url">
+      <meta property="og:description" content="콘텐츠의설명">
+      <meta property="og:site_name" content="사이트 이름"> 
+      <link rel="preload" as="font" type="font/woff2" href="/fonts/SpoqaHanSansNeo-Regular.woff2" crossorigin><!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types/preload -->
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <link rel="apple-touch-icon-precomposed" href="favicon.ico">
+      
+      <title>menu_test_1-1v</title>
+      
+      <style>
+      /* common */
+      *{box-sizing:border-box;}
+      html{font-size:62.5%; height:100%;}
+      body{margin:0; font-size:14px; overflow-y:scroll;background:#ddd}
+      img{max-width:100%; height:auto;}
+      .a11y-b{overflow:hidden; position:absolute; top:0; right:0; bottom:0; left:0; border:0; width:1px; height:1px; color:transparent; clip:rect(1,1,1,1); clip-path:inset(-50%)}
+      .inner{max-width:1920px; margin:0 auto;}
+      /* menu-box */
+      .menu-box{position:relative; -webkit-display:flex;
+            -ms-display:flex; display:flex; flex-direction: column; min-height:100vh}
+      .menu-box .img{flex:1;position:relative; margin:0; padding-top:60%;}
+      .menu-box .img img{
+            position: absolute; top:50%; left:50%; min-width:100%; min-height:100%; width:auto; height:auto;
+            -webkit-transform:translate(-50%, -50%);
+            -ms-transform:translate(-50%, -50%);
+            -o-transform:translate(-50%, -50%);
+            -moz-transform:translate(-50%, -50%);
+            object-fit:cover;
+            transform: translate(-50%, -50%);
+            z-index:10
+            
+      }/* object-fit:cover; IE object-fit 호환이 안됨 */
+
+      .menu-box .desc{position:relative; flex:2; padding:5rem 2rem; background:#fff;}
+      .menu-box .tit{font-size:3rem; font-weight:bold;}
+      
+      /* badge module */
+      .menu-box .badge{position:relative; top:-6px; margin-left:6px; padding:2px 6px; border-radius:4px; font-size:.5em; color:#fff; transform:translateY(-50%);}
+      .badge.best{background:firebrick;}
+      
+      .menu-box .lang{font-size:2rem; font-weight:bold; color:#666;}
+      .menu-box .marterial-info{margin-top:.5rem; color:#9d3f0a;}
+      .menu-box .price-info{position:relative; margin-top:5rem; padding:3rem 0; border-top:1px solid #bbb; font-size:3rem; font-weight:bold;}
+      .menu-box .price-info .unit{font-size:.5em;}
+      .menu-box .prec{order:3; padding:2rem; background:#fff; margin:0; font-size: 10px;
+    color: rgb(126, 125, 125);}
+
+
+      @media only screen and (min-width:769px){
+      body{margin:0; font-size:16px; overflow:hidden}
+      /* menu-box */
+      .menu-box{display:flex; flex-direction: row;}
+      .menu-box .img{flex:2; padding-top:0;}
+      .menu-box .desc{flex:1; padding:20rem 2rem;}
+      .menu-box .prec{position: absolute; left:64.5%; bottom:0; z-index: 1;}
+            
+      }
+      </style>
+</head>
+<body>
+    <div class="inner">
+    <!-- 
+        전반적으로 H태그가 하나도 없어요
+        시멘틱 코딩을 하면 좋을 것 같아요
+    -->
+    <!-- 이 페이지가 다른페이지에 로드가 되는지는 판단하지말고 문의하세요(시멘틱하게 헤딩태그를 사용하는데 기준이 생김) 개발이 들어갈 영역도 물어보고요 -->
+    <!-- 반응형인지 고정형인지 파악부터 해야해요 그래야 작업의 방향이 잡히니까 (브라우저호환성도!)  -->
+    <!-- 1920고정이 안되어 있어요 그리고 작아지며 틀어져요-->
+
+    <article class="menu-box"><!-- article이 여기에 들어가는게 맞나 싶어요 -->
+        <div class="img"><!-- 이미지 사이즈를 고정할지도 물어보면 좋을거 같구요-->
+            <img src="./bibimbap.jpg" alt="비빔밥"><!-- 모바일에서 어긋나진 않지만 패딩 60% 준게 정확하지 않아요 -->
+        </div>
+        <p class="prec">* 본 이미지는 실제 상품과 다를 수 있습니다.</p>
+
+        <div class="desc">
+            <!-- 문구가 길어기면 어떻게 처리할지도 물어보면 좋구요 -->
+            <div class="tit">비빔비빔비빔비빔비빔밥<span class="badge best">BEST</span><!-- 뱃지가 상속되어있으면 다른곳에서 쓸 수 없어요 모듈화 해야해요 --><!-- 뱃지 디자인은 독립적으로 만들어진 이후 다른 엘리먼트와 함께 노출되면서 어긋나는 부분은 따로 커스텀을 하는게 좋아요
+                a11y-b 메뉴는 뒤에 노출되므로 흐름상 굳이 노출될 이유가 없어 보여요
+          --></div>
+                <div class="lang">
+                    <!-- 여러개의 클래스로 굳이 나눌 필요가 있을까 싶어요 -->
+                    <span class="en">Bibimbap</span> / <span class="ja">ビビンバ</span> / <span class="zh">拌饭</span>
+                </div>
+                <!-- 어쩌면 dl로 하는것도 좋을 수 있을 것 같아요 -->
+                <div class="material-info"><span class="a11y-b">재료(원산지):</span>소고기(호주산),고춧가루(중국산),고추장(중국산),콩나물(국내산),시금치(국내산)</div>
+                
+                <div class="price-info">
+                    <!-- 보이지 않더라도 필요한 문구는 넣어줘야해요 ex) 금액 -->
+                    <!-- 금액에 콜론이 없어도 괜찮을 것 같아요 리더기로 한번 뭐라고 읽어주는지 들어보면 좋을 것 같아요 -->
+                    <span class="a11y-b">금액:</span><span>10,000</span>
+                    <span class="unit">원</span>
+                </div>
+            </div>
+            <!-- <p class="prec">* 본 이미지는 실제 상품과 다를 수 있습니다.</p> (이 문구는 이미지 다음에 와야 하지 않나?)순서가 맞지않아요 시안으로 보고 구조를 잡는게 아니라 문서로 보고 구조를 잡아야해요 -->
+    </article>
+</div>   
+</body>
+</html>
+

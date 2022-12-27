@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko" id="top">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>load연습장(LiveServer)</title>
+  <!-- 오픈 그래프  basic, optional, structured -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <!-- <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script> -->
+  <style>
+    /* 공통으로 사용할 클래스*/
+    .blind{
+      overflow:hidden;
+      position: absolute;
+      top:0; left:0;
+      width: 1px;
+      height:1px;
+      clip-path: rect(0 0 0 0);
+      margin:-1px;
+      border:0;
+      clip-path:inset(50%);
+    }
+
+    /* font-size test */
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%
+    }
+
+    body {
+      position:relative;
+      font-size: 16px;
+      height:200vh
+    }
+
+    section {
+      font-size: 200%;
+    }
+
+    section>article {
+      font-size: 4.44444vw
+    }
+
+    article {
+      font-size: 1.8rem
+    }
+
+    ul {
+      margin-top: 2.8rem;
+    }
+
+    li:not(:last-child) {
+      background: coral;
+      margin-bottom: 2.8rem;
+    }
+    .top_btn{position:absolute; bottom:0; right:0;}
+  </style>
+</head>
+
+<body>
+  <h1 class="tit">Off</h1>
+  <div class="call-1"></div>
+  <div class="call-2"></div>
+  <div class="call-3"></div>
+  <div class="call-4"></div>
+  <div class="call"></div>
+  
+  <div class="evtPage"></div>
+  <script>
+    window.addEventListener('scroll', function(){
+    console.log(window.scrollY)// scroll값 출력 window.pageYOffset
+  });
+  
+    window.scrollTo({
+    top: 100,
+    left: 100,
+    behavior: 'smooth'
+  });
+
+
+    $(function(){//onload의 제이쿼리 버전
+      let callTit = $('.call-1 p').text();// 출력 순서 3
+      console.log(callTit)// 왜 undifined?
+    }) 
+
+    $(document).ready(function(){ //DOMContentloadede의 제이쿼리 버전 (onload 이벤트보다 먼저 발생한다)
+      let callTit = $('.call p').html();// 출력 순서 4
+      console.log(callTit)//
+    })
+  
+    $('.call').load('./index.html'); //(안에 있는) 출력 순서 1
+    $('.call-4').load('./index4.html');
+    $('.call-3').load('./index3.html');
+    $('.call-2').load('./index2.html');
+    $('.call-1').load('./index1.html');
+    
+    // 출력 순서5 call-4,3,2,1...
+
+    console.log('tt-3')// 출력 순서 0 
+    
+    setTimeout(function(){
+      console.log('0초 뒤 찍기') // 출력순서 1
+    }, 0);
+    
+    // Heep에 저장되는 아이:변수
+    // Stack에 들어오는 아이: (함수)실행코드
+    // Queue(대기실)로 이동 하는 아이: setTimeout(비동기를 컨트롤하기위함, promise와 비슷), ajax요청코드, event리스너 -stack이 비워지면 stack으로 들어가서 실행
+
+    // 1순위 페이지 내부에 있는 콘솔
+    // 2순위 페이지 내부 스크립트로 load한 파일 내부에 있는 콘솔
+    // 외에 순서가 뒤죽박죽인 이유 네트워크 속도에 따라서 달라짐
+
+    
+
+    // $('evtPage').load('https://www.shinhancard.com/pconts/html/benefit/main/main.html');
+    // 서버에 올려져있지 않는 경우, 도메인이 다른경우 CORS에러가 발생
+  </script>
+<a href="#top" class="top_btn">top</a>
+</body>
+
+</html>

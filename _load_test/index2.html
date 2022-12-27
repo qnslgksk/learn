@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>media query2</title>
+      <style>
+            body{background:#fff;}
+            h1{color:#333;}
+            button:hover{transition:all 1s; transform:scale(1.2);}
+            @media (prefers-color-scheme: dark){/* 브라우저 컬러모드 */
+                  body{background:#333;}
+                  h1{color:#fff;}
+            }
+            @media (prefers-reduced-motion){/* 애니메이션 off */
+                  button:hover{transform:none;}
+            }
+      </style>
+</head>
+<body>
+      <h1>Title 2</h1>
+      <button>btn</button>
+      <p>call two</p>
+      <script>
+            console.log('call-2')
+      </script>
+</body>
+
+</html>
