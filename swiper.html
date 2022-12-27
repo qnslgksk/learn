@@ -22,7 +22,7 @@
 		border: 0;
 	}
 	a{text-decoration:none;}
-	.mySwiper {
+		.mySwiper {
 		overflow: hidden;
 		position: relative;
 		top:0; left:0;
@@ -100,6 +100,8 @@
 		margin-top: 0;
 		width: 33.33%;
 		height: 100%;
+		border:0;
+		background-color:transparent;
 	}
 	.swiper-button-next:focus,
 	.swiper-button-prev:focus {padding:100px;}
@@ -133,6 +135,7 @@
 		font-size:0;
 	}
 	
+	
 	@media (max-width:768px){
 		.swiper::before,.swiper::after {display:none;}
 	}
@@ -147,8 +150,8 @@
 <h2 class="a11y">슬라이드 배너</h2>
 <!-- Slider main container -->
 <!-- Slider main container -->
-<div class="swiper mySwiper" tabindex="0">
-	<div class="swiper-button-next"></div>
+<div class="swiper mySwiper">
+	<button  type="button" class="swiper-button-next"></button>
 	<!-- Additional required wrapper -->
 	<div class="swiper-wrapper">
 		<!-- Slides -->
@@ -196,7 +199,7 @@
 		</div>
 	</div>
 	
-	<div class="swiper-button-prev"></div>
+	<button  type="button" class="swiper-button-prev"></button>
 
 	<!-- Swiper paganations -->
 	<div class="swiper-pagination"></div>
@@ -263,6 +266,7 @@ if('.mySwiper'.length > 0){
 		on:{
 			init: function(){
 				var self = this;
+				 
 				var checkswiper = $('.swiper.mySwiper');
 				// console.log(checkswiper); 
 				setTimeout(function() {
