@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>착한마크업- AOA11Y, VueTest.. my연습장 G:랑 합치기</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="Cache-Control" content="no-cache">
   <meta http-equiv="Pragma" content="no-cache">
   <link rel="canonical" href="{페이지대표URL}">
@@ -24,9 +24,9 @@
   <meta property="twitter:image:src" content="{트위터공유이미지}">
   <meta property="twitter:creator" content="{작성자}">
   <!-- 오픈 그래프 종류? basic, optional, structured -->
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="./jsontxt.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+  <!-- <script src="./jsontxt.js"></script> -->
 
   <style>
     /* 공통으로 사용할 클래스*/
@@ -236,13 +236,27 @@
 			width: 50vw;
 			background: red;
 		}
+
+    #menubar_wrapper{
+      height:200px;
+      text-align:center;
+    }
   </style>
 </head>
 
 <body>
+  <div id="menubar_wrapper">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae dolorum facilis ducimus velit, molestias iure? Dolore, ducimus iure ut hic harum incidunt blanditiis autem sapiente ratione fugiat nulla 
+  </div>
+  <script>
+  // window안에 있는 location을 변수명으로 사용해서 파일이 자꾸 삭제 되었다고 오류남ㅠ
+  //var location;
+    var loca = document.querySelector('#menubar_wrapper');
+    window.scrollTo(0, document.body.scrollHeight)
+  </script>
   <div class="call"></div>
   <script>
-    $('.call').load('./focus_blur_effect.html') // live server로 열면 작동하고 로컬로 열면 CORS 에러남
+    // $('.call').load('./focus_blur_effect.html') // live server로 열면 작동하고 로컬로 열면 CORS 에러남
   </script>
   <div class="flex-container">
 		<div class="flex-item">Lorem, ipsum.</div>
@@ -255,6 +269,32 @@
 		<div class="flex-item">Lorem, ipsum dolor.</div>
   </div>
   <!-- https://www.inflearn.com/questions/29818 -->
+  <script>
+  // node list
+  // .childesNodes
+  let list = document.querySelectorAll('.flex-item')
+   for(var i = 0; i < list.length; i++){
+     console.log(list[i].innerText);
+     list[4].style.background="yelllow"
+     list[0].classList.remove('flex-item');//0번만 클래스 제거됨
+  }
+  const container = document.querySelctor('.flex-container');
+  container.childsNodes;
+  container.childsNodes;
+  
+  
+
+
+  // HTML Collection
+  // .children;
+  //  let list2 = document.getElementsByClassName('flex-item')
+  //  for(var i = 0; i < list2.length; i++){
+  //    console.log(list2[i].innerText);
+  //    list2[3].style.background="blue"
+  //    list2[1].classList.remove('flex-item'); //1,2번 클래스제거됨
+  //  }
+
+  </script>
 
   <!-- slide_acco -->
   <div class="slide_acco">
@@ -272,60 +312,60 @@
     </dl>
     <script>
       
-      //   function slide(){
-      //   let accBtn = $('#acco1'),
-      //   accParent = accBtn.parents('.slide_dl'),
-      //   accBlind = accParent.find('.blind'),
-      //   accNote = $('#note1');
-      // }
-      //   $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
-      //     e.preventDefault();
-      //     $(accParent).toggleClass('on');
-      //     $(accNote).slideToggle();
-
-      //      if(accParent.hasClass('on')){
-      //        // console.log('close')
-      //        $(accBtn).attr('aria-expanded','false')
-      //        $(accBlind).text('열기')
-      //      }else{
-      //        // console.log('open')
-      //        $(accBtn).attr('aria-expanded','true')
-      //        $(accBlind).text('닫기')
-      //      }
-      //    if(e.keyCode === 32){
-      //      $(accParent).toggleClass('on');
-      //    }else{
-      //      $(accParent).removeClass('on');
-      //    }
-      //   })
-      // }
-      // slide();
-      
-      (function(){
-        var accParent = document.querySelector('.slide_dl');
-        var accBtn = document.querySelector('#acc1');
-        var accBody = document.getElementById('accNote1');
-        var onAccParent = accParent.classList.contains('open');
+        function slide(){
+        let accBtn = $('#acco1'),
+        accParent = accBtn.parents('.slide_dl'),
+        accBlind = accParent.find('.blind'),
+        accNote = $('#note1');
         
-        if(onAccParent == true){
-            console.log('있다')
-            accParent.classList.remove('open');
-        } else {
-            console.log('없다')
-            accBtn.addEventListener('click', classAdd)
-          accParent.classList.add('open');
-        }
+        $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
+          e.preventDefault();
+          $(accParent).toggleClass('on');
+          $(accNote).slideToggle();
+
+           if(accParent.hasClass('on')){
+             // console.log('close')
+             $(accBtn).attr('aria-expanded','false')
+             $(accBlind).text('열기')
+           }else{
+             // console.log('open')
+             $(accBtn).attr('aria-expanded','true')
+             $(accBlind).text('닫기')
+           }
+         if(e.keyCode === 32){
+           $(accParent).toggleClass('on');
+         }else{
+           $(accParent).removeClass('on');
+         }
+        })
+      }
+      slide();
+      
+      // (function(){
+      //   var accParent = document.querySelector('.slide_dl');
+      //   var accBtn = document.querySelector('#acc1');
+      //   var accBody = document.getElementById('accNote1');
+      //   var onAccParent = accParent.classList.contains('open');
+        
+      //   if(onAccParent == true){
+      //       console.log('있다')
+      //       accParent.classList.remove('open');
+      //   } else {
+      //       console.log('없다')
+      //       accBtn.addEventListener('click', classAdd)
+      //     accParent.classList.add('open');
+      //   }
      
                 
-        function classAdd(){
+      //   function classAdd(){
          
-        }
+      //   }
         
-        function classRemove (){
+      //   function classRemove (){
          
-        }
+      //   }
 
-      })();
+      // })();
       
 
       // 1. dt안에 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스로) .slideToggle구현하기
@@ -555,18 +595,18 @@
     
 
     // Vue 연습 https://kr.vuejs.org/v2/guide/index.html
-    const app = new Vue({
-      el: '#root',
-      data: {
-        like: false,
-      },
-      methods: {
-        onlike() {
-          this.like = true;
-        },
+    // const app = new Vue({
+    //   el: '#root',
+    //   data: {
+    //     like: false,
+    //   },
+    //   methods: {
+    //     onlike() {
+    //       this.like = true;
+    //     },
 
-      },
-    })
+    //   },
+    // })
 
     // 프린트모드에서 로고 히든처리
     window.addEventListener('load', function () {
