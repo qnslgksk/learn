@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UI build-01 - tab</title>
     <style>
         /* common */
         html{font-size:62.5%;}
         body{margin:0; font-size:16px; color:#333;}
         ul{margin:0; padding:0;}
         li{list-style:none;}
+        a{text-decoration:none;}
         button{all:unset}
+        .a11y{position:absolute; width:1px; height:1px; font-size:1px; overflow:hidden; opacity:0;}/*레진정찬명*/
 
         /* tab */
         .tap_wrap{width:980px; margin:0 auto;}
@@ -23,6 +25,27 @@
     </style>
 </head>
 <body>
+    <!-- 
+        ### 방법1. 탭으로만 이동할 때
+        탭1 > 탭2 > 탭3 > 탭4 > 컨텐츠
+        
+        tabindex = -1 은 최대한 안쓰는게 좋음
+
+        role="tablist" aria-labelledby="탭제목"
+            - wrap이 있다면 role="none"<< 상위에 wrap이 있다면 하위에 있는 ul요소는 role="none" 이라는 건가?
+            - role="tab"
+                aria-selected="true||false"
+                aria-controls="콘텐츠 아이디"
+        
+        role="tabpanel" || select된 거 외에 display:none이라서 안읽어 줌
+        aria-labelledby="버튼아이디 or 버튼랩아이디"
+        id="컨텐츠아이디"
+        
+        ### 방법2. 방향키로 이동을 추가할 때
+        탭1 > 방향키로 탭이동 > 원하는 곳에서 tab키보드시 컨텐츠로 이동
+        (주의 좌우 키보드는 되지만 세로키보드는 이동이 된다는걸 알려줘야 함. role="tablist" aria-orientation="vertical")
+     -->
+     
     <div class="tap_wrap">
         <ul class="tab_list" role="tablist">
             <li id="tab01" class="tab on" role="presentation"><button type="button" role="tab" aria-controls="tabCont1" aria-selected="true">A</button></li>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>    
+</head>
+<body>
+  
+<script>
+ 
+</script>  
+<!-- 함수위임과 클로저, 스코프, 콜스택, js분석, 접근성js -->
+<script>
+    function clo(fn){
+        return function(a, b){
+            return fn(a, b);
+        }
+
+    }
+    var s = clo(function(a, b){ return a + b}) // s(5, 3)
+    var m = clo(function(a, b){ return a - b}) // m(5, 3)
+</script>
+
+</body>
+</html>
+
