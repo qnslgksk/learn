@@ -4,27 +4,35 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>media query2</title>
+      <title>load-2</title>
       <style>
-            body{background:#fff;}
-            h1{color:#333;}
-            button:hover{transition:all 1s; transform:scale(1.2);}
-            @media (prefers-color-scheme: dark){/* 브라우저 컬러모드 */
-                  body{background:#333;}
-                  h1{color:#fff;}
+            body {
+                  background: #0ff;
             }
-            @media (prefers-reduced-motion){/* 애니메이션 off */
-                  button:hover{transform:none;}
+
+            h1 {
+                  color: #333;
             }
       </style>
 </head>
+
 <body>
+
       <h1>Title 2</h1>
-      <button>btn</button>
+      <button>btn two</button>
       <p>call two</p>
       <script>
-            console.log('call-2')
+            console.log('index2.html 외부: call-2');
+            $(function () { //onload의 제이쿼리 버전
+                  let callH1 = $('h1');
+                  let callT = $('h1').html(); // 
+                  let callTxt = $('p').text(); // 안에 존재하는 자식텍스트를 읽음 (동적추가)
+                  console.log(`index2.H1: ${callH1}`); // [Object Object]
+                  console.log(`index2.T: ${callT}`); // idex.html의 h1태그안에 span태그 출력
+                  console.log(`index2.Txt: ${callTxt}`); //tt에 불러오는 전체call페이지의 p텍스트값을 출력
+            })
       </script>
+
 </body>
 
 </html>

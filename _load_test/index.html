@@ -1,30 +1,240 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" id="top">
 
 <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>media query2</title>
-      <style>
-            body{background:#fff;}
-            h1{color:#333;}
-            button:hover{transition:all 1s; transform:scale(1.2);}
-            @media (prefers-color-scheme: dark){/* 브라우저 컬러모드 */
-                  body{background:#333;}
-                  h1{color:#fff;}
-            }
-            @media (prefers-reduced-motion){/* 애니메이션 off */
-                  button:hover{transform:none;}
-            }
-      </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>load연습장(LiveServer)</title>
+  <!-- 오픈 그래프  basic, optional, structured -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://www.shinhancard.com/pconts/js/jquery-3.4.1.min.js"></script> -->
+  <script>
+    /* scroll값 출력 window.pageYOffset*/
+    // window.addEventListener('scroll', function(){
+    //   console.log(window.scrollY)
+    // });
+
+    // window.scrollTo({
+    //   top: 100,
+    //   left: 100,
+    //   behavior: 'smooth'
+    // });
+    
+    $('.evtPage').load('./index3.html', function (resposeTxt, statusTxt, status, xhr) { //html을 읽기전에 로드 호출 안됨 
+      console.log(`로드할 파일의 내용: ${resposeTxt}`);
+      console.log(`로드할 파일과의 연결상태: ${statusTxt}`);
+      console.log(`요청의 상태: ${status}`);
+      console.log(`요청한 파일의 상태: ${xhr}`);
+    });
+    
+    
+
+    $(document).ready(function () {
+      $('a').click(function () {
+        $('.call').load((this).href);        
+      })
+      
+      /*
+      resposeTxt: 서버요청 완료 결과 내용
+      statusTxt: 서버요청을 보낸 요청의 상태
+      status: 파일의 상태 200,403,404
+      xhr: 요청한 오브젝트
+      */
+    
+    });
+  </script>
+  <style>
+    /* 공통으로 사용할 클래스*/
+    .blind {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      clip-path: rect(0 0 0 0);
+      margin: -1px;
+      border: 0;
+      clip-path: inset(50%);
+    }
+
+    /* font-size test */
+    html {
+      scroll-behavior: smooth;
+      font-size: 62.5%
+    }
+
+    body {
+      position: relative;
+      font-size: 16px;
+      height: 200vh;
+      background-color:#fff;
+    }
+
+    section {
+      font-size: 200%;
+    }
+
+    section>article {
+      font-size: 4.44444vw
+    }
+
+    article {
+      font-size: 1.8rem
+    }
+
+    ul {
+      margin-top: 2.8rem;
+    }
+
+    li:not(:last-child) {
+      background: coral;
+      margin-bottom: 2.8rem;
+    }
+
+    .top_btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .load_btns a{
+      padding:0 1rem;
+      background-color:blueviolet;
+      border-radius: .5rem;
+      color:#fff;
+      text-decoration:none;
+    }
+    button:hover {
+      transition: all 1s;
+      transform: scale(1.2);
+}
+
+@media (prefers-color-scheme: dark) {
+
+      /* 브라우저 컬러모드 */
+      body {
+            background: #333;
+      }
+
+      h1 {
+            color: #fff;
+      }
+}
+
+@media (prefers-reduced-motion) {
+
+      /* 애니메이션 off */
+      button:hover {
+            transform: none;
+      }
+}
+  </style>
 </head>
+
 <body>
-      <h1>call Title 입니다</h1>
-      <button>btn</button>
-      <p>call zero</p>
-      <script>
-            console.log('call-0')
-      </script>
+  <div class="load_btns">
+    <a href="./index0.html" onclick="return false;">call-0</a>
+    <a href="./index1.html" onclick="return false;">call-1</a>
+    <a href="./index2.html" onclick="return false;">call-2</a>
+    <a href="./index3.html" onclick="return false;">call-3</a>
+    <a href="./index4.html" onclick="return false;">call-4</a>
+  </div>
+  <div class="call"></div>
+
+<!-- $().load()와 Ajax -->  
+  <div class="evtPage"></div>
+  
+  <!-- <div class="call-1"></div>
+  <div class="call-2"></div>
+  <div class="call-3"></div>
+  <div class="call-4"></div> -->
+
+  <script>
+    // 불러온다고 여기서 전체로드한 페이지들을 컨트롤 할 수 없음
+    // $('.evtPage').load('https://www.shinhancard.com/pconts/html/benefit/main/main.html');
+    // 서버에 올려져있지 않는 경우, 도메인이 다른경우 CORS에러가 발생
+    
+    /* tt에 전체페이지 로드한 경우 확인한 스크립트 */
+    // 함수안에서 let callTit = $('.call-1 h1')는 오브젝트
+    // $(function () {//onload의 제이쿼리 버전
+    //   let callT = $('.call-1 h1');
+    //   let callTit1 = $('.call-1 p').text(); // 셀렉터 태그안에 존재하는 자식태그를 읽음 (동적추가)
+    //   console.log(callT); //  출력3 jQuery.fn.init{} 제이쿼리 오브젝트 출력
+    //   console.log(callTit1) // 출력3 오브젝트안에 텍스트가 없어서 아무것도 안찍히는건가?
+    // })
+    // $(document).ready(function () { //DOMContentloadede의 제이쿼리 버전 (onload 이벤트보다 먼저 발생한다)
+    //   let callTit = $('.call p');
+    //   let callTxt0 = $('.call p').html(); // 셀렉터 태그안에 존재하는 자식태그 중에 태그제외한 문자열만 출력(태그까지문자로인식)
+    //   console.log(callTit);// 출력4 jQuery.fn.init{} 제이쿼리 오브젝트 출력
+    //   console.log(callTxt0)// 출력4 오브젝트안에 html은 정의가 되지 않았다? Undefined 왜 정의 되지 않아?
+    // })
+    // $(document).ready(function () {
+    //   let callTit3 = $('.call-3 input').val(); // input 밸류 값을 받아오는 함수
+    //   console.log(callTit3)// 출력4 Undefined 왜 정의 되지 않아?
+    // })
+    // $('.call').load('./index.html');  // 출력5
+    // // $('.call-4').load('./index4.html'); // 출력6
+    // // $('.call-3').load('./index3.html'); // 출력7
+    // // $('.call-2').load('./index2.html'); // 출력8
+    // // $('.call-1').load('./index1.html'); // 출력9
+    // console.log('tt.html 내부: tt출력') // 출력1
+    // setTimeout(function () {
+    //   console.log('tt.html 내부: 0초 뒤 찍기') // 출력2
+    // }, 0);
+    
+    /* 자바스크립트 실행 프로세스 */
+    // Heep에 저장되는 아이:변수
+    // Stack에 들어오는 아이: (함수)실행코드
+    // Queue(대기실)로 이동 하는 아이: setTimeout(비동기를 컨트롤하기위함, promise와 비슷), ajax요청코드, event리스너 -stack이 비워지면 stack으로 들어가서 실행
+
+    // 1순위 페이지 내부에 있는 콘솔
+    // 2순위 페이지 내부 스크립트로 load한 파일 내부에 있는 콘솔
+    // 외에 순서가 뒤죽박죽인 이유 네트워크 속도에 따라서 달라짐
+
+
+
+
+  </script>
+  <a href="#top" class="top_btn">top</a>
+  <!-- Code injected by live-server -->
+  <!-- <script>
+  // <![CDATA[  <-- For SVG support
+  if ('WebSocket' in window) {
+    (function () {
+      function refreshCSS() {
+        var sheets = [].slice.call(document.getElementsByTagName("link"));
+        var head = document.getElementsByTagName("head")[0];
+        for (var i = 0; i < sheets.length; ++i) {
+          var elem = sheets[i];
+          var parent = elem.parentElement || head;
+          parent.removeChild(elem);
+          var rel = elem.rel;
+          if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+          }
+          parent.appendChild(elem);
+        }
+      }
+      var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+      var address = protocol + window.location.host + window.location.pathname + '/ws';
+      var socket = new WebSocket(address);
+      socket.onmessage = function (msg) {
+        if (msg.data == 'reload') window.location.reload();
+        else if (msg.data == 'refreshcss') refreshCSS();
+      };
+      if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+        console.log('Live reload enabled.');
+        sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+      }
+    })();
+  }
+  else {
+    console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+  }
+  // ]]>
+</script> -->
 </body>
 
 </html>
