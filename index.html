@@ -8,18 +8,21 @@
 </head>
 
 <body>
-    <h2>초점분리 현상<h2>
+    <h2>초점분리 현상</h2>
     <div>
-    <a>
-        <dl><!-- iOS / Android -->
+    <a href="javascript:; "class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
+        <dl aria-hidden="true"><!-- iOS / Android -->
             <dt>제품명</dt><dd>달콤한딸기 500g</dd>
             <dt>가격</dt><dd>10000<span style="font-weight:bold">원</span></dd>
         </dl>
     </a>
     </div>
     
-
-    깃 웹페이지를 생성합니다.
+<script>
+    const item = document.querySelector('.item');
+    console.log(item);
+</script>
+    
 </body>
 
 </html>
