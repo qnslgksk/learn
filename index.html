@@ -11,12 +11,137 @@
     <h2>초점분리 현상</h2>
     <div>
     <a href="javascript:; "class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
-        <dl aria-hidden="true"><!-- iOS / Android -->
+        <dl aria-hidden="true">
+            <!-- 
+                iOS: aria-label값을 읽고 aria-hidden="true"로 인해 내부태그는 읽지 않음
+                Android: 
+            -->
             <dt>제품명</dt><dd>달콤한딸기 500g</dd>
             <dt>가격</dt><dd>10000<span style="font-weight:bold">원</span></dd>
         </dl>
     </a>
     </div>
+<hr>
+<div class="ly_inner">
+    <style>
+        *{margin:0; padding:0;}
+        body{padding:16px;}
+        .ir_txt{overflow:hidden; display:block; position:absolute; border:0; width:1px; height:1px; clip:rect(1px,1px,1px,1px)}
+        .list4 {border-top: 1px solid #888; border-bottom: 1px solid #ddd;}
+        ul{margin:0; padding:0;}
+        li{list-style:none;}
+        .list4-item {position:relative; display: flex; align-items: center; padding: 30px 0;}
+        .list4-item + .list4-item {border-top: 1px solid #ddd;}        
+.list4-check.custom .check_wrap{margin-right: 16px;}
+/* input[type="checkbox"] */
+input{appearance:none; -webkit-appearance: none; -moz-appearance: none;}
+.list4-check.custom input[type="checkbox"]{overflow:hidden; position:relative; width:24px; height:24px; border:1px solid #ddd;border-radius:50%;}
+.list4-check.custom input[type="checkbox"]::before{content:''; position:absolute; width:100%; height:100%; background:url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_ccc.svg')}
+.list4-check.custom input[type="checkbox"]:checked::before{content:''; position:absolute; width:100%; height:100%; background:#476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat;}
+/* label */
+.list4-check.custom .check_wrap label{position:absolute; top:0; left:0; width:100%; height:100%;}
+/** 커스텀 끝*/
+        .check-dx{position:relative; width: 24px; height: 24px; margin-right:16px;}
+        .check-dx.check-only .check_default {display: block; width: 100%; height: 100%; cursor: pointer;}
+        .check_default input[type="checkbox"] {width: 24px; height: 24px; position: absolute; left: 0; top: 0; z-index: 1; opacity: 0; border-radius: 50%; margin: 0; padding: 0; cursor: pointer;}
+        .check_default input[type="checkbox"] + span {overflow: hidden;z-index: 0; display: block; width: 100%; height: 100%; padding-left: 0;}
+        .check_default input[type="checkbox"]:checked + span::before {background: #476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat center;}
+        
+        .check_default input[type="checkbox"] + span::before {content:''; position: absolute; left: 0; top: 0px; width: 24px; height: 24px; border: 1px solid #ccc; border-radius: 50%;}
+        .check_default input[type="checkbox"]:focus + span {
+    box-shadow: 0 0 0 2px rgba(72, 104, 225, 0.5);
+}
+    </style>
+    <h2>label test ing</h2>
+    <div class="list4">
+        <ul class="list4-group">
+            <li class="list4-item">
+                <div class="list4-check custom">
+                    <div class="check_wrap">
+                        <label class="check_default" for="check1"><span class="ir_txt">1번 커스텀레이블</span></label>
+                        <input type="checkbox" id="check1" name="checkN1" checked>
+                    </div>
+                </div>
+                <div class="list4-info">
+                    <div class="list4-tit" aria-hidden="true">1.암묵적레이블</div>
+                    <div class="list4-cardnum">4518-12**-****-4701</div>
+                    <div class="default-txt md-txt">
+                        <span>본인</span>
+                        <span>1227</span>
+                        <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                    </div>
+                    <div class="default-txt md-txt">발급월 2018-08</div>
+                </div>
+            </li>            
+            <li class="list4-item">
+                <div class="list4-check">
+                    <div class="check_wrap check-dx check-only">
+                        <label for="check1" class="check_default">
+                            <input type="checkbox" id="check1" name="checkN1" checked="" class="set_AutoComplete" autocomplete="off">
+                            <span role="text">1번 - 타이틀</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="list4-info">
+                    <div class="list4-tit">1번 - 타이틀</div>
+                    <div class="list4-cardnum">4518-12**-****-4701</div>
+                    <div class="default-txt md-txt">
+                        <span>본인</span>
+                        <span>1227</span>
+                        <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                    </div>
+                    <div class="default-txt md-txt">발급월 2018-08</div>
+                </div>
+            </li>
+            <li class="list4-item">
+                <div class="list4-check">
+                    <div class="check_wrap check-dx check-only">
+                        <div class="check_default">
+                            <input type="checkbox" id="check2" name="checkN2" class="set_AutoComplete" autocomplete="off">
+                            <span role="text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="list4-info">
+                    <label for="check2" class="list4-tit">2번 - 타이틀</label>
+                    <div class="list4-cardnum">4518-12**-****-4701</div>
+                    <div class="default-txt md-txt">
+                        <span>본인</span>
+                        <span>1227</span>
+                        <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                    </div>
+                    <div class="default-txt md-txt">발급월 2018-08</div>
+                </div>
+            </li>
+            <li class="list4-item">
+                <div class="list4-check">
+                    <div class="check_wrap check-dx check-only">
+                        <div class="check_default">
+                            <input type="checkbox" id="check3" name="checkN3" class="set_AutoComplete" autocomplete="off">
+                            <span role="text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="list4-info" for="check3">
+                    <div class="list4-tit">3번 - 타이틀</div>
+                    <div class="list4-cardnum">4518-12**-****-4701</div>
+                    <div class="default-txt md-txt">
+                        <span>본인</span>
+                        <span>1227</span>
+                        <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                    </div>
+                    <div class="default-txt md-txt">발급월 2018-08</div>
+                </label>
+            </li>
+        </ul>
+    </div>
+    
+
+</div>
+
     
 <script>
     const item = document.querySelector('.item');
