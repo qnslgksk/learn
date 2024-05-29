@@ -32,9 +32,9 @@
         li{list-style:none;}
         .list4-item {position:relative; display: flex; align-items: center; padding: 30px 0;}
         .list4-item + .list4-item {border-top: 1px solid #ddd;}        
-.list4-check.custom .check_wrap{margin-right: 16px;}
-/* input[type="checkbox"] */
 input{appearance:none; -webkit-appearance: none; -moz-appearance: none;}
+/* input[type="checkbox"] */
+.list4-check.custom .check_wrap{margin-right: 16px;}
 .list4-check.custom input[type="checkbox"]{overflow:hidden; position:relative; width:24px; height:24px; border:1px solid #ddd;border-radius:50%;}
 .list4-check.custom input[type="checkbox"]::before{content:''; position:absolute; width:100%; height:100%; background:url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_ccc.svg')}
 .list4-check.custom input[type="checkbox"]:checked::before{content:''; position:absolute; width:100%; height:100%; background:#476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat;}
@@ -138,15 +138,44 @@ input{appearance:none; -webkit-appearance: none; -moz-appearance: none;}
             </li>
         </ul>
     </div>
-    
+    <style>
+        #box {
+            width: 300px;
+            height: 30px;
+            background-color: darkblue;
+        }
+    </style>
+    <div id="box"></div>
+    <script>
+        const element = document.getElementById("box");
+
+        element.scrollIntoView();
+        element.scrollIntoView(false);
+        element.scrollIntoView({ block: "end" });
+        element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    </script>
+
+<ul>
+    <li class="item">1</li>
+    <li class="item">2</li>
+    <li class="item">3</li>
+    <li class="item">4</li>
+    <li class="item">5</li>
+    <li class="item">6</li>
+    <li class="item">7</li>
+    <li class="item">8</li>
+    <li class="item">9</li>
+    <li class="item">10</li>
+</ul>
+<script>
+    const items = document.querySelectorAll('.item');
+    console.log(items);
+</script>
 
 </div>
 
     
-<script>
-    const item = document.querySelector('.item');
-    console.log(item);
-</script>
+
     
 </body>
 
