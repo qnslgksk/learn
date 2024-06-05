@@ -9,6 +9,25 @@
 
 <body>
     <div class="ly_inner">
+        <h2>Breadcrumb</h2>
+        <div id="ex1">
+            <nav aria-label="Breadcrumb" class="breadcrumb">
+                <ol>
+                    <li>
+                        <a href="../../../..">WAI-ARIA Authoring Practices Guide (APG)</a>
+                    </li>
+                    <li>
+                        <a href="../../../">Patterns</a>
+                    </li>
+                    <li>
+                        <a href="../../">Breadcrumb Pattern</a>
+                    </li>
+                    <li>
+                        <a href="" aria-current="page">Breadcrumb Example</a>
+                    </li>
+                </ol>
+            </nav>
+        </div>
         <h2>스텝(구)</h2>
         <div class="flow_step" role="text">
             <ul><!--보이스오버: 1스텝,2스텝,3스텝,4스텝 현재1단계진행중 -->
@@ -939,7 +958,7 @@ button[aria-disabled="true"] {
         </script>
     </div>
     <div class="ly_inner">
-        <h2>초점분리 현상</h2>
+        <h2>초점분리 현상1</h2>
         <div>
             <a href="javascript:; "class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
                 <dl aria-hidden="true">
@@ -952,11 +971,12 @@ button[aria-disabled="true"] {
                 </dl>
             </a>
         </div>
+        <h2>초점분리 현상2</h2>
         <div>
             <a href="javascript:;" class="item">
                 <dl role="text">
                     <!-- 
-                                iOS: 
+                                iOS: 내부텍스트는 동일하게 읽어주고 정의목록 명시는 하지 않음
                                 Android: 
                             -->
                     <dt>제품명</dt>
