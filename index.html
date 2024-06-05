@@ -11,18 +11,18 @@
     <div class="ly_inner">
         <h2>스텝(구)</h2>
         <div class="flow_step" role="text">
-            <ul>
-                <li aria-current="step" class="current">1스텝</li>
-                <li>2스텝</li>
+            <ul><!--보이스오버: 1스텝,2스텝,3스텝,4스텝 현재1단계진행중 -->
+                <li aria-current="step" class="current">1스텝</li> <!--톡백: 현재단계,1스텝, 4개중 1번째 항목4개-->
+                <li>2스텝</li><!--톡백: 2스텝, 4개중 2번째 -->
                 <li>3스텝</li>
                 <li>4스텝</li>
             </ul>
-            <span class="ir_txt">현재 1단계 진행중</span>
+            <span class="ir_txt">현재 1단계 진행중</span><!--톡백: 마지막에 읽어줌 -->
         </div>
         <h2>스텝(뉴)</h2>
         <div class="flow_step bar">
-            <ul role="text" aria-label="총 4 단계 중 1단계 진행중">
-                <li aria-current="step" class="current">1단계</li>
+            <ul role="text" aria-label="총 4 단계 중 1단계 진행중"><!--보이스오버: 총 4단계 중 1단계 진행 중-->
+                <li aria-current="step" class="current">1단계</li><!--톡백: 총 4단계 중 1단계 진행 중-->
                 <li>2단계</li>
                 <li>3단계</li>
                 <li>4단계</li>
@@ -949,6 +949,20 @@ button[aria-disabled="true"] {
                     -->
                     <dt>제품명</dt><dd>달콤한딸기 500g</dd>
                     <dt>가격</dt><dd>10000<span style="font-weight:bold">원</span></dd>
+                </dl>
+            </a>
+        </div>
+        <div>
+            <a href="javascript:;" class="item">
+                <dl role="text">
+                    <!-- 
+                                iOS: 
+                                Android: 
+                            -->
+                    <dt>제품명</dt>
+                    <dd>달콤한포도 500g</dd>
+                    <dt>가격</dt>
+                    <dd>10000<span style="font-weight:bold">원</span></dd>
                 </dl>
             </a>
         </div>
