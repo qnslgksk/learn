@@ -9,6 +9,27 @@
 
 <body>
     <div class="ly_inner">
+        <h2>스텝(구)</h2>
+        <div class="flow_step" role="text">
+            <ul>
+                <li aria-current="step" class="current">1스텝</li>
+                <li>2스텝</li>
+                <li>3스텝</li>
+                <li>4스텝</li>
+            </ul>
+            <span class="ir_txt">현재 1단계 진행중</span>
+        </div>
+        <h2>스텝(뉴)</h2>
+        <div class="flow_step bar">
+            <ul role="text" aria-label="총 4 단계 중 1단계 진행중">
+                <li aria-current="step" class="current">1단계</li>
+                <li>2단계</li>
+                <li>3단계</li>
+                <li>4단계</li>
+            </ul>
+        </div>
+    </div>
+    <div class="ly_inner">
         <style>
             .listbox-area {
   display: grid;
@@ -168,7 +189,7 @@ button[aria-disabled="true"] {
 }
 
         </style>
-        <p>Choose your favorite transuranic element (actinide or transactinide).</p>
+        <h2>리스트박스확인중</h2>
         <div class="listbox-area">
             <div>
                 <span id="ss_elem" class="listbox-label">Transuranium elements:</span>
