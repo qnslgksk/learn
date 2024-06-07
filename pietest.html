@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html>
+    <head>
+        <meta name="viewport" content="width= device-width, inital-scale=1.0">
+        <title>Pie Chart css test</title>    
+        <style>
+
+            div {
+  --value1:30%;
+  --value2:30%;
+  --value3:40%;
+  --result1 : var(--value1);
+  --result2 : calc(var(--result1) + var(--value2));
+  --result3 : calc(var(--result2) + var(--value3));
+  
+  width:30vw;
+  height:30vw;
+  border-radius:100%;
+
+background:conic-gradient(red var(--result1), yellow var(--result1), yellow var(--result2), blue var(--result2));
+}
+
+
+            :root{
+                --val1:30%
+            }
+            .circle{width:20vw; height:20vw; border-radius:50%; background:conic-gradient(red 6deg, orange 6deg 18deg, yellow 18deg 45deg, green 45deg 110deg, blue 110deg 200deg, purple 200deg);}
+        </style>
+    </head>
+    <body>
+        <div style="--value1:20%; --value2:70%;"></div>
+        <div></div>
+        <div class="circle"></div>
+    </body>
+</html>
