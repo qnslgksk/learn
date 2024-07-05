@@ -977,49 +977,76 @@ button[aria-disabled="true"] {
         </script>
     </div>
     <div class="ly_inner">
-        <h2>초점분리 현상0</h2>
+        <h2>초점분리 현상0 role button</h2>
         <div>
             <a href="javascript:; " class="item" role="button">
-                <dl>
-                    <!-- 
-                        iOS: 
-                        Android: 
-                    -->
-                    <dt>제품명</dt>
-                    <dd>달콤한딸기 500g</dd>
-                    <dt>가격</dt>
-                    <dd>10000<span style="font-weight:bold">원</span></dd>
-                </dl>
+                <div>
+                    <dl>
+                        <!-- 
+                            iOS: 내부 텍스트를 한 번에 읽어주고 버튼이라 함
+                            Android: 
+                        -->
+                        <dt>제품명</dt>
+                        <dd>달콤한딸기 500g</dd>
+                        <dt>가격</dt>
+                        <dd>10000<span style="font-weight:bold">원</span></dd>
+                    </dl>
+                </div>
             </a>
         </div>
 
-        <h2>초점분리 현상1</h2>
+        <h2>초점분리 현상1 aria-label aria-hidden</h2>
         <div>
-            <a href="javascript:; "class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
-                <dl aria-hidden="true">
-                    <!-- 
-                        iOS: aria-label값을 읽고 aria-hidden="true"로 인해 내부태그는 읽지 않음
-                        Android: 
-                    -->
-                    <dt>제품명</dt><dd>달콤한딸기 500g</dd>
-                    <dt>가격</dt><dd>10000<span style="font-weight:bold">원</span></dd>
-                </dl>
+            <a href="javascript:;" class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
+                <div aria-hidden="true">
+                    <dl>
+                        <!-- 
+                            iOS: aria-label값을 읽고 aria-hidden="true"로 인해 내부태그는 읽지 않음
+                            Android: 
+                        -->
+                        <dt>제품명</dt>
+                        <dd>달콤한딸기 500g</dd>
+                        <dt>가격</dt>
+                        <dd>10000<span style="font-weight:bold">원</span></dd>
+                    </dl>
+                </div>
             </a>
         </div>
-        <h2>초점분리 현상2</h2>
+
+        <h2>초점분리 현상2 role="text"</h2>
         <div>
             <a href="javascript:;" class="item">
-                <dl role="text">
-                    <!-- 
-                                iOS: 내부텍스트는 동일하게 읽어주고 정의목록 명시는 하지 않음
-                                Android: 
-                            -->
-                    <dt>제품명</dt>
-                    <dd>달콤한포도 500g</dd>
-                    <dt>가격</dt>
-                    <dd>10000<span style="font-weight:bold">원</span></dd>
-                </dl>
+                <div role="text"><!-- role="text" ios에서만 사용 가능한 비공식 속성 -->
+                    <dl>
+                        <!-- 
+                            iOS: 내부텍스트는 동일하게 읽어주고 용어,정의 명시는 하지 않음
+                            Android: 
+                        -->
+                        <dt>제품명</dt>
+                        <dd>달콤한포도 500g</dd>
+                        <dt>가격</dt>
+                        <dd>10000<span style="font-weight:bold">원</span></dd>
+                    </dl>
+                </div>
             </a>
+        </div>
+
+        <h2>초점분리 현상3 링크아닌요소 aria-label</h2>
+        <div>
+            <div class="item" aria-label="제품명 달콤한포도 500g 가격 10000원">
+                <div>
+                    <dl aria-hidden="true">
+                        <!-- 
+                            iOS:
+                            Android: 
+                        -->
+                        <dt>제품명</dt>
+                        <dd>달콤한포도 500g</dd>
+                        <dt>가격</dt>
+                        <dd>10000<span style="font-weight:bold">원</span></dd>
+                    </dl>
+                </div>
+            </div>
         </div>
     </div>
 
