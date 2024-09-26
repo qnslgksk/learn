@@ -36,26 +36,31 @@
                 </ol>
             </nav>
         </div>
-        <h2></h2>
+        <h2>a에서만 현재스텝인지</h2>
         <div id="ex1">
             <nav class="stepbar" aria-label="Stepbar">
                 <ol>
-                    <li class="current">
-                        <a href="javascript:;">1단계스텝</a>
-                    </li>
                     <li>
+                        <a href="javascript:;">1단계스텝</a>
+                        <!-- 보이스오버: 1단계스텝(txt), 링크, 목록시작, 랜드마크 -->
+                    </li>
+                    <li class="current">
                         <a href="javascript:;" aria-current="step">2단계스텝</a>
+                        <!-- 보이스오버: 2단계스텝(txt), 현재단계, 링크 -->
                     </li>
                     <li>
                         <a href="javascript:;">3단계스텝</a>
+                        <!-- 보이스오버: 3단계스텝(txt), 링크 -->
                     </li>
                     <li>
                         <a href="javascript:;">4단계스텝</a>
+                        <!-- 보이스오버: 4단계스텝(txt), 링크, 목록 끝, 끝, 끝, Stepbar,탐색 -->
                     </li>
                 </ol>
             </nav>
         </div>
-        <h2>스텝(구)</h2>
+        
+        <h2>스텝(구) 목록에 step주기</h2>
         <div class="flow_step" role="text">
             <ul><!--보이스오버: 1스텝,2스텝,3스텝,4스텝 현재1단계진행중 -->
                 <li aria-current="step" class="current">1스텝</li> <!--톡백: 현재단계,1스텝, 4개중 1번째 항목4개-->
