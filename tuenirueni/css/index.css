@@ -1,7 +1,7 @@
 /* common */
 *{box-sizing:border-box;}
 html{width:100%;}
-body{width:100%;font-size:1.4rem;}
+body{width:100%; font-family: Noto Sans KR; font-size:1.4rem; letter-spacing: -0.05em;}
 section{width:100%;}
 /* header */
 header{position:absolute; top:0; right:0; left:0; padding:7rem 2rem 0; z-index:100;}
@@ -29,8 +29,20 @@ header{position:absolute; top:0; right:0; left:0; padding:7rem 2rem 0; z-index:1
 .visual_page2 .txt span{color:#FFF8BC;}
 .btn_go{display:block;width:5.25rem; height:3rem; padding:0 1rem; background:#FFFFFF url(../images/arrow-right.png) no-repeat center right 1rem / auto .8rem; box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.1); border-radius: 5rem; font-weight:700; font-size:1.4rem; line-height:3rem; color:#999999;}
 
+
+
+
 .user{position:relative; top:-9.705rem; padding:0 2rem; z-index:1}
-.user_info{min-width:32rem; width:100%; padding:2rem 2rem 0; background:#fff; box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.08); border-radius: 30px; z-index:3; box-sizing:border-box}
-.user_info .name{color:#ABCD05;}
-.status > ul{display:flex;}
-.status > ul li span{display:block;}
+.user_info{min-width:32rem; width:100%; padding:2rem 2rem 2.5rem 2rem; background:#fff; box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.08); border-radius: 30px; z-index:2;font-size:1.6rem;}
+.user_info .user_parent{position:relative; top:0; left:0; margin-bottom:1.7rem;}
+.user_info .user_parent .user_name{font-weight:700; color:#ABCD05;}
+.user_info .kids {position:absolute; top:-.3rem; right:0; width:6rem; height:3rem;}
+.user_info .kids [class*="kids_profile"]{position:absolute; width:3rem; height:3rem; background-color:blue; border:.2rem solid #fff; border-radius:3rem;}
+.user_info .kids [class*="kids_profile"].last{background-color:red; margin-left:2rem;}
+.user_status{ padding-left:.8rem; padding-right:.8rem;}
+.user_status > ul{display:flex; justify-content:space-between; height:6rem;}
+.user_status ul>li{position:relative; height:100%;}
+.user_status ul>li::after{content:''; position:absolute; width:.1rem; height:100%; background-color:#F5F5F5;}
+.user_status ul>li>dl{display:flex; flex-direction:column-reverse; align-items:center;}
+.user_status ul>li>dl>dt{font-size:1.4rem; font-weight:400; color:#999;}
+.user_status ul>li>dl>dd{font-size:3.5rem; font-weight:800; color:#666;}

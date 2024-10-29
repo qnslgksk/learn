@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TueniTueni</title>
+    <title>TueniTueni 타입A</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/common.js"></script>
 
@@ -87,9 +88,10 @@
         <h2 class="hide">프로그램배너</h2>
         <div class="swiper visual">
             <div class="swiper-wrapper">
+                <!-- 배너 갯수 제한 확인하기 -->
                 <div class="swiper-slide">
-                    <div class="visual_page1">
-                        <p class="txt"><span>튼튼한 신체놀이와<br>유대감 형성의 마음놀이</span><br><em>트니캠프!</em></p>
+                    <div class="visual_page1"><!--배경영역 사이즈 고정할지 확인하기-->
+                        <p class="txt"><span>튼튼한 신체놀이와<br>유대감 형성의 마음놀이</span><br><em>트니캠프!</em></p><!-- 텍스트 영역 사이즈 제한 여부 확인하기 -->
                         <img class="img" src="images/tuenitueni-champ.png" alt="트니트니챔프">
                         <a class="btn_go" href="">Go</a>
                     </div>
@@ -98,7 +100,7 @@
                     <div class="visual_page2">
                         <p class="txt"><span>부담없이 집에서<br>전문가와 함께 즐기는</span><br><em>트니홈!</em></p>
                         <img class="img" src="images/tuenitueni-home.png" alt="트니트니홈">
-                        <a class="btn_go" href="">Go</a>
+                        <a class="btn_go" href="javascript:;">Go</a>
                     </div>
                 </div>
             </div>
@@ -108,25 +110,48 @@
         <h2 class="hide">사용자정보</h2>
         <div class="user_info">
             <!-- login -->
-            <div>안녕하세요. <span class="name">승호 트니맘</span> 님
+            <div class="user_parent">
+                <span>안녕하세요. <span class="user_name">승호 트니맘</span> 님</span>
                 <div class="kids">
-                    <div class="hide">자녀정보
-                        <span>아이1</span><span>아이2</span>
-                    </div>
+                    <h3 class="hide">자녀정보</h3>
+                    <span class="kids_profile1"></span>
+                    <span class="kids_profile2 last"></span><!-- 아이등록 몇명까지 제한 되는지 확인하기 -->
                 </div>
             </div>
-            <div class="status">
+            <div class="user_status">
                 <ul>
-                    <li>3<span>수강중</span></li>
-                    <li>46<span>즐겨찾기</span></li>
-                    <li><img src="" alt=""><span>스템프</span></li>
-                    <li>87<span>사진</span></li>
+                    <li>
+                        <dl>
+                            <dt>수강중</dt>
+                            <dd><span class="hide">클래스</span>3<span class="hide">개</span>
+                            </dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>즐겨찾기</dt>
+                            <dd>46<span class="hide">개</span></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>스템프</dt>
+                            <dd><img src="" alt=""><span class="badge_stamp_num">28</span></dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>사진</dt>
+                            <dd>87<span class="hide">개</span></dd>
+                        </dl>
+                    </li>
                 </ul>
                 <div class="chidren">
                     <img src="" alt="">
                     <img src="" alt="">
                 </div>
             </div>
+            <!-- // login -->
             <!-- logout -->
             <!-- <span>트니트니 회원가입 후</span><br>다양한 트니 활동 및 혜택을 경험하세요!
             <a href="" class="join">회원가입</a>
