@@ -1,18 +1,27 @@
+function forbidScroll(stat){
+    document.body.style.overflow = stat;
+}
+
 // program popup
 $(document).ready(function(){
     $('#btnProgramView').click(function(){
         $('.program_pop_dim').addClass('open');
+        forbidScroll("hidden");
     })
     $('#btnProgramPopClose').click(function(){
         $('.program_pop_dim').removeClass('open');
+        forbidScroll("auto");
     })
 });
 
 // benefit popup
 $(document).ready(function(){
     $('.benefit_pop_dim').addClass('show');
+    forbidScroll("hidden");
+
     $('#btnBenefitPopClose').click(function(){
         $('.benefit_pop_dim').removeClass('show');
+        forbidScroll("auto");
     })
 });
 
