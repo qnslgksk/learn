@@ -23,224 +23,229 @@
     <!-- 오픈 그래프 종류? basic, optional, structured -->
     <title>learn repository, 착한마크업- AOA11Y, VueTest.. my연습장 G:랑 합치는 중</title>
     <link rel="canonical" href="{페이지대표URL}">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/30836814ad.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
     <!-- <script src="./jsontxt.js"></script> -->
     <style>
-        /* 공통으로 사용할 클래스*/
-        .blind{
-          overflow:hidden;
-          position: absolute;
-          top:0; left:0;
-          width: 1px;
-          height:1px;
-          clip-path: rect(0 0 0 0);
-          margin:-1px;
-          border:0;
-          clip-path:inset(50%);
-        }
+    /* 공통으로 사용할 클래스*/
+    .blind{
+        overflow:hidden;
+        position: absolute;
+        top:0; left:0;
+        width: 1px;
+        height:1px;
+        clip-path: rect(0 0 0 0);
+        margin:-1px;
+        border:0;
+        clip-path:inset(50%);
+    }
+
+    /* font-size test */
+    html {
+        font-size: 62.5%
+    }
+
+    body {
+        font-size: 16px
+    }
+
+    .section {
+        font-size: 200%;
+    }
+
+    .section > .article {
+        font-size: 4.44444vw
+    }
+
+    .article {
+        font-size: 1.8rem
+    }
+
+    ul {
+        margin-top: 2.8rem;
+    }
+
+    li:not(:last-child) {
+        background: coral;
+        margin-bottom: 2.8rem;
+    }
+    /* slide_acco */
+    .slide_acco .slide_dl button::after{
+        content:'';
+        position:absolute;
+        top:50%;
+        right:15px;
+        border: 10px solid #000;
+        border-right-color:transparent;
+        border-bottom-color:transparent;
+        border-left-color:transparent;      
+        transform: translateY(-20%);
+    }
+    .slide_acco .slide_dl.open button::after{
+        content:'';
+        position:absolute;
+        top:50%;
+        right:15px;
+        border: 10px solid #000;
+        border-top-color:transparent;
+        border-right-color:transparent;
+        border-left-color:transparent;      
+        transform: translateY(-80%);
+    }
+    .slide_acco .slide_dl{
+        border:1px solid #ddd;
+    }
+    .slide_acco dt button{
+        display:block;
+        position: relative;
+        width:100%;
+        padding:20px 15px;
+        background: #e4decf;
+        border:0;
+        text-align: left;
+        font-size:1.6rem;
+        text-decoration: none;
     
-        /* font-size test */
-        html {
-          font-size: 62.5%
+    }
+    .slide_acco .slide_dl.open dd{display:block;}
+    .slide_acco .slide_dl dd{display: none; margin:0;}
+    .slide_acco dd ul{
+        margin:0;
+        padding:0;
+        list-style:none;
+    }
+    /* trigger 다시이해하기 */
+    .testEle {
+        width: 100px;
+        height: 100px;
+        background: #f80;
+        text-align: center;
+        color: #fff;
+        display: table-cell;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    #testEle2.testEle {
+        height: 24px;
+        background: #333;
+    }
+    /* size: cover, contain 반응형 test */
+    .rego1{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / cover}
+    .rego2{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / contain}
+
+    /* 이미지 반응형(배경) */
+    .lloggo_cover {
+        width: 70%;
+    }
+
+    .lloggo {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 16.9%;
+        background: url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;
+    }
+
+    /* 이미지 반응형(이미지) */
+    .item {
+        width: 50%
+    }
+
+    .item .logo {
+        overflow: hidden;
+        position: relative;
+        padding-top: 19.6%; /* 이미지 비율% */
+        border: 1px solid red;
+    }
+
+    .item .logo .img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translate(50%, 50%);
+        border: 1px solid red;
+    }
+
+    .item .logo .img img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        max-width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        border: 1px solid red;
+    }
+
+    #text-box{border:1px solid #f80}
+    /* 프린트모드에서 로고 히든처리 */  
+    @media print {
+        .content_print {
+        display: none;
         }
+    }
+    /* 키보드이벤트 key, code, keyCode 차이 */
+    #out {
+        border: 1px solid #333;
+    }  
+    .clamp{width: clamp(280px, 70%, 800px); background: #f80;}
+
+
+/* card */
+    .card{
+        display:flex;
+        flex-wrap:wrap;
+        border: 1px solid rgb(245, 201, 8);
+    }
+    .card .img{
+        flex:1 1 210px;
+        /* aspect-ratio: 1 / 1; ie 지원안함ㅋ*/
+    }
+    .card .img img{
+        max-width: 100%;
+    }
+    .card .content{
+        flex: 1 1 200px;
+    }
+
+    /* Alert Box */
+        .alert_box{display:none}
+        .alert_box.bg1{background-color:#f80}
+        .alert_box.bg2{background-color:#f09}
     
-        body {
-          font-size: 16px
+    /* flex-container */
+    .flex-container {
+            display: flex;
+            flex-wrap: wrap;
         }
-    
-        .section {
-          font-size: 200%;
+        .flex-item {
+            width: 33.33333%;
+            /* flex: 0 33.33333%; */
+            box-sizing: border-box;
+            padding: 5px;
+            color: white;
+            background: mediumseagreen;
         }
-    
-        .section > .article {
-          font-size: 4.44444vw
+        .box {
+            width: 50vw;
+            background: red;
         }
-    
-        .article {
-          font-size: 1.8rem
-        }
-    
-        ul {
-          margin-top: 2.8rem;
-        }
-    
-        li:not(:last-child) {
-          background: coral;
-          margin-bottom: 2.8rem;
-        }
-        /* slide_acco */
-        .slide_acco .slide_dl button::after{
-          content:'';
-          position:absolute;
-          top:50%;
-          right:15px;
-          border: 10px solid #000;
-          border-right-color:transparent;
-          border-bottom-color:transparent;
-          border-left-color:transparent;      
-          transform: translateY(-20%);
-        }
-        .slide_acco .slide_dl.open button::after{
-          content:'';
-          position:absolute;
-          top:50%;
-          right:15px;
-          border: 10px solid #000;
-          border-top-color:transparent;
-          border-right-color:transparent;
-          border-left-color:transparent;      
-          transform: translateY(-80%);
-        }
-        .slide_acco .slide_dl{
-          border:1px solid #ddd;
-        }
-        .slide_acco dt button{
-          display:block;
-          position: relative;
-          width:100%;
-          padding:20px 15px;
-          background: #e4decf;
-          border:0;
-          text-align: left;
-          font-size:1.6rem;
-          text-decoration: none;
-        
-        }
-        .slide_acco .slide_dl.open dd{display:block;}
-        .slide_acco .slide_dl dd{display: none; margin:0;}
-        .slide_acco dd ul{
-          margin:0;
-          padding:0;
-          list-style:none;
-        }
-        /* trigger 다시이해하기 */
-        .testEle {
-          width: 100px;
-          height: 100px;
-          background: #f80;
-          text-align: center;
-          color: #fff;
-          display: table-cell;
-          vertical-align: middle;
-          cursor: pointer;
-        }
-    
-        #testEle2.testEle {
-          height: 24px;
-          background: #333;
-        }
-        /* size: cover, contain 반응형 test */
-        .rego1{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / cover}
-        .rego2{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / contain}
-    
-        /* 이미지 반응형(배경) */
-        .lloggo_cover {
-          width: 70%;
-        }
-    
-        .lloggo {
-          position: relative;
-          width: 100%;
-          height: 0;
-          padding-top: 16.9%;
-          background: url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;
-        }
-    
-        /* 이미지 반응형(이미지) */
-        .item {
-          width: 50%
-        }
-    
-        .item .logo {
-          overflow: hidden;
-          position: relative;
-          padding-top: 19.6%; /* 이미지 비율% */
-          border: 1px solid red;
-        }
-    
-        .item .logo .img {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          transform: translate(50%, 50%);
-          border: 1px solid red;
-        }
-    
-        .item .logo .img img {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          max-width: 100%;
-          height: 100%;
-          transform: translate(-50%, -50%);
-          border: 1px solid red;
-        }
-    
-        #text-box{border:1px solid #f80}
-        /* 프린트모드에서 로고 히든처리 */  
-        @media print {
-          .content_print {
-            display: none;
-          }
-        }
-        /* 키보드이벤트 key, code, keyCode 차이 */
-        #out {
-          border: 1px solid #333;
-        }  
-        .clamp{width: clamp(280px, 70%, 800px); background: #f80;}
-    
-    
-    /* card */
-        .card{
-          display:flex;
-          flex-wrap:wrap;
-          border: 1px solid rgb(245, 201, 8);
-        }
-        .card .img{
-          flex:1 1 210px;
-          /* aspect-ratio: 1 / 1; ie 지원안함ㅋ*/
-        }
-        .card .img img{
-          max-width: 100%;
-        }
-        .card .content{
-          flex: 1 1 200px;
-        }
-    
-        /* Alert Box */
-          .alert_box{display:none}
-          .alert_box.bg1{background-color:#f80}
-          .alert_box.bg2{background-color:#f09}
-        
-        /* flex-container */
-        .flex-container {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .flex-item {
-                width: 33.33333%;
-                /* flex: 0 33.33333%; */
-                box-sizing: border-box;
-                padding: 5px;
-                color: white;
-                background: mediumseagreen;
-            }
-            .box {
-                width: 50vw;
-                background: red;
-            }
-    
-        #menubar_wrapper{
-          height:200px;
-          text-align:center;
-        }
-      </style>
+
+    #menubar_wrapper{
+        height:200px;
+        text-align:center;
+    }
+    </style>
 </head>
 
 <body>
@@ -1809,100 +1814,1049 @@
             </div>
         </section>
         <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <style>
+                    #box {
+                        width: 300px;
+                        height: 30px;
+                        background-color:maroon;
+                        color:#fff;
+                    }
+                    
+                </style>
+                <h2>scrollIntoView test</h2>
+                <div id="box" tabindex="0">99</div>
+                <script>
+                    const element = document.getElementById("box");
+            
+                    element.scrollIntoView();
+                    element.scrollIntoView(false);
+                    element.scrollIntoView({ block: "end" });
+                    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+                </script>
+            
+            </div>
+            <div class="ly_inner" style="margin-bottom:100px;">
+                <ul>
+                    <li class="item"><a href="javascript:;">1</a></li>
+                    <li class="item"><a href="javascript:;">2</a></li>
+                    <li class="item"><a href="javascript:;">3</a></li>
+                    <li class="item"><a href="javascript:;">4</a></li>
+                    <li class="item"><a href="javascript:;">5</a></li>
+                    <li class="item"><a href="javascript:;">6</a></li>
+                    <li class="item"><a href="javascript:;">7</a></li>
+                    <li class="item"><a href="javascript:;">8</a></li>
+                    <li class="item"><a href="javascript:;">9</a></li>
+                    <li class="item"><a href="javascript:;">10</a></li>
+                </ul>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <style>
+                    .floating_wrap{position:fixed; top:auto; right:0; bottom:0; left:0; padding:16px; background-color:#888}
+                    .floating_wrap .float_btn{all:unset; display:inline-block; width:100%; padding-top:8px; padding-bottom:8px;background-color:#476eff; color:#fff; text-align:center;}
+                    /*appearance: none;*/
+                </style>
+                <div class="floating_wrap">
+                    <button type="button" class="float_btn">나는 플로팅버튼</button>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function(){ //ready
+                        addEventListener("scroll", () => {
+                            var y = window.pageYOffset
+                            console.log(y);
+                        }, false);// 스크롤이벤트
+                        // window.scrollY  IE미지원 읽기전용
+                        // window.pageYOffset; IE지원 읽기전용
+                        console.dir(document.compatMode)
+                        var el = document.querySelector("#box");
+                        var elY = el.offsetTop;
+                        console.log(elY)
+                        // window.scroll 스크롤이동 scrollTo와 같음
+                        // window.scrollBy 현재스크롤기준 스크롤이동
+                        // window.scrollTo  문서왼쪽위모서리 기준 스크롤이동
+                        
+                        var box = document.querySelector("#box")
+                        box.addEventListener("focus", function(){
+                            box.scrollIntoView({
+                                behavior:"smooth",
+                                block:"center",
+                            }) // 초점이 오면 ele가 보이는 상태로 문서왼쪽위모서리로 스크롤이동
+                        }, false);
+                        /* 포커스 들어오는 엘리먼트의 좌표를 offsetTop으로 알아오고
+                        문서의 중앙정렬을 위해 scroll위치값을 window.innerHeight/2
+                        요소의 절반값을 빼고 ㅎㄷㄷ;;*/
+        
+                        // IE9미만지원;;
+                        var supportPageOffsetX = window.pageXOffset !== undefined;
+                        var supportPageOffsetY = window.pageYOffset !== undefined;
+                        // document.compatMode 문서렌더링모드체크 BackCompat || CSS1Compat
+                        var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
+                        var x = supportPageOffsetX ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
+                        var y = supportPageOffsetY ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
+        
+                        
+                    }, false);
+                    
+                </script>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+                body{margin:0;}
+                .a11y{
+                    position: absolute;
+                    width:1px; height:1px;
+                    clip-path: inset(-50%);
+                    border: 0;
+                }
+                a{text-decoration:none;}
+                    .mySwiper {
+                    overflow: hidden;
+                    position: relative;
+                    top:0; left:0;
+                    width: 100%;
+                    height: 800px;
+                }
+                .mySwiper::before,.mySwiper::after {
+                    content: '';
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 33.333333%;
+                    height: 100%;
+                    background:rgb(0, 0, 0);
+                    opacity: 0.5;
+                    z-index: 2;
+                }
+                .mySwiper::after{
+                    left: auto;
+                    right: 0;
+                }
+                .swiper-wrapper{
+                    position: relative;
+                    display: flex;
+                }
+                .swiper-slide img{
+                    height:100%;
+                }
+                .swiper-slide .txt-box{
+                    position:absolute;
+                    top: 50%;
+                    left: 50%;
+                    width: 100%;
+                    height: 100%;
+                    transform: translate(-50%);
+                    text-align: center;
+                    z-index:3;
+                }
+                .swiper-slide .txt-box h3{
+                    font-size: 40px;
+                    color:#fff;
+                }
+                .swiper-slide .txt-box a{
+                    padding: 15px 30px;
+                    border: 2px solid #fff;
+                    border-radius: 10vw;
+                    color:#fff;
+                    font-size:1vw;
+                }
+                .mySwiper > .swiper-pagination-bullets .swiper-pagination-bullet{
+                    margin:0 6px;
+                }
+                .swiper-pagination-bullet{
+                    width:50px;
+                    height:4px;
+                    border-radius:0;
+                }
+                .swiper-pagination-bullet-active{
+                    background:rgba(255,255,255,.5)
+                }
+                .swiper-button-prev,
+                .swiper-container-rtl .swiper-button-next {
+                    left: 0;
+                }
+                .swiper-button-next,
+                .swiper-container-rtl .swiper-button-prev {
+                    right: 0;
+                }
+                .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after,
+                .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+                    content:'';
+                }
+                .swiper-button-next,
+                .swiper-button-prev {
+                    top: 0;
+                    margin-top: 0;
+                    width: 33.33%;
+                    height: 100%;
+                    border:0;
+                    background-color:transparent;
+                }
+                .swiper-button-next:focus,
+                .swiper-button-prev:focus {padding:100px;}
+                .swiper-controll-button{
+                    position:absolute; 
+                    top:0; left:50%; 
+                    width:18px; height:18px;
+                    border:1px solid rgba(255,255,255,.2);
+                    background:transparent;
+                    z-index:1;
+                }
+                .swiper-controll-button::before{
+                    position:absolute;
+                    top:50%;
+                    left:50%;
+                    transform:translate(-50%, -50%);
+                }
+                .swiper-button-pause::before{
+                    content:'pause';
+                    width:2px; height:10px;
+                    font-size:0;
+                    border-left:2px solid rgb(140, 0, 255);
+                    border-right:2px solid rgb(140, 0, 255);
+                }
+                
+                .swiper-button-play::before{
+                    content:'play';
+                    border-top:4px solid transparent;
+                    border-bottom:4px solid transparent;
+                    border-left:6px solid rgb(140, 0, 255);
+                    font-size:0;
+                }
+                
+                
+                @media (max-width:768px){
+                    .swiper::before,.swiper::after {display:none;}
+                }
+                </style>
+            <a href="#">테스트링</a>
+            <h1 class="a11y">Swiper 웹접근성</h1>
+            <!-- 슬라이드 -->
+            <h2 class="a11y">슬라이드 배너</h2>
+
+            <!-- Slider main container -->
+            <div class="swiper mySwiper">
+                <button  type="button" class="swiper-button-next"></button>
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/06/23/09/tree-1959267_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 1</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/soap-bubble-1958650_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 2</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2014/12/02/22/05/snowflakes-554635_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 3</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2018/10/19/12/14/train-3758523_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 4</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2015/11/27/08/50/snowflake-1065155_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 5</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                    <div class="swiper-slide" tabindex="0">
+                        <img src="https://cdn.pixabay.com/photo/2017/02/14/03/03/ama-dablam-2064522_960_720.jpg" alt="">
+                        <div class="txt-box">
+                            <h3>Slide 6</h3>
+                            <!-- <a href="javascript:;">바로가기</a> -->
+                        </div>
+                    </div>
+                </div>
+                
+                <button  type="button" class="swiper-button-prev"></button>
+
+                <!-- Swiper paganations -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- Swiper controll buttons -->
+                <button class="swiper-button-play swiper-controll-button" style="display:none"></button>
+                <button class="swiper-button-pause swiper-controll-button"></button>
+
+            </div>
+            <!--/ 슬라이드 -->
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <a href="#">상위</a>
+
+            <script>
+            // Swiper 알게 된 점
+            // 1. Swiper에 포커스가 들어오면 autolay 멈추기
+            // -- 자체작동 swiper-slide에 tabindex="0"를 주어 포커스가 들어오면 auto가 멈춘다 
+                // ++ 컨트롤 아이콘 히든 또는 play버튼이 보이게 하기
+                // 레이블을 토글하기 위해서 aria-pressed 값을 추가하기 보다는 button요소를 사용하자
+            // 2. Swiper에 포커스가 들어오면 loop제거
+            // -- swiper.removeSlide([0,1,2]) 기존만 삭제 clone은 안없어짐ㅠ  
+
+            $(function(){	
+                $mySwiperPlay = $('.mySwiper .swiper-button-play'),
+                $mySwiperPause = $('.mySwiper .swiper-button-pause'),
+                $mySwiperControll = $('.mySwiper .swiper-controll-button');
+                $mySwiperSlides = $('.mySwiper .swiper-slide');
+
+            if($('.mySwiper').length > 0){
+                const mySwiper = new Swiper('.mySwiper', {
+                    pagination:{
+                        el: '.swiper-pagination',
+                        // type:'fraction',
+                        clickable: 'true',
+                    },
+                    slidesPerView: 1,
+                    loop: 'true',
+                    navigation:{
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev'
+                    },
+                    a11y: {
+                        prevSlideMessage: '이전 슬라이드',
+                        nextSlideMessage: '다음 슬라이드',
+                        slideLabelMessage: '총 {{slidesLength}}장의 슬라이드 중 {{index}}번 슬라이드 입니다.',
+                    },
+                    autoplay: {  
+                        delay: 4000, 
+                        disabalOnInteraction: 'true',
+                    },
+                    watchOverflow: 'true',//슬라이드가 1개 일때 pager, button 숨김
+                    breakpoints: {
+                        768:{
+                            slidesPerView: 3,
+                            centeredSlides : 'true', // 슬라이드 가운데로 배치
+                            loop: 'true',
+                            keyboard: {
+                                enabled: true,
+                            },				
+                        },
+                    },
+                    on:{
+                        init: function(){
+                            var self = this; // binding을 위함
+                            var checkswiper = $('.swiper.mySwiper');
+                            // console.log(checkswiper); 
+                            
+                            setTimeout(function() {
+                                // console.log(self)
+                                self.el.addEventListener('focus', function(){
+                                    self.autoplay.stop();
+                                })
+
+                                if (self.autoplay.running === true){
+                                    $(self.el).find('.swiper-button-next').hide();
+                                } else {
+                                    $(self.el).find('.swiper-button-prev').hide();
+                                }
+
+                                for(let i = 0; i < $mySwiperSlides.length; i++){
+                                    $(self.wrapperEl).find('.swiper-slide').on('focus', function(e){
+                                        console.log(e);
+                                    })
+                                }
+                                // 	// clone 슬라이드 add
+                                // 	// self.loop = true;
+                                // }
+                            },0)
+                        }
+
+                    },
+                });
+
+                function controllSwiper(swiper, pauseBtn, playBtn){
+                    if(swiper.autoplay.running === true){
+                        swiper.autoplay.stop();
+                        $mySwiperPause.hide();
+                        $mySwiperPlay.show();
+                    } else {
+                        swiper.autoplay.start();
+                        $mySwiperPlay.hide();
+                        $mySwiperPause.show();
+                    }
+                }
+
+                $mySwiperControll.off('click').on('click', function(){
+                    controllSwiper(mySwiper, $mySwiperPause, $mySwiperPlay)
+                });
+                
+                var agent = navigator.userAgent;
+                agent = agent.toLowerCase();
+                // console.log(agent)
+
+                if(agent.indexOf('windows') > -1){
+                    // console.log('Iam PC');
+                    //'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
+                } else if(agent.indexOf('mobile') > -1){
+                    console.log('Iam Mobile');
+                    //'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Mobile Safari/537.36'
+
+                }
+            }
+            })
+                
+                
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+            .div {
+                --value1:30%;
+                --value2:30%;
+                --value3:40%;
+                --result1 : var(--value1);
+                --result2 : calc(var(--result1) + var(--value2));
+                --result3 : calc(var(--result2) + var(--value3));
+                
+                width:30vw;
+                height:30vw;
+                border-radius:100%;
+    
+                background:conic-gradient(red var(--result1), yellow var(--result1), yellow var(--result2), blue var(--result2));
+                }
+    
+    
+                :root{
+                    --val1:30%
+                }
+                .circle{width:20vw; height:20vw; border-radius:50%; background:conic-gradient(red 6deg, orange 6deg 18deg, yellow 18deg 45deg, green 45deg 110deg, blue 110deg 200deg, purple 200deg);}
+            </style>
+            <h2>Pie Chart css test</h2>
+            <div class="div" style="--value1:20%; --value2:70%;"></div>
+            <div class="div"></div>
+            <div class="circle"></div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+                html{font-size:62.5%}
+                body{margin:0; font-size:16px; background:gray}
+                ul{margin:0; padding:0;}
+                li{list-style:none;}
+        
+                .container{position:relative; }
+                .slider_wrap{overflow:hidden; width:980px; margin:0 auto;}
+                .slides{display:flex; transform:translateX(0px)}
+                .slide{flex:1 0 100%; height:600px;}
+                .slide0{background:firebrick}
+                .slide1{background:forestgreen}
+                .slide2{background:goldenrod}
+                .slide3{background:hotpink}
+                .prev{position:absolute; top:50%; left:50%; transform:translate(-520px, -50%);}
+                .prev::before{content:'<';}
+                .next{position:absolute; top:50%; right:50%; transform:translate(520px, -50%);}
+                .next::before{content:'>';}
+                .pause{position:absolute; bottom:-23px; left:50%; transform:translateX(-85px)}
+                .pause::before{content:'||';}
+                .pagenation_wrap{text-align:center;}
+            </style>
+            <div class="container">
+                <div class="slider_wrap">
+                    <button type="button" class="next">다음</button>
+                    <ul class="slides">
+                        <!-- last Object.assign() -->
+                        <li class="slide slide0" data-idx="1">slide 1</li>
+                        <li class="slide slide1" data-idx="2">slide 2</li>
+                        <li class="slide slide2" data-idx="3">slide 3</li>
+                        <li class="slide slide3" data-idx="4">slide 4</li>
+                        <!-- first Object.assign() -->
+                    </ul>
+                    <div class="pagenation_wrap">
+                        <button type="button" class="btn">1</button>
+                        <button type="button" class="btn">2</button>
+                        <button type="button" class="btn">3</button>
+                        <button type="button" class="btn">4</button>
+                    </div>
+                    <button type="button" class="prev">이전
+                    </button>
+                    <button type="button" class="play">재생</button>
+                    <button type="button" class="pause">정지</button>
+                </div>
+            </div>
+            
+            <script>
+                /* 슬라이드 스크립트 기재 */
+        
+                // $('.a').click(function(){
+                //     $(this).siblings().css({'color': 'red'});
+                //     $(this).css('color','white');
+                // })
+                // $('.b').click(function(){
+                //     $(this).siblings().css({'color': 'red'});
+                //     $(this).css('color','white');
+                // })
+                // $('.c').click(function(){
+                //     $(this).siblings().css({'color': 'red'});
+                //     $(this).css('color','white');
+                // })
+                // $('.d').click(function(){
+                //     $(this).siblings().css({'color': 'red'});
+                //     $(this).css('color','white');
+                // })
+        
+                /* 
+                    기본상태: 자동으로 슬라이드가 이동 1-2-3-4-1-2-3-4...
+                    + 슬라이드 갯수에 맞게 페이지네이션(인디케이터) 생성해보기
+                    상태에 따른 변화:
+                    1. next버튼을 누르면 현재 있는 슬라이드의 다음 슬라이드를 보여준다.
+                    2. prev버튼을 누르면 현재 있는 슬라이드의 이전 슬라이드를 보여준다.
+                    3. pagenation버튼을 누르면 페이지버튼 순서에 맞는 슬라이드를 보여준다.
+                    4. pause버튼을 누르면 일시정지 다시 누르면 멈춘 슬라이드부터 다시 자동 슬라이드 재생
+                */
+                
+                // 인자(파라미터)를 활용하고 공통(기준)부분은 하나로 묶어주기
+                // 이미지들을 배열에 담고(이미지 갯수와 인덱스 넘버가 기중)
+                // 이미지 갯수에 맞게 네비게이터 버튼이 생성되고
+                // 네비게이터를 누르면 순서에 맞는 이미지가 보여진다
+                // 슬라이드를 감싸고 있는 슬라이드 컨테이너의 가로값이 바뀐다.
+                // prev, next버튼을 누르면 이전, 다음 슬라이드로 이동한다
+                
+        
+                (function(){
+                    // val
+                    let idx = null; 
+                    let inter = null;
+                    const slide = [];
+                    const btn = [];
+                    const slides = document.querySelectorAll('.slide');
+                    const li = document.querySelector('li')
+                    const btns = document.querySelectorAll('.btn');
+                    const slider = document.querySelector('.slides');
+                    const btnWrap = document.querySelector('.pagenation_wrap');
+                    const pauseBtn = document.querySelector('.pause');
+                    const prevBtn = document.querySelector('.prev');
+                    const nextBtn = document.querySelector('.next');
+        
+                    for(let i = 0; i < slides.length; i++){
+                        slide[i] = slides[i].getAttribute('data-idx');
+                        // console.log(slide[i])
+                    }
+                    for(let i = 0; i < btns.length; i++){
+                        btn[i] = btns[i];
+                    }
+                    
+                    // func
+                    function createBtn(target, tag, data){
+                        for(let i = 0; i < data.length; i++){
+                            target.innerHTML+=`
+                            <${tag} type="button" class="btn">
+                                ${slide[i]}
+                            </${tag}>
+                            `
+                        }
+        
+                    }
+                    // createBtn(btnWrap, 'button', slides)
+                    // 동적으로 생성한 버튼에 이벤트거는법 찾기
+        
+                    function autoSlide(){
+                        if(idx < slides.length-1){
+                            idx++;
+                            slider.style.transform = `translate(-${li.offsetWidth * idx}px)`;
+                        }else{
+                            slider.style.transform = `translate(0px)`;
+                        }
+                    }
+        
+                    function slideMove(j){
+                        idx = j
+                        slider.style.transform = `translate(-${li.offsetWidth * idx}px)`;
+                    }
+        
+                    function pause(){
+                        let toggle = true;
+                        
+                        if(toggle){
+                            clearInterval(inter);
+                            toggle = false;
+                            console.log(toggle)
+                        }else{
+                            inter = setInterval(autoSlide, 2000);
+                            toggle = true;
+                            console.log(toggle)
+                        }
+                        
+                        
+                    }
+        
+                    function prev(){
+                        if(idx == 0){
+                            idx = 0;
+                        }
+                        idx--;
+                        slider.style.transform = `translate(${li.offsetWidth * idx}px)`;
+                    }
+        
+                    function next(){
+                        if(idx >= slides.length -1){
+                            idx = -1;
+                        }
+                        idx++
+                        slider.style.transform = `translate(-${li.offsetWidth * idx}px)`;                
+                    }
+        
+                    //event
+                    window.addEventListener('load', function(){
+                        inter = setInterval(autoSlide, 2000)
+                    })
+                    pauseBtn.addEventListener('click',()=> pause());
+                    prevBtn.addEventListener('click', ()=> prev());
+                    nextBtn.addEventListener('click', ()=> next());
+        
+                    for(let i = 0; i < btns.length; i++){
+                        btn[i].addEventListener('click', function(){
+                            slideMove(i)
+                        })
+                    }
+                })()
+        
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+                /* common */
+                html{font-size:62.5%;}
+                body{margin:0; font-size:16px; color:#333;}
+                ul{margin:0; padding:0;}
+                li{list-style:none;}
+                a{text-decoration:none;}
+                button{all:unset}
+                .a11y{position:absolute; width:1px; height:1px; font-size:1px; overflow:hidden; opacity:0;}/*레진정찬명*/
+        
+                .wrap{position:relative; width:100vw; height:100vh;}
+                header{position:absolute; bottom:0; left:0;  right:0; height:8rem; background:#fff;}
+                nav{display:flex; justify-content:center; align-items:center; height:100%;} /*세로로 가운데 정렬하려면 세로값이 있어야 함*/
+                .tabs{display:flex; width:100%; margin:1rem; list-style:none;}
+                .tab{flex:1 1 25%;}
+                .tab_btn{display:block; padding:1rem; }
+                .tab_btn span{font-size:1.4rem;}
+                .tab_container{width:100vw; height:100vh}
+                .tab_conts.active{display:block;}
+                .tab_conts{display:none; height:100%; padding:1rem;}
+        
+                /* tab */
+                .tap_wrap{width:980px; margin:0 auto;}
+                .tab_list{display: flex;}
+                .tab{flex:1 0 auto; text-align: center; border:1px solid #ccc;}
+                .tab.on{border-top:2px solid blue; border-bottom:0;}
+                .tab_panel_wrap{border:1px solid #ccc; border-top:0;}
+                .tab_panel{display:none; padding:10px 24px;}
+                .tab_panel.on{display:block;}
+            </style>
+            <h2>UI build-01 - tab</h2>
+            <!-- 
+        ### 방법1. 탭으로만 이동할 때
+        탭1 > 탭2 > 탭3 > 탭4 > 컨텐츠
+        
+        tabindex = -1 은 최대한 안쓰는게 좋음
+
+        role="tablist" aria-labelledby="탭제목"
+            - wrap이 있다면 role="none"<< 상위에 wrap이 있다면 하위에 있는 ul요소는 role="none" 이라는 건가?
+            - role="tab"
+                aria-selected="true||false"
+                aria-controls="콘텐츠 아이디"
+        
+        role="tabpanel" || select된 거 외에 display:none이라서 안읽어 줌
+        aria-labelledby="버튼아이디 or 버튼랩아이디"
+        id="컨텐츠아이디"
+        
+        ### 방법2. 방향키로 이동을 추가할 때
+        탭1 > 방향키로 탭이동 > 원하는 곳에서 tab키보드시 컨텐츠로 이동
+        (주의 좌우 키보드는 되지만 세로키보드는 이동이 된다는걸 알려줘야 함. role="tablist" aria-orientation="vertical")
+     -->
+            <div class="wrap">
+                <header>
+                    <nav>
+                        <h2 id="tabTit" class="a11y">글로벌 네비게이션 탭</h2>
+                        <ul class="tabs" role="tablist" aria-labelledby="tabTit">
+                            <li class="tab active" role="presentation">
+                                <a id="tab1" href="" class="tab_btn" role="tab" aria-selected="true" aria-controll="tabCont1">
+                                    <i class="fa-solid fa-house"></i> <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="tab" role="presentation">
+                                <a id="tab2" href="" class="tab_btn" role="tab" aria-selected="false" aria-controll="tabCont2">
+                                    <i class="fa-solid fa-heart"></i> <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="tab" role="presentation">
+                                <a id="tab3" href="" class="tab_btn" role="tab" aria-selected="false" aria-controll="tabCont3">
+                                    <i class="fa-solid fa-magnifying-glass"></i> <span>Home</span>
+                                </a>
+                            </li>
+                            <li class="tab" role="presentation">
+                                <a id="tab4" href="" class="tab_btn" role="tab" aria-selected="false" aria-controll="tabCont4">
+                                    <i class="fa-solid fa-user"></i> <span>Home</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+                <div class="tab_container">
+                    <section id="tabCont1" class="tab_conts active" role="tabpanel" aria-labelledby="tab1" style="background-color:darkblue;">
+                        <h2 class="cont_tit">tab content 01</h2>
+                    </section>
+                    <section id="tabCont2" class="tab_conts" role="tabpanel" aria-labelledby="tab2" style="background-color:darkolivegreen;">
+                        <h2 class="cont_tit">tab content 02</h2>
+                    </section>
+                    <section id="tabCont3" class="tab_conts" role="tabpanel" aria-labelledby="tab3" style="background-color:darkcyan;">
+                        <h2 class="cont_tit">tab content 03</h2>
+                    </section>
+                    <section id="tabCont4" class="tab_conts" role="tabpanel" aria-labelledby="tab4" style="background-color:darkmagenta;">
+                        <h2 class="cont_tit">tab content 04</h2>
+                    </section>
+                </div>
+            </div>
+            <div class="tap_wrap">
+                <ul class="tab_list" role="tablist">
+                    <li id="tab01" class="tab on" role="presentation"><button type="button" role="tab" aria-controls="tabCont1" aria-selected="true">A</button></li>
+                    <li id="tab02" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont2" aria-selected="false">B</button></li>
+                    <li id="tab03" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont3" aria-selected="false">C</button></li>
+                    <li id="tab04" class="tab" role="presentation"><button type="button" role="tab" aria-controls="tabCont4" aria-selected="false">D</button></li>
+                </ul>
+                <div class="tab_panel_wrap">
+                    <div id="tabCont1" class="tab_panel on" aria-labelledby="tab01" aria-selected="true">
+                        <div>
+                            <h1>A</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum, eius consectetur facere a, doloremque sint animi illum, aliquid veritatis quisquam nemo odio deserunt? Dolorum dicta saepe natus quibusdam nisi voluptate.</div>
+                    </div>
+                    <div id="tabCont2" class="tab_panel" aria-labelledby="tab02" aria-selected="false">
+                        <div>
+                            <h1>B</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi.</div>
+                    </div>
+                    <div id="tabCont3" class="tab_panel" aria-labelledby="tab03" aria-selected="false">
+                        <div>
+                            <h1>C</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem molestias libero velit, deserunt blanditiis aspernatur reiciendis eaque facilis similique maxime optio, ea consectetur. Recusandae officia nihil itaque eveniet expedita nisi.</div>
+                    </div>
+                    <div id="tabCont4" class="tab_panel" aria-labelledby="tab04" aria-selected="false">
+                        <div>
+                            <h1>D</h1>: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde ad cum ut quibusdam sunt cumque rerum obcaecati, dolores, nesciunt doloremque corporis sed veritatis, facilis dolore assumenda magni. Delectus, id modi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab repellendus debitis ad similique reiciendis, iure culpa a repudiandae libero cupiditate voluptate voluptatem ipsum provident! Perferendis consectetur soluta recusandae ducimus mollitia.</div>
+                    </div>
+                </div>
+            </div>
+     
+            <script>
+                // 탭의 기본 상태 - 첫번째 탭컨텐츠를 보여준다.
+                // 탭 노출 조건 - n번째 탭을 눌렀는지에 맞춰 n번쨰 탭 컨텐츠를 보여준다.
+                // 탭 비노출 조건 - 선택하지 않은 탭들은 비노출
+                // 탭의 상태에 따른 변화 - 내가 누른 탭에만 탭제목(text)이 노출 되고, 탭 사이즈도 유동적으로 바뀜
+                /* 
+                    기본상태: 첫번째 탭과 탭 패널에만 class="on"이 있어 보여짐
+                    노출되는 조건: 세번째 탭을 누르면 세번째 탭 패널이 보여짐
+                    비노출 되는 조건: 선택 한 탭이 아닌 패널은 비노출
+                    상태에 따른 변화: 선택한 탭 상단에만 보더가 추가 됨 나머지 탭에는 없음
+                */
+            (function(){
+                // val
+                let idx = null;
+                const tab = [];
+                const tabPan = [];
+                const tabList = document.querySelectorAll(".tab");
+                const tabPanList = document.querySelectorAll(".tab_panel")
+                
+                for(let i = 0; i < tabList.length; i++){
+                    tab[i] = tabList[i]
+                }
+                
+                // func
+                function tabOn(i){
+                    for(let i = 0; i < tabPanList.length; i++){
+                        tabPan[i] = tabPanList[i];
+                        !(tab[i]).classList.remove('on');
+                        !(tabPan[i]).classList.remove('on');
+                    }
+                    tab[i].classList.add('on');
+                    tabPan[i].classList.add('on');
+
+                }
+                
+                // event
+                for(let i = 0; i < tabList.length; i++){
+                    tab[i].addEventListener('click', function(){
+                        // console.log(tabList[i]);
+                        tabOn(i);
+                    })
+                    
+                }
+            })()       
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+                *{box-sizing:border-box;}
+                html{font-size:62.5%}
+                body{width:100vw; height:100vh; margin:0; font-size:16px; color:#333}
+        
+                /* Grid */
+                .wrap{padding:5rem; background-color:#111; box-shadow: 1px 1px 29px 0px #1e1e1ee0;}
+                .container{}
+                .grid.container{
+                    /* 그리드부모에 들어갈 속성 
+                        grid-template-columns, grid-templeat-rows, grid-auto-rows
+                    */
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-auto-rows: minmax(150px, auto);
+                    grid-gap: 1rem;
+                    grid-template-areas:
+                    'a b b'
+                    'a c c'
+                    'd d e'
+                    'f g e '
+                    'h g i'
+                }
+                .item{
+                    /* 그리드아이템에 들어갈 속성
+                        grid-column-start/end, grid-rows-start/end <<= 단축 grid-column: start / end, grid-row: start / end,
+                    */
+                    /* random 생활코딩작업시 사용한 url 
+                    background-image: url('https://source.unsplash.com/category/nature/1600x900'); */
+                    width: 100%;
+                    height: 100%;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+                .grid.container > .img1{
+                    grid-area: a;
+                    background-image: url('https://images.unsplash.com/photo-1673537191345-e6309d6e68e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+                    
+                }
+                .grid.container > .img2{
+                    grid-area: b;
+                    background-image: url('https://images.unsplash.com/photo-1673436765985-29ff48f2aa8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+                .grid.container > .img3{
+                    grid-area: c;
+                    background-image: url('https://images.unsplash.com/photo-1673433974982-c266e49dc0c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80');
+                }
+                .grid.container > .img4{
+                    grid-area: d;
+                    background-image: url('https://images.unsplash.com/photo-1673445425081-e15ba83117e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=673&q=80');
+                }
+                .grid.container > .img5{
+                    grid-area: e;
+                    background-image: url('https://plus.unsplash.com/premium_photo-1669640020567-ef5248fbd116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+                }
+                .grid.container > .img6{
+                    grid-area: f;
+                    background-image: url('https://images.unsplash.com/photo-1673536988707-cbd4512a58f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+                .grid.container > .img7{
+                    grid-area: g;
+                    background-image: url('https://images.unsplash.com/photo-1672707895215-9a93b1aed3c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+                }
+                .grid.container > .img8{
+                    grid-area: h;
+                    background-image: url('https://images.unsplash.com/photo-1673537226154-0cdb86867c6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80');
+                }
+                .grid.container > .img9{
+                    grid-area: i;
+                    background-image: url('https://images.unsplash.com/photo-1673551490752-ae8cd82831f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+        /* Flex */
+                .flex.container{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+                .flex.container .item{
+                    height:150px;
+                }
+                .flex2{display:flex; flex-direction:column; flex:2; gap:10px}
+                .flex.container .img1{
+                    display:flex;
+                    flex:1;
+                    align-content: stretch;
+                    align-items: stretch;
+                    background-image: url('https://images.unsplash.com/photo-1673537191345-e6309d6e68e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+                }
+                .flex.container .img2{
+                    
+                    background-image: url('https://images.unsplash.com/photo-1673436765985-29ff48f2aa8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+                .flex.container .img3{
+                    
+                    background-image: url('https://images.unsplash.com/photo-1673433974982-c266e49dc0c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80');
+                }
+                .flex.container .img4{
+                    flex:2;
+                    background-image: url('https://images.unsplash.com/photo-1673445425081-e15ba83117e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=673&q=80');
+                }
+                .flex.container .img5{
+                    flex:1;
+                    background-image: url('https://plus.unsplash.com/premium_photo-1669640020567-ef5248fbd116?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+                }
+                .flex.container .img6{
+                    background-image: url('https://images.unsplash.com/photo-1673536988707-cbd4512a58f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+                .flex.container .img7{
+                    background-image: url('https://images.unsplash.com/photo-1672707895215-9a93b1aed3c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+                }
+                .flex.container .img8{
+                    background-image: url('https://images.unsplash.com/photo-1673537226154-0cdb86867c6b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80');
+                }
+                .flex.container .img9{
+                    background-image: url('https://images.unsplash.com/photo-1673551490752-ae8cd82831f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+                }
+            </style>
+            <h2>UI build-02 - display:table ,float ,flex, grid</h2>
+            <div class="wrap">
+                <h2>Grid</h2>
+                <div class="grid container">
+                    <div class="item img1">Item1</div>
+                    <div class="item img2">Item2</div>
+                    <div class="item img3">Item3</div>
+                    <div class="item img4">Item4</div>
+                    <div class="item img5">Item5</div>
+                    <div class="item img6">Item6</div>
+                    <div class="item img7">Item7</div>
+                    <div class="item img8">Item8</div>
+                    <div class="item img9">Item9</div>
+                </div>
+            </div>
+            <div class="wrap">
+                <h2>Flex</h2>
+                <div class="flex container">
+                    <div class="item img1">1Item</div>
+                    <div class="flex2">
+                        <div class="item img2">2Item</div>
+                        <div class="item img3">3Item</div>
+                    </div>
+                </div>
+                <div class="flex container">
+                    <div class="item img4">4Item</div>
+                    <div class="item img7">7Item</div>
+                    <div class="flex2">
+                        <div class="item img6">6Item</div>
+                        <div class="item img8">8Item</div>
+                    </div>
+                    <div class="flex2">
+                        <div class="item img5">5Item</div>
+                        <div class="item img9">9Item</div>
+                    </div>
+                </div>
+            </div>
+                <script>
+            //         unsplash.photos.getPhoto("pFqrYbhIAXs");
+            
+            // {
+            //   "id": "pFqrYbhIAXs",
+            //   "created_at": "2017-05-30T17:30:44-04:00",
+            //   "updated_at": "2017-10-31T17:12:31-04:00",
+            //   "width": 3456,
+            //   "height": 2304,
+            //   "color": "#A49E9B",
+            //   "likes": 355,
+            //   "user": {
+            //     "id": "oB1kn_oBee",
+            //     "updated_at": "2018-04-10T13:27:21-04:00",
+            //     "username": "lukeskywalker",
+            //     "name": "Luke Skywalker",
+            //     "first_name": "Luke",
+            //     "last_name": "Skywalker",
+            //     "twitter_username": "HamillHimself",
+            //     "portfolio_url": "https://unsplash.com",
+            //     "bio": "I'm a hermit on a water planet. I don't need people. Please don't leave me. Gifted in the ways of the #Force.",
+            //     "location": "Luke's House, Tatooine",
+            //     "links": {
+            //       "self": "https://api.unsplash.com/users/lukeskywalker",
+            //       "html": "https://unsplash.com/@lukeskywalker",
+            //       "photos": "https://api.unsplash.com/users/lukeskywalker/photos",
+            //       "likes": "https://api.unsplash.com/users/lukeskywalker/likes",
+            //       "portfolio": "https://api.unsplash.com/users/lukeskywalker/portfolio",
+            //       "following": "https://api.unsplash.com/users/lukeskywalker/following",
+            //       "followers": "https://api.unsplash.com/users/lukeskywalker/followers"
+            //     },
+            //     "profile_image": {
+            //       "small": "https://images.unsplash.com/profile-1446404465118-3a53b909cc82?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32&s=a2f8c40e39b8dfee1534eb32acfa6bc7",
+            //       "medium": "https://images.unsplash.com/profile-1446404465118-3a53b909cc82?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64&s=3ef46b07bb19f68322d027cb8f9ac99f",
+            //       "large": "https://images.unsplash.com/profile-1446404465118-3a53b909cc82?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=27a346c2362207494baa7b76f5d606e5"
+            //     },
+            //     "total_collections": 6,
+            //     "instagram_username": "hamillhimself",
+            //     "total_likes": 1805,
+            //     "total_photos": 119
+            //   },
+            //   "urls": {
+            //     "raw": "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bc01c83c3da0425e9baa6c7a9204af81",
+            //     "full": "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjEyMDd9&s=ce40ce8b8ba365e5e6d06401e5485390",
+            //     "regular": "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=fb86e2e09fceac9b363af536b93a1275",
+            //     "small": "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=dd060fe209b4a56733a1dcc9b5aea53a",
+            //     "thumb": "https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=50827fd8476bfdffe6e04bc9ae0b8c02"
+            //   },
+            //   "links": {
+            //     "self": "https://api.unsplash.com/photos/KR2mdHJ5qMg",
+            //     "html": "https://unsplash.com/photos/KR2mdHJ5qMg",
+            //     "download": "https://unsplash.com/photos/KR2mdHJ5qMg/download",
+            //     "download_location": "https://api.unsplash.com/photos/KR2mdHJ5qMg/download"
+            //   },
+            //   "location": {
+            //     "name": "Tatooine, Outer Rim Territories",
+            //     "city": "Tatooine",
+            //     "country": "Outer Rim Territories",
+            //     "position": {
+            //       "latitude": 45.5017,
+            //       "longitude": 73.5673
+            //     }
+            //   },
+            //   "exif": {
+            //     "make": "Panasonic",
+            //     "model": "DC-GH5",
+            //     "exposure_time": "1/4000",
+            //     "aperture": "7.1",
+            //     "focal_length": "66",
+            //     "iso": 1000
+            //   },
+            //   "views": 1383736,
+            //   "downloads": 6344
+            // }
+                </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <style>
+                .boxq {
+                --size: 50px;
+                --p: 25px;
+                --R: 55.9px /* <- 3125px의 제곱근 = Math.sqrt(var(--size)*var(--size) + var(--p)*var(--p))*/;
+                  height: 200px;
+                  -webkit-mask:
+                    radial-gradient(var(--R) at 50% calc(100% - (var(--size) + var(--p))),blue 99%,#0000 101%) calc(50% - 2*var(--size)) 0/calc(4*var(--size)) 100%,
+                    radial-gradient(var(--R) at 50% calc(100% + var(--p)),#0000 99%,red 101%) 50% calc(100% - var(--size))/calc(4*var(--size)) 100% repeat-x;
+                  background:linear-gradient(90deg,red,blue);  
+                  border: none;
+                }
+              </style>
+              <h2>my wave</h2>
+              <div class="boxq"></div>
+        </section>
     </main>
     
     <script>
-    "use strict";
-    // 실행컨텍스트 공부하기 (javascript 동작원리 및 순서)
-    </script>
-    
-    <div class="ly_inner">
-        <style>
-            #box {
-                width: 300px;
-                height: 30px;
-                background-color:maroon;
-                color:#fff;
-            }
-            
-        </style>
-        
-        <div id="box" tabindex="0">99</div>
-        <script>
-            const element = document.getElementById("box");
-    
-            element.scrollIntoView();
-            element.scrollIntoView(false);
-            element.scrollIntoView({ block: "end" });
-            element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-        </script>
-    
-    </div>
-    <div class="ly_inner" style="margin-bottom:1000px;">
-        <ul>
-            <li class="item"><a href="javascript:;">1</a></li>
-            <li class="item"><a href="javascript:;">2</a></li>
-            <li class="item"><a href="javascript:;">3</a></li>
-            <li class="item"><a href="javascript:;">4</a></li>
-            <li class="item"><a href="javascript:;">5</a></li>
-            <li class="item"><a href="javascript:;">6</a></li>
-            <li class="item"><a href="javascript:;">7</a></li>
-            <li class="item"><a href="javascript:;">8</a></li>
-            <li class="item"><a href="javascript:;">9</a></li>
-            <li class="item"><a href="javascript:;">10</a></li>
-        </ul>
-    </div>
-    <div class="ly_inner">
-        <style>
-            .floating_wrap{position:fixed; top:auto; right:0; bottom:0; left:0; padding:16px; background-color:#888}
-            .floating_wrap .float_btn{all:unset; display:inline-block; width:100%; padding-top:8px; padding-bottom:8px;background-color:#476eff; color:#fff; text-align:center;}
-            /*appearance: none;*/
-        </style>
-        <div class="floating_wrap">
-            <button type="button" class="float_btn">나는 플로팅버튼</button>
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function(){ //ready
-                addEventListener("scroll", () => {
-                    var y = window.pageYOffset
-                    console.log(y);
-                }, false);// 스크롤이벤트
-                // window.scrollY  IE미지원 읽기전용
-                // window.pageYOffset; IE지원 읽기전용
-                console.dir(document.compatMode)
-                var el = document.querySelector("#box");
-                var elY = el.offsetTop;
-                console.log(elY)
-                // window.scroll 스크롤이동 scrollTo와 같음
-                // window.scrollBy 현재스크롤기준 스크롤이동
-                // window.scrollTo  문서왼쪽위모서리 기준 스크롤이동
-                
-                var box = document.querySelector("#box")
-                box.addEventListener("focus", function(){
-                    box.scrollIntoView({
-                        behavior:"smooth",
-                        block:"center",
-                    }) // 초점이 오면 ele가 보이는 상태로 문서왼쪽위모서리로 스크롤이동
-                }, false);
-                /* 포커스 들어오는 엘리먼트의 좌표를 offsetTop으로 알아오고
-                문서의 중앙정렬을 위해 scroll위치값을 window.innerHeight/2
-                요소의 절반값을 빼고 ㅎㄷㄷ;;*/
-
-                // IE9미만지원;;
-                var supportPageOffsetX = window.pageXOffset !== undefined;
-                var supportPageOffsetY = window.pageYOffset !== undefined;
-                // document.compatMode 문서렌더링모드체크 BackCompat || CSS1Compat
-                var isCSS1Compat = ((document.compatMode || "") === "CSS1Compat");
-                var x = supportPageOffsetX ? window.pageXOffset : isCSS1Compat ? document.documentElement.scrollLeft : document.body.scrollLeft;
-                var y = supportPageOffsetY ? window.pageYOffset : isCSS1Compat ? document.documentElement.scrollTop : document.body.scrollTop;
-
-                
-            }, false);
-            
-        </script>
-    </div>
-    <!-- 함수위임과 클로저, 스코프, 콜스택, js분석, 접근성js -->
-    <script>
+        "use strict";
+        // 실행컨텍스트 공부하기 (javascript 동작원리 및 순서)
+        // 함수위임과 클로저, 스코프, 콜스택, js분석, 접근성js 공부하기
         function clo(fn){
             return function(a, b){
                 return fn(a, b);
