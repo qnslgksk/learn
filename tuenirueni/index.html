@@ -4,207 +4,474 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TueniTueni 타입A</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theeluwin/NotoSansKR-Hestia@master/stylesheets/NotoSansKR-Hestia.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-    <link rel="stylesheet" href="css/index.css">
-    
+    <link rel="stylesheet" href="./css/index.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/common.js"></script>
+    <script src="./js/common.js"></script>
 
 </head>
 <body>
-    <!-- 모바일웹 작업 시 주의사항
-        1. 이미지의 배수 확인
-        2. px보다 rem
-        3. image export
 
-        구조
-        h1. 트니트니
-        └h2. 주요메뉴
-            nav>ul>li>a
-            - 홈
-            - 트니TV
-            - 커뮤니티
-            - 제품
-            - 이벤트
-
-        └h2. 프로그램 슬라이드 배너
-            ul>li
-
-        └h2. 메인프로그램
-            ul>li>a
-
-        └h2. 사용자정보 
-            사용자이름
-            수강중프로그램
-            즐겨찾기한프로그램
-            스탬프
-            사진
-
-        └h2. 감사편지
-            ul>li>a
-
-        └h2. 트니트니 다시 만나볼까요?
-            swiper>ul>li>a
-            이미지배너(슬라이드여부모름)
-
-        └h2. 트니TV
-            ul>li+더보기아이콘(해당목록?)>a영상플레이(상세화면 또는 팝업형태)
-
-        └h2. 트니 추천상품
-            ul>li+더보기아이콘(해당목록?)>a상품소개(상세화면 또는 팝업형태)
-
-        └h2. 커뮤니티
-            ul>li+더보기아이콘(해당목록?)>a커뮤니티상세페이지
-
-        └h2. 캠페인 배너
-            div>txt>a(링크이동이라면)
-        └h2. 공지사항
-            ul>li+더보기아이콘(해당목록?)>a공지상세페이지
-    -->
-    <header>
-        <div class="header_top">
-            <h1 class="logo"><a href=""><span class="hide">트니트니</span></a></h1>
-            <div class="icon_wrap">
-                <a class="icon_map" href=""><span class="hide">위치보기</span></a>
-                <a class="icon_bell" href=""><span class="hide">알람</span></a>
-            </div>
-        </div>
-        <h2 class="hide">주요메뉴</h2>
-        <nav class="gnb">
-            <ul>
-                <li class="active"><a href="">홈</a></li>
-                <li><a href="">트니TV</a></li>
-                <li><a href="">커뮤니티</a></li>
-                <li><a href="">제품</a></li>
-                <li><a href="">이벤트</a></li>
-            </ul>
-        </nav>
-        <button class="btn_program_view"><span class="hide">프로그램보기</span></button>
-    </header>
-    <section>
-        <h2 class="hide">프로그램배너</h2>
-        <div class="swiper visual">
-            <div class="swiper-wrapper">
-                <!-- 배너 갯수 제한 확인하기 -->
-                <div class="swiper-slide">
-                    <div class="visual_page1"><!--배경영역 사이즈 고정할지 확인하기-->
-                        <p class="txt"><span>튼튼한 신체놀이와<br>유대감 형성의 마음놀이</span><br><em>트니캠프!</em></p><!-- 텍스트 영역 사이즈 제한 여부 확인하기 -->
-                        <img class="img" src="images/tuenitueni-champ.png" alt="트니트니챔프">
-                        <a class="btn_go" href="">Go</a>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="visual_page2">
-                        <p class="txt"><span>부담없이 집에서<br>전문가와 함께 즐기는</span><br><em>트니홈!</em></p>
-                        <img class="img" src="images/tuenitueni-home.png" alt="트니트니홈">
-                        <a class="btn_go" href="javascript:;">Go</a>
-                    </div>
+    <div id="wrap">
+        <header> 
+            <div class="header_top">
+                <h1 class="logo"><a href=""><span class="hide">트니트니</span></a></h1>
+                <div class="icon_wrap">
+                    <a href="" class="icon_map"><span class="hide">위치보기</span></a>
+                    <a href="" class="icon_bell"><span class="hide">알람</span></a>
                 </div>
             </div>
-        </div>
-    </section> 
-    <section class="user">
-        <h2 class="hide">사용자정보</h2>
-        <div class="user_info">
-            <!-- login -->
-            <div class="user_parent">
-                <span>안녕하세요. <span class="user_name">승호 트니맘</span> 님</span>
-                <div class="kids">
-                    <h3 class="hide">자녀정보</h3>
-                    <span class="kids_profile1"></span>
-                    <span class="kids_profile2 last"></span><!-- 아이등록 몇명까지 제한 되는지 확인하기 -->
-                </div>
-            </div>
-            <div class="user_status">
+            <h2 class="hide">주요메뉴</h2>
+            <nav class="gnb">
                 <ul>
-                    <li>
-                        <dl>
-                            <dt>수강중</dt>
-                            <dd><span class="hide">클래스</span>3<span class="hide">개</span>
-                            </dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>즐겨찾기</dt>
-                            <dd>46<span class="hide">개</span></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>스템프</dt>
-                            <dd><img src="" alt=""><span class="badge_stamp_num">28</span></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <dl>
-                            <dt>사진</dt>
-                            <dd>87<span class="hide">개</span></dd>
-                        </dl>
-                    </li>
+                    <li class="active"><a href="">홈</a></li>
+                    <li><a href="">트니TV</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">제품</a></li>
+                    <li><a href="">이벤트</a></li>
                 </ul>
-                <div class="chidren">
-                    <img src="" alt="">
-                    <img src="" alt="">
+            </nav>
+            <button id="btnProgramView" class="btn_program_view"><span class="hide">프로그램 목록보기</span></button>
+        </header>
+        <section class="visual_container">
+            <h2 class="hide">프로그램배너</h2>
+            <div class="swiper visual">
+                <div class="swiper-wrapper">
+                    <!-- 배너 갯수 제한 확인하기 -->
+                    <div class="swiper-slide">
+                        <div class="visual_page1"><!--배경영역 사이즈 고정할지 확인하기-->
+                            <p class="visual_txt"><span>튼튼한 신체놀이와<br>유대감 형성의 마음놀이</span><br><em>트니캠프!</em></p><!-- 텍스트 영역 사이즈 제한 여부 확인하기 -->
+                            <img class="visual_img" src="images/tuenitueni-champ.png" alt="트니트니챔프">
+                            <a href="" class="btn_visual_go" href="">Go</a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="visual_page2">
+                            <p class="visual_txt"><span>부담없이 집에서<br>전문가와 함께 즐기는</span><br><em>트니홈!</em></p>
+                            <img class="visual_img" src="images/tuenitueni-home.png" alt="트니트니홈">
+                            <a href="" class="btn_visual_go" href="javascript:;">Go</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- // login -->
-            <!-- logout -->
-            <!-- <span>트니트니 회원가입 후</span><br>다양한 트니 활동 및 혜택을 경험하세요!
-            <a href="" class="join">회원가입</a>
-            <a href="" class="login">로그인</a> -->
+        </section> 
+        <section class="user_container">
+            <h2 class="hide">사용자정보</h2>
+            <div class="user_info">
+                <!-- logout -->
+                <!-- <div class="logout">
+                    <p class="welcome">트니트니 회원가입 후<br>
+                        <em>다양한 트니 활동 및 혜택을 경험하세요!</em></p>
+                    <div class="btn_container">
+                        <a href="" class="join">회원가입</a>
+                        <a href="" class="login">로그인</a>
+                    </div>
+                </div> -->
+                <!-- // logout -->
+                <!-- login --><!-- 아이등록 몇명까지 제한 되는지 확인하기 -->
+                <div class="login">
+                    <h3 class="user_greeting">안녕하세요. <em class="user_name">승호 트니맘</em> 님</h3>
+                    <ul class="kids">
+                        <li class="kids_profile">
+                            <img src="./images/kid2.png">
+                        </li>
+                        <li class="kids_profile">
+                            <img src="./images/kid2.png">
+                        </li>
+                    </ul>
+                    <ul class="user_status">
+                        <li class="user_item">
+                            <a href="javascript:;" class="user_item_link">
+                                <span class="value">3</span>
+                                <p class="tit">수강중</p>
+                            </a>
+                        </li>
+                        <li class="user_item">
+                            <a href="javascript:;" class="user_item_link">
+                                <span class="value">46</span>
+                                <p class="tit">즐겨찾기</p>
+                            </a>
+                        </li>
+                        <li class="user_item">
+                            <a href="javascript:;" class="user_item_link">
+                                <div class="stamp_img">
+                                    <img src="./images/little_kiki.png" alt="">
+                                    <span class="badge_stamp_num">28</span>
+                                </div>
+                                <p class="tit">스템프</p>
+                            </a>
+                        </li>
+                        <li class="user_item">
+                            <a href="javascript:;" class="user_item_link">
+                                <span class="value">87</span>
+                                <p class="tit">사진</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- // login -->
+            </div>
+        </section>
+        <section class="letter_container">
+            <div class="tit2_wrapper">
+                <h2 class="tit2">감사편지</h2>
+            </div>
+            <div class="swiper letter">
+                <div class="swiper-wrapper">
+                    <!-- 배너 갯수 제한 확인하기 -->
+                    <div class="swiper-slide">
+                        <a href="javascript:;" class="letter_links"><!--배경영역 사이즈 고정할지 확인하기-->
+                            <div class="letter_conts">
+                                <h3 class="letter_tit">선생님!잘지내시죠?</h3>
+                                <p class="letter_desc">저번주 트니트니 수업 다녀와서 현준이가 너무 귀여운 행동을 해서 이렇게 편지를 써요~선생님 따라 하더라구요ㅎ수첩들고와서 출석부인냥 자기가 수첩보면서 부르고 대답하고ㅎㅎ방석들고와서...</p>
+                                <div class="letter_header">
+                                    <div class="letter_logo"><img src="./images/tuenitueni-ground.png" alt="트니트니그라운드"></div>
+                                    <span class="letter_author">독수리 김태훈</span>
+                                </div>
+                            </div>
+                            <div class="letter_footer">
+                                <div class="letter_age">24개월</div>
+                                <span class="btn_letter_more"><span class="hide">내용더보기</span></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;" class="letter_links">
+                            <div class="letter_conts">
+                                <h3 class="letter_tit">사소하지만 고맙습니다.</h3>
+                                <p class="letter_desc">선생님!벌써 수업 시작한지 1개월이 다 되어 가네요. 처음엔 우리 아이가 잘 적응할 수 있을까.. 또래 친구들과 잘 어울릴 수 있을까 노심초사 했던것 같아요. 그런 노파심이...</p>
+                                <div class="letter_header">
+                                    <div class="letter_logo"><img src="./images/tuenitueni-ground.png" alt="트니트니그라운드"></div>
+                                    <div class="letter_author">독수리 김태훈</div>
+                                </div>
+                            </div>
+                             <div class="letter_footer">
+                                <div class="letter_age">24개월</div>
+                                <span class="btn_letter_more"><span class="hide">내용더보기</span></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="" class="btn_conts_more">
+                <i></i><i></i><i></i>
+                <span class="hide">편지 더보기</span>
+            </a>
+        </section>
+        <section class="program_container">
+            <!-- <h2 class="hide">참여프로그램</h2> -->
+            <h2 class="tit">트니트니, 다시 만나볼까요?!</h2>
+            <div class="swiper program">
+                <div class="swiper-wrapper">
+                    <!-- 배너 갯수 제한 확인하기 -->
+                    <div class="swiper-slide">
+                        <a href="javascript:;" class="program_conts">
+                            <div class="img">
+                                <img src="./images/th1.png" alt="">
+                                <img class="abs_logo" src="./images/program-logo1.png" alt="">
+                            </div>
+                            <div class="txt">
+                                <div class="nickplace">뽀빠이</div>
+                                <div class="teacher">류제민 트니쌤</div>
+                                <div class="date">2021.11.20</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;" class="program_conts">
+                            <div class="img">
+                                <img src="./images/th1.png" alt="">
+                                <img class="abs_logo" src="./images/program-logo1.png" alt="">
+                            </div>
+                            <div class="txt">
+                                <div class="nickplace">홈플러스<br> 서울남현 2차</div>
+                                <!-- <div class="teacher">류제민 트니쌤</div> -->
+                                <div class="date">2021.11.20</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="program_conts">
+                            <div class="img">
+                                <img src="./images/th1.png" alt="">
+                                <img class="abs_logo" src="./images/program-logo1.png" alt="">
+                            </div>
+                            <div class="txt">
+                                <div class="nickplace">뽀빠이</div>
+                                <div class="teacher">류제민 트니쌤</div>
+                                <div class="date">2021.11.20</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="program_conts">
+                            <div class="img">
+                                <img src="./images/th1.png" alt="">
+                                <img class="abs_logo" src="./images/program-logo1.png" alt="">
+                            </div>
+                            <div class="txt">
+                                <div class="nickplace">뽀빠이</div>
+                                <div class="teacher">류제민 트니쌤</div>
+                                <div class="date">2021.11.20</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <a href="javascript:;" class="btn_conts_more2">
+                <i></i><i></i><i></i>
+                <span class="hide">프로그램 더보기</span>
+            </a>
+        </section>
+        <section class="event_container">
+            <h2 class="hide">진행중 이벤트</h2>
+            <a href="javascript:;" class="event_banner">
+                <img src="./images/bn-prgram.jpg" alt="신규상품 출시 기념 리뷰쓰고 포인트 받자 12월1일부터 12월 31일 까지">
+            </a>
+        </section>
+        <section class="tv_container">
+            <h2 class="tit2">트니TV</h2>
+            <ul class="tv_conts_list">
+                <li>
+                    <a href="javascript:;" class="tv_conts">
+                        <div class="video_area">
+                            <span class="hide">재생</span>
+                            <img src="./images/tv1.png" alt="">
+                        </div>
+                        <div class="video_txt">
+                            <div class="video_tit">금발머리 소녀와 곰...</div>
+                            <div class="video_desc">곰 세마리집에 반가운 손님이 찾아왔어요.</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="tv_conts">
+                        <div class="video_area"> 
+                            <span class="hide">재생</span>
+                            <img src="./images/tv1.png" alt="">
+                        </div>
+                        <div class="video_tit">우리는 트니프렌즈</div>
+                        <div class="video_desc">300만 영유아들이 경험한 놀이체육프로그램...</div>
+                    </a>
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn_conts_more">
+                <i></i><i></i><i></i>
+                <span class="hide">tv 더보기</span>
+            </a>
+        </section>
+        <section class="product_container">
+            <h2 class="tit2">트니 추천상품</h2>
+            <ul class="product_list">
+                <li>
+                    <a href="javascript:;" class="product_conts">
+                        <div class="product_area">
+                            <img src="./images/product-1.png" alt="">
+                        </div>
+                        <div class="product_txt">
+                            <div class="product_tit">어린이 카메라 2 트니...</div>
+                            <div class="product_desc">트니프랜즈 골드 에디션</div>
+                            <div class="product_price-del"><del>64,000원</del><span>(34%)</span></div>
+                            <div class="product_price">35,250<span>원</span> <div class="evalueate">★★★★★</div></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;" class="product_conts">
+                        <div class="product_area"> 
+                            <img src="./images/product-2.png" alt="">
+                        </div>
+                        <div class="product_txt">
+                            <div class="product_tit">트니컬러풀 축구공</div>
+                            <div class="product_desc">푹신푹신 말랑말랑 축구교재</div>
+                            <div class="product_price-del"><del>20,000원</del><span>(12%)</span></div>
+                            <div class="product_price">35,250<span>원</span> <div class="evalueate">★★★★★</div></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn_conts_more">
+                <i></i><i></i><i></i>
+                <span class="hide">추천상품 더보기</span>
+            </a>
+        </section>
+        <hr class="separator">
+        <section class="community_container">
+            <h2 class="tit2">커뮤니티</h2>
+            <ul class="community_list">
+                <li>
+                    <div class="community_tit">떼쓰기 대왕 4살아이 어떻게 해야 할까요?</div>
+                    <div class="community_txt">아침에 어린이집 갈때마다 진짜 전쟁이에요.씻으러 들어가면 아주 난리난리나고,그냥 뭐든 다 싫다 안한다 드러눕고 울고불고 악지르고...아침부터 전쟁이 시작됩...</div>
+                    <div class="community_date">2일전<div><span class="help">도움 25</span> <span class="comment">댓글 13</span></div></div>
+                </li>
+                <li class="last">
+                    <div class="community_tit">연년생 키우기 힘들다힘들다 하시는데...</div>
+                    <div class="community_txt">연년생 2살 1살 남매를 키우고 있는 초보(?)맘이에요...둘째는 모유수유를해서 배고프거나 졸릴때 항상 안고 있어요 첫째는 자동 엄마껌딱지구요. 원래는 아빠 껌딱지 였는데...</div>
+                    <div class="community_date">2일전<div><span class="help">도움 25</span><span class="comment">댓글 13</span></div></div>
+                </li>
+            </ul>
+                
+            
+            <a href="javascript:;" class="btn_conts_more">
+                <i></i><i></i><i></i>
+                <span class="hide">커뮤니티 더보기</span>
+            </a>
+        </section>
+        <section class="banner_container">
+            <h2 class="hide">응원캠페인배너</h2>
+            <div class="banner_cheer">
+                <div class="banner_txt">
+                    <div class="tit">우리 서로를 응원해요!</div>
+                    <div class="desc">지금 가장 듣고 싶은 응원의 말로 서로를 위로해 주세요!</div>
+                    <a href="" class="btn_cheer">트니트니 응원 캠페인</a>
+                </div>
+            </div>
+        </section>
+        <section class="notice_container">
+            <h2 class="tit2">공지사항</h2>
+            <ul class="notice_list">
+                <li>
+                    <h3 class="notice_tit">[트니홈] 신규 프로그램 안내</h3>
+                    <div class="notice_txt">
+                    <p class="notice_desc">트니홈에 신규 프로그램이 추가되었습니다</p>                
+                    <div class="notice_date"><span class="hide">작성일자</span>2021.11.24</div>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="notice_tit">[트니그라운드] 부산 아난티코브 센터 오픈</h3>
+                    <div class="notice_txt">
+                    <p class="notice_desc">아난티코브 2층에 트니그라운드가 새롭게...</p>                
+                    <div class="notice_date"><span class="hide">작성일자</span>2021.11.24</div>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="notice_tit">[전체공지] 홈플러스 문화센터 프로그램 안내</h3>
+                    <div class="notice_txt">
+                        <p class="notice_desc">2021년 하반기 홈플러스 트니트니 프로그램...</p>                
+                        <div class="notice_date"><span class="hide">작성일자</span>2021.11.24</div>
+                    </div>
+                </li>
+            </ul>
+            <a href="javascript:;" class="btn_conts_more">
+                <i></i><i></i><i></i>
+                <span class="hide">공지사항 더보기</span>
+            </a>
+        </section>    
+        <footer class="fnb">
+            <ul>
+                <li><a href="javascript:;" class="fnb_link home">첫화면</a></li>
+                <li><a href="javascript:;" class="fnb_link class">수강하기</a></li>
+                <li><a href="javascript:;" class="fnb_link list">수강목록</a></li>
+                <li><a href="javascript:;" class="fnb_link my">마이트니</a></li>
+            </ul>
+        </footer>
+    </div>
+    <div class="program_pop_dim">
+        <div class="program_pop_conts">
+            <ul>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="javacsript:;" class="program_pop_link">
+                        <div class="program_popimg">
+                            <img src="./images/th1.png" alt="">
+                            <img class="program_pop_logo" src="./images/program-logo1.png" alt="">
+                        </div>
+                        <div class="program_pop_txt">
+                            <div class="program_name">트니챔프</div>
+                            <div class="program_hashtag">문화센터   #영유아   #놀이체육</div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="btn_program_pop">
+                <a href="javascript:;">트니돌봄교실<span>바로가기</span</a>
+                <a href="javascript:;">뽀로로 놀이교실<span>바로가기</span></a>
+            </div>
+            <div class="btn_programclose_wrap">
+                <button type="button" id="btnProgramPopClose" class="btn_program_popclose">
+                    <span class="hide">닫기</span>
+                </button>
+            </div>
         </div>
-    </section>
-    <section class="review">
-        <h2 class="">감사편지</h2>
-    </section>
-    <section>
-        <h2 class="hide">참여프로그램</h2>
-        트니트니, 다시 만나볼까요?
-    </section>
-    <section>
-        <h2 class="title">트니TV</h2>
-    </section>
-    <section>
-        <h2 class="title">트니 추천상품</h2>
-    </section>
-    <section>
-        <h2 class="title">커뮤니티</h2>
-    </section>
-    <section>
-        <h2 class="hide">응원캠페인배너</h2>
-    </section>
-    <section>
-        <h2 class="title">공지사항</h2>
-        <ul>
-            <li>
-                <h3>[트니홈] 신규 프로그램 안내</h3>
-                <p>트니홈에 신규 프로그램이 추가되었습니다</p>                
-                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
-            </li>
-            <li>
-                <h3>[트니그라운드] 부산 아난티코브 센터 오픈</h3>
-                <p>아난티코브 2층에 트니그라운드가 새롭게...</p>                
-                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
-            </li>
-            <li>
-                <h3>[전체공지] 홈플러스 문화센터 프로그램 안내</h3>
-                <p>2021년 하반기 홈플러스 트니트니 프로그램...</p>                
-                <div class="date"><span class="hide">작성일자</span>2021.11.24</div>
-            </li>
-        </ul>
-    </section>    
-    <footer>
-        <ul>
-            <li><a href="">첫화면</a></li>
-            <li><a href="">수강하기</a></li>
-            <li><a href="">수강목록</a></li>
-            <li><a href="">마이트니</a></li>
-        </ul>
-    </footer>
-    
+    </div>
+    <div class="benefit_pop_dim">
+        <div class="benefit_pop_conts">
+            <div class="benefit_pop_tit">트니트니<br>카카오 이모티콘</div>
+            <p class="benefit_pop_subtit">지금 트니트니 회원가입하면!<br> 1만개 선착순 증정합니다.</p>
+            <div class="btn_benefit_wrap">
+                <a href="javascript:;" class="btn_benefit_join">트니트니 회원가입</a>
+            </div>
+            <div class="btn_benefitclose_wrap">
+                <button type="button" id="btnBenefitPopClose" class="btn_benefit_popclose">
+                    <span class="hide">닫기</span>
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
