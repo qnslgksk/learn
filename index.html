@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
@@ -51,15 +50,15 @@
           font-size: 16px
         }
     
-        section {
+        .section {
           font-size: 200%;
         }
     
-        section>article {
+        .section > .article {
           font-size: 4.44444vw
         }
     
-        article {
+        .article {
           font-size: 1.8rem
         }
     
@@ -245,1580 +244,1590 @@
 </head>
 
 <body>
-    <div id="menubar_wrapper">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae dolorum facilis ducimus velit, molestias iure? Dolore, ducimus iure ut hic harum incidunt blanditiis autem sapiente ratione fugiat nulla 
-      </div>
-      <script>
-      // window안에 있는 location을 변수명으로 사용해서 파일이 자꾸 삭제 되었다고 오류남ㅠ
-      //var location;
-        var loca = document.querySelector('#menubar_wrapper');
-        window.scrollTo(0, document.body.scrollHeight)
-      </script>
-      <div class="call"></div>
-      <script>
-        // $('.call').load('./focus_blur_effect.html') // live server로 열면 작동하고 로컬로 열면 CORS 에러남
-      </script>
-      <div class="flex-container">
-            <div class="flex-item">Lorem, ipsum.</div>
-            <div class="flex-item">
-                <div class="box">BOX</div>
-            </div>
-            <div class="flex-item">Lorem, ipsum dolor.</div>
-            <div class="flex-item">Lorem, ipsum.</div>
-            <div class="flex-item">B</div>
-            <div class="flex-item">Lorem, ipsum dolor.</div>
-      </div>
-      <!-- https://www.inflearn.com/questions/29818 -->
-      <script>
-      // node list
-      // .childesNodes
-      let list = document.querySelectorAll('.flex-item')
-       for(var i = 0; i < list.length; i++){
-         console.log(list[i].innerText);
-         list[4].style.background="yelllow"
-         list[0].classList.remove('flex-item');//0번만 클래스 제거됨
-      }
-      const container = document.querySelctor('.flex-container');
-      container.childsNodes;
-      container.childsNodes;
-      
-      
-    
-    
-      // HTML Collection
-      // .children;
-      //  let list2 = document.getElementsByClassName('flex-item')
-      //  for(var i = 0; i < list2.length; i++){
-      //    console.log(list2[i].innerText);
-      //    list2[3].style.background="blue"
-      //    list2[1].classList.remove('flex-item'); //1,2번 클래스제거됨
-      //  }
-    
-      </script>
-    
-      <!-- slide_acco -->
-      <div class="slide_acco">
-        <dl class="slide_dl open">
-          <dt><button type="button" aria-expanded="true" aria-controls="note1" id="acc1">유의사항</button><span class="blind">열기</span></dt>
-          <dd id="accNote1" aria-labelledby="acc1">
-            <ul>
-              <li>조아조아조아 완전 재미있엉</li>
-              <li>제이쿼리 다시하고</li>
-              <li>자스가자 고고고고</li>
-              <li>commodi officiis quia delectus nesciunt consequatur reprehenderit</li>
-              <li>sequi aliquid soluta pariatur, veritatis sint? Dolor, facere vero!</li>
-            </ul>
-          </dd>
-        </dl>
-        <script>
-          
-            function slide(){
-            let accBtn = $('#acco1'),
-            accParent = accBtn.parents('.slide_dl'),
-            accBlind = accParent.find('.blind'),
-            accNote = $('#note1');
-            
-            $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
-              e.preventDefault();
-              $(accParent).toggleClass('on');
-              $(accNote).slideToggle();
-    
-               if(accParent.hasClass('on')){
-                 // console.log('close')
-                 $(accBtn).attr('aria-expanded','false')
-                 $(accBlind).text('열기')
-               }else{
-                 // console.log('open')
-                 $(accBtn).attr('aria-expanded','true')
-                 $(accBlind).text('닫기')
-               }
-             if(e.keyCode === 32){
-               $(accParent).toggleClass('on');
-             }else{
-               $(accParent).removeClass('on');
-             }
-            })
-          }
-          slide();
-          
-          // (function(){
-          //   var accParent = document.querySelector('.slide_dl');
-          //   var accBtn = document.querySelector('#acc1');
-          //   var accBody = document.getElementById('accNote1');
-          //   var onAccParent = accParent.classList.contains('open');
-            
-          //   if(onAccParent == true){
-          //       console.log('있다')
-          //       accParent.classList.remove('open');
-          //   } else {
-          //       console.log('없다')
-          //       accBtn.addEventListener('click', classAdd)
-          //     accParent.classList.add('open');
-          //   }
-         
-                    
-          //   function classAdd(){
-             
-          //   }
-            
-          //   function classRemove (){
-             
-          //   }
-    
-          // })();
-          
-    
-          // 1. dt안에 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스로) .slideToggle구현하기
-          // 2. 보이면 aria-expanded="true" 안보이면 "false" 
-          // 3. 키보드로 (엔터+스페이스)키로 동작하게 함
-          // 4. 열기, 닫기 텍스트 변경
-    
-        </script>
-      </div>
-    
-      <div class="card">
-        <div class="img">
-          <img src="https://assets.styleship.com/fila/data/banner/%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%A9%94%EC%9D%B8%EB%B0%B0%EB%84%88_10_1.jpg" alt="">
-        </div>
-        <div class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quod aliquam provident earum facere dolore asperiores dolores, nemo animi similique reiciendis magni. Odio molestiae expedita similique nisi asperiores enim dolorem.</div>
-      </div>
-    
-      <div class="clamp">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum asperiores corporis et architecto est officia earum eveniet maiores ex quo magnam enim magni in, vel atque dignissimos, odit totam aliquid?
-      </div>
-      <!-- remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기 -->
-      
-      <!--(S) Alert Box -->
-      
-      <div class="alert_box">
-        <p>Alert</p>
-        <button type="button" onclick="toggle('none')">Close</button>
-      </div>
-      <button type="button" onclick="toggle('block', '아이디를 입력하세요', 'bg1')">아이디</button>
-      <button type="button" onclick="toggle('block', '패스워드를 입력하세요', 'bg2')">패스워드</button>
-      <!-- 코딩애플 -->
-      <script>
-        // JavaScript를 사용하는 이유: html 조작과 변경을 위해서
-        // 길게 작성해야하는 이유: 컴퓨터에게 명확히 일을 시키기 위해서
-        // 파라미터를 사용하는 이유: 파라미터에 주는 값에 따라 다르게 보여줄 수 있다
-        function toggle(state, txt, bg){
-          document.querySelector('.alert_box').style.display = state;
-          document.querySelector('.alert_box p').innerHTML = txt;
-          document.querySelector('.alert_box').className = `alert_box ${bg}`;
-    
-        }
-      </script>
-      <!--(E) Alert Box -->
-    
-    
-      <!-- (S) font-size test -->
-      font size test 16px
-      <section>
-        font size test 200% === 32px
-        <article>
-          font size test 4.44444vw === 16px(viewport 360)
-        </article>
-      </section>
-      <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
-      
-      <div class="list_wrap">
-        <ul>
-          <li><a class="list">nventore aspernatur consectetur.</a></li>
-          <li class="item"><a class="list">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
-          <li><a class="list">Facere autem assumenda beatae culpa cupiditate iusto.</a></li>
-        </ul>
-        <!-- href="javascript:output();" -->
-        <script>
-          const target = document.querySelectorAll('.list');
-          // console.log(target)
-          const ele = [];
-    
-          for(let i=0; i<target.length; i++){
-            ele.push({
-              title: target[i],
-              content: target[i].innerHTML = target[i],
-            })
-          }
-    
-          ele[1].title.style.color = 'blue';
-    
-          let ele0 = ele[0].content.textContent = `<div>one(textContent)</div>`;
-          let ele1 = ele[1].content.innerHTML = `<div>two(innerHTML)</div>`;
-          let ele2 = ele[2].content.innerText = `<div>tree(innerText)</div>`;
-        </script>
-      </div>
-      <!-- (E) font-size test -->
-      
-      <!-- (S) size: cover, contain 반응형 test -->
-      <div class="rego1">cover</div>
-      <div class="rego2">contain</div>
-      <!-- (E) size: cover, contain 반응형 test -->
-    
-    
-      <!-- (S) 이미지 반응형(배경) -->
-      <div class="lloggo_cover">
-        <div class="lloggo"></div>
-      </div>
-      <!-- (E) 이미지 반응형(배경) -->
-    
-    
-      <!-- (S) 이미지 반응형(이미지) -->
-      <div class="item">
-        <div class="logo">
-          <div class="img">
-            <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
-          </div>
-        </div>
-      </div>
-    <!-- (E) 이미지 반응형(이미지) -->
-    
-    
-    <!-- (S) 키보드이벤트 key, code, keyCode 차이 -->
-      <!-- 
-      KeyboardEvent.code속성은 키보드의 물리적 키를 나타냅니다 
-      Browser compatibility - IE는 지원하지 않습니다
-      value - OS마다 나오는 코드
-    -->
-      <!-- 
-      keyboardEvent.key 속성은 키 이벤트에 해당하는 문자를 나타냅니다 
-      Browser compatibility - FF안드로이드, FF, IE Dead key는 지원하지 않습니다
-      value - 문자열 
-    -->
-      <!-- 
-      KeyboardEvent.keyCode
-      웹 표준에서 이미 제거되었거나 삭제 과정에 있거나 호환성 목적으로만 유지
-      .key, .code가 일부브라우저 지원이 되지 않으므로 조건문으로 .key또는 .code가 인식되지 않는 경우에 같이 사용하도록함
-    예시)
-      window.addEventListener("keydown", function (event) {
-      if (event.defaultPrevented) {
-        return; // Should do nothing if the default action has been cancelled
-      }
-    
-      var handled = false;
-      if (event.key !== undefined) {
-        // Handle the event with KeyboardEvent.key and set handled true.
-      } else if (event.keyCode !== undefined) {
-        // Handle the event with KeyboardEvent.keyCode and set handled true.
-      }
-    
-      if (handled) {
-        // Suppress "double action" if event handled
-        event.preventDefault();
-      }
-    }, true);
-     -->
-     <div id="text-box">
-      <p>Press keys on the keyboard to see what the KeyboardEvent's key and code
-        values are for each one.</p>
-      <div id="out">
-      </div>
-    </div>
-    <!-- <iframe class="sample-code-frame" title="KeyboardEvent 샘플 운동" id="frame_exercising_keyboardevent" width="600" height="300" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/KeyboardEvent/code/_sample_.exercising_keyboardevent.html" loading="lazy"></iframe> -->
-    <!-- (E) 키보드이벤트 key, code, keyCode 차이 -->
-    
-    <!-- (S) Vue 연습 -->
-    <div id="root">
-      <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
-      <div v-if="like">좋아요를 눌렀습니다</div>
-      <button v-else v-on:click="onlike">Like</button>
-    </div>
-    <!-- (E) Vue 연습 -->
-    
-    <!-- (S) 프린트모드에서 로고 히든처리 -->
-    <img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
-    <button class="btn1" type="button">btn1</button>
-    <!-- (E) 프린트모드에서 로고 히든처리 -->
-    
-    
-    <!-- (S) 착한마크업- AOA11Y -->
-    <header>
-    <!-- header대신 div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
-      <button title="메뉴 열기" aria-label="메뉴 열기">
-        <!-- aria-label속성을 읽어주도록 함 --><span>&gt;</span>
-      </button>
-      <nav>
-        <h2>메인 메뉴</h2>
-        <ul>
-          <li></li>
-        </ul>
-        <button title="메뉴 닫기" aria-label="메뉴 닫기">
-          <!-- aria-label속성을 읽어주도록 함 --><span aria-hidden="true">X
-            <!-- 읽어 주지 않음 -->
-          </span>
-        </button>
-      </nav>
-    </header>
+    <header><h1>Javascript learn</h1></header>
     <main>
-      <!-- main 대신 div로 작업하는 경우에는 role="main"속성을 활용한다 -->
-      <ul>
-        <li>
-          <a role="button" aria-haspopup="dialog" aria-pressed="false">
-            <!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
-            <!-- 
-                  aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
-                  aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
-                  -->
-            <figure>
-              <img src="" alt="제품명">
-              <figcaption>제품명</figcaption>
-            </figure>
-          </a>
-          <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
-            <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
-            <p style=" width:50%; word-break: break-all">제품설명 신한카드 공식쇼핑몰 올댓쇼핑 상품권부터 사무용품, 골프용품 까지 법인카드로, 법인포인트로 전 상품 구매가 가능합니다.blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</p>
-            <dl>
-              <dt>포화지방</dt>
-              <dd>(1.8g)</dd>
-            </dl>
-            <button type="button" aria-label="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
-          </div>
-        </li>
-      </ul>
-    </main>
-    <footer>
-      <!-- footer 대신 div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
-    </footer>
-    <!-- (E) 착한마크업- AOA11Y -->
-    
-    
-      <script>
-      "use strict";
-    
-      // 키보드이벤트 key, code, keyCode 차이
-      // window.addEventListener("keydown", function (event) {
-      //   const p = document.createElement("p");
-      //   event.preventDefault();
-      //   p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
-      //   document.getElementById("out").appendChild(p);
-      // }, true);
-    
-        
-    
-        // Vue 연습 https://kr.vuejs.org/v2/guide/index.html
-        // const app = new Vue({
-        //   el: '#root',
-        //   data: {
-        //     like: false,
-        //   },
-        //   methods: {
-        //     onlike() {
-        //       this.like = true;
-        //     },
-    
-        //   },
-        // })
-    
-        // 프린트모드에서 로고 히든처리
-        window.addEventListener('load', function () {
-          const printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
-          const printBody = document.body;
-          const btn1 = document.querySelector('.btn1');
-          btn1.addEventListener('click', function () {
-            printBody.removeChild(printLogo);
-          })
-    
-        });
-    
-    
-        // 실행컨텍스트 공부하기 (javascript 동작원리 및 순서)
-      </script>
-    <hr style="color:#f09">
-    <h2>장애유형</h2>
-    <div class=“id-area”>
-        <label for=“user-email”>아이디</label>
-        <input type=“email” id=“user-email” aria-required=“true”>
-        <!--
-        보이스오버:
-        NVDA: 아이디 편집창 필요함 빈줄
-        -->
-    </div>
-    <h2>초점접근테스트</h2>
-    <p>aria-hidden은 보조기기 접근여부를 컨트롤 하는 속성이고 tabindex는 초점접근 컨트롤 요소이기에 aria-hidden이 있어도 초점 접근이 가능함</p>
-    <div id="skipNavi" aria-hidden="true">
-        <a href="javascript:;">본문바로가기</a>
-    </div>
-
-    <div class="ly_inner">
-        <h2>Breadcrumb</h2>
-        <div id="ex1">
-            <nav aria-label="Breadcrumb" class="breadcrumb">
-                <ol>
-                    <li>
-                        <a href="../../../..">WAI-ARIA Authoring Practices Guide (APG)</a>
-                    </li>
-                    <li>
-                        <a href="../../../">Patterns</a>
-                    </li>
-                    <li>
-                        <a href="../../">Breadcrumb Pattern</a>
-                    </li>
-                    <li>
-                        <a href="" aria-current="page">Breadcrumb Example</a>
-                    </li>
-                </ol>
-            </nav>
-        </div>
-        <h2>a에서만 현재스텝인지</h2>
-        <div id="ex1">
-            <nav class="stepbar" aria-label="Stepbar">
-                <ol>
-                    <li>
-                        <a href="javascript:;">1단계스텝</a>
-                        <!-- 보이스오버: 1단계스텝(txt), 링크, 목록시작, 랜드마크 -->
-                    </li>
-                    <li class="current">
-                        <a href="javascript:;" aria-current="step">2단계스텝</a>
-                        <!-- 보이스오버: 2단계스텝(txt), 현재단계, 링크 -->
-                    </li>
-                    <li>
-                        <a href="javascript:;">3단계스텝</a>
-                        <!-- 보이스오버: 3단계스텝(txt), 링크 -->
-                    </li>
-                    <li>
-                        <a href="javascript:;">4단계스텝</a>
-                        <!-- 보이스오버: 4단계스텝(txt), 링크, 목록 끝, 끝, 끝, Stepbar,탐색 -->
-                    </li>
-                </ol>
-            </nav>
-        </div>
-        
-        <h2>스텝(구) 목록에 step주기</h2>
-        <div class="flow_step" role="text">
-            <ul><!--보이스오버: 1스텝,2스텝,3스텝,4스텝 현재1단계진행중 -->
-                <li aria-current="step" class="current">1스텝</li> <!--톡백: 현재단계,1스텝, 4개중 1번째 항목4개-->
-                <li>2스텝</li><!--톡백: 2스텝, 4개중 2번째 -->
-                <li>3스텝</li>
-                <li>4스텝</li>
-            </ul>
-            <span class="ir_txt">현재 1단계 진행중</span><!--톡백: 마지막에 읽어줌 -->
-        </div>
-        <h2>스텝(뉴)</h2>
-        <div class="flow_step bar">
-            <ul role="text" aria-label="총 4 단계 중 1단계 진행중"><!--보이스오버: 총 4단계 중 1단계 진행 중-->
-                <li aria-current="step" class="current">1단계</li><!--톡백: 총 4단계 중 1단계 진행 중-->
-                <li>2단계</li>
-                <li>3단계</li>
-                <li>4단계</li>
-            </ul>
-        </div>
-    </div>
-    <div class="ly_inner">
-        <style>
-            .listbox-area {
-  display: grid;
-  grid-gap: 2em;
-  grid-template-columns: repeat(2, 1fr);
-  padding: 20px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  background: #eee;
-}
-
-[role="listbox"] {
-  margin: 1em 0 0;
-  padding: 0;
-  min-height: 18em;
-  border: 1px solid #aaa;
-  background: white;
-}
-
-[role="listbox"]#ss_elem_list {
-  position: relative;
-  max-height: 18em;
-  overflow-y: auto;
-}
-
-[role="listbox"] + *,
-.listbox-label + * {
-  margin-top: 1em;
-}
-
-[role="group"] {
-  margin: 0;
-  padding: 0;
-}
-
-[role="group"] > [role="presentation"] {
-  display: block;
-  margin: 0;
-  padding: 0 0.5em;
-  font-weight: bold;
-  line-height: 2;
-  background-color: #ccc;
-}
-
-[role="option"] {
-  position: relative;
-  display: block;
-  margin: 2px;
-  padding: 2px 1em 2px 1.5em;
-  line-height: 1.8em;
-  cursor: pointer;
-}
-
-[role="listbox"]:focus [role="option"].focused {
-  background: #bde4ff;
-}
-
-[role="listbox"]:focus [role="option"].focused,
-[role="option"]:hover {
-  outline: 2px solid currentcolor;
-}
-
-.move-right-btn span.checkmark::after {
-  content: " →";
-}
-
-.move-left-btn span.checkmark::before {
-  content: "← ";
-}
-
-[role="option"][aria-selected="true"] span.checkmark::before {
-  position: absolute;
-  left: 0.5em;
-  content: "✓";
-}
-
-button[aria-haspopup="listbox"] {
-  position: relative;
-  padding: 5px 10px;
-  width: 150px;
-  border-radius: 0;
-  text-align: left;
-}
-
-button[aria-haspopup="listbox"]::after {
-  position: absolute;
-  right: 5px;
-  top: 10px;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-top-color: currentcolor;
-  border-bottom: 0;
-  content: "";
-}
-
-button[aria-haspopup="listbox"][aria-expanded="true"]::after {
-  position: absolute;
-  right: 5px;
-  top: 10px;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  border-top: 0;
-  border-bottom-color: currentcolor;
-  content: "";
-}
-
-button[aria-haspopup="listbox"] + [role="listbox"] {
-  position: absolute;
-  margin: 0;
-  width: 9.5em;
-  max-height: 10em;
-  border-top: 0;
-  overflow-y: auto;
-}
-
-[role="toolbar"] {
-  display: flex;
-}
-
-[role="toolbar"] > * {
-  border: 1px solid #aaa;
-  background: #ccc;
-}
-
-[role="toolbar"] > [aria-disabled="false"]:focus {
-  background-color: #eee;
-}
-
-button {
-  font-size: inherit;
-}
-
-button[aria-disabled="true"] {
-  opacity: 0.5;
-}
-
-.annotate {
-  color: #366ed4;
-  font-style: italic;
-}
-
-.hidden {
-  display: none;
-}
-
-.offscreen {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  font-size: 14px;
-  white-space: nowrap;
-}
-
-        </style>
-        <h2>리스트박스확인중</h2>
-        <div class="listbox-area">
-            <div>
-                <span id="ss_elem" class="listbox-label">Transuranium elements:</span>
-                <ul id="ss_elem_list" tabindex="0" role="listbox" aria-labelledby="ss_elem">
-        
-                    <li id="ss_elem_Cf" role="option" aria-selected="true">
-                        <a href="javascript:;" role="button">
-                        <span class="checkmark" aria-hidden="true"></span>
-                        Californium</a>
-                    </li>
-                    <li id="ss_elem_Es" role="option" aria-selected="false">
-                        <a href="javascript:;" role="button">
-                        <span class="checkmark" aria-hidden="true"></span>
-                        Einsteinium</a>
-                    </li>
-        
-                    <li id="ss_elem_Hs" role="option" aria-selected="false">
-                        <a href="javascript:;" role="button">
-                        <span class="checkmark" aria-hidden="true"></span>
-                        Hassium</a>
-                    </li>
-                    <li id="ss_elem_Mt" role="option" aria-selected="false">
-                        <a href="javascript:;" role="button">
-                        <span class="checkmark" aria-hidden="true"></span>
-                        Meitnerium</a>
-                    </li>
-        
-        
-        
-                </ul>
+        <!-- <section>
+            <h2>scrollTo, scrollHeight test</h2>
+            <div id="menubar_wrapper">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae dolorum facilis ducimus velit, molestias iure? Dolore, ducimus iure ut hic harum incidunt blanditiis autem sapiente ratione fugiat nulla 
             </div>
-        </div>
-        <script>
-            /*
-     *   This content is licensed according to the W3C Software License at
-     *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-     */
-
-                'use strict';
-
-                /**
-                 * @namespace aria
-                 * @description
-                 * The aria namespace is used to support sharing class definitions between example files
-                 * without causing eslint errors for undefined classes
-                 */
-                var aria = aria || {};
-
-                /**
-                 * @class
-                 * @description
-                 *  Listbox object representing the state and interactions for a listbox widget
-                 * @param listboxNode
-                 *  The DOM node pointing to the listbox
-                 */
-
-                aria.Listbox = class Listbox {
-                    constructor(listboxNode) {
-                        this.listboxNode = listboxNode;
-                        this.activeDescendant = this.listboxNode.getAttribute(
-                            'aria-activedescendant'
-                        );
-                        this.multiselectable = this.listboxNode.hasAttribute(
-                            'aria-multiselectable'
-                        );
-                        this.moveUpDownEnabled = false;
-                        this.siblingList = null;
-                        this.startRangeIndex = 0;
-                        this.upButton = null;
-                        this.downButton = null;
-                        this.moveButton = null;
-                        this.keysSoFar = '';
-                        this.handleFocusChange = function () { };
-                        this.handleItemChange = function () { };
-                        this.registerEvents();
-                    }
-
-                    registerEvents() {
-                        this.listboxNode.addEventListener('focus', this.setupFocus.bind(this));
-                        this.listboxNode.addEventListener('keydown', this.checkKeyPress.bind(this));
-                        this.listboxNode.addEventListener('click', this.checkClickItem.bind(this));
-
-                        if (this.multiselectable) {
-                            this.listboxNode.addEventListener(
-                                'mousedown',
-                                this.checkMouseDown.bind(this)
-                            );
-                        }
-                    }
-
-                    setupFocus() {
-                        if (this.activeDescendant) {
-                            const listitem = document.getElementById(this.activeDescendant);
-                            listitem.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-                        }
-                    }
-
-                    focusFirstItem() {
-                        var firstItem = this.listboxNode.querySelector('[role="option"]');
-
-                        if (firstItem) {
-                            this.focusItem(firstItem);
-                        }
-                    }
-
-                    focusLastItem() {
-                        const itemList = this.listboxNode.querySelectorAll('[role="option"]');
-
-                        if (itemList.length) {
-                            this.focusItem(itemList[itemList.length - 1]);
-                        }
-                    }
-
-                    checkKeyPress(evt) {
-                        const lastActiveId = this.activeDescendant;
-                        const allOptions = this.listboxNode.querySelectorAll('[role="option"]');
-                        const currentItem =
-                            document.getElementById(this.activeDescendant) || allOptions[0];
-                        let nextItem = currentItem;
-
-                        if (!currentItem) {
-                            return;
-                        }
-
-                        switch (evt.key) {
-                            case 'PageUp':
-                            case 'PageDown':
-                                evt.preventDefault();
-                                if (this.moveUpDownEnabled) {
-                                    if (evt.key === 'PageUp') {
-                                        this.moveUpItems();
-                                    } else {
-                                        this.moveDownItems();
-                                    }
-                                }
-
-                                break;
-                            case 'ArrowUp':
-                            case 'ArrowDown':
-                                evt.preventDefault();
-                                if (!this.activeDescendant) {
-                                    // focus first option if no option was previously focused, and perform no other actions
-                                    this.focusItem(currentItem);
-                                    break;
-                                }
-
-                                if (this.moveUpDownEnabled && evt.altKey) {
-                                    evt.preventDefault();
-                                    if (evt.key === 'ArrowUp') {
-                                        this.moveUpItems();
-                                    } else {
-                                        this.moveDownItems();
-                                    }
-                                    this.updateScroll();
-                                    return;
-                                }
-
-                                if (evt.key === 'ArrowUp') {
-                                    nextItem = this.findPreviousOption(currentItem);
-                                } else {
-                                    nextItem = this.findNextOption(currentItem);
-                                }
-
-                                if (nextItem && this.multiselectable && event.shiftKey) {
-                                    this.selectRange(this.startRangeIndex, nextItem);
-                                }
-
-                                if (nextItem) {
-                                    this.focusItem(nextItem);
-                                }
-
-                                break;
-
-                            case 'Home':
-                                evt.preventDefault();
-                                this.focusFirstItem();
-
-                                if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
-                                    this.selectRange(this.startRangeIndex, 0);
-                                }
-                                break;
-
-                            case 'End':
-                                evt.preventDefault();
-                                this.focusLastItem();
-
-                                if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
-                                    this.selectRange(this.startRangeIndex, allOptions.length - 1);
-                                }
-                                break;
-
-                            case 'Shift':
-                                this.startRangeIndex = this.getElementIndex(currentItem, allOptions);
-                                break;
-
-                            case ' ':
-                                evt.preventDefault();
-                                this.toggleSelectItem(nextItem);
-                                break;
-
-                            case 'Backspace':
-                            case 'Delete':
-                            case 'Enter':
-                                if (!this.moveButton) {
-                                    return;
-                                }
-
-                                var keyshortcuts = this.moveButton.getAttribute('aria-keyshortcuts');
-                                if (evt.key === 'Enter' && keyshortcuts.indexOf('Enter') === -1) {
-                                    return;
-                                }
-                                if (
-                                    (evt.key === 'Backspace' || evt.key === 'Delete') &&
-                                    keyshortcuts.indexOf('Delete') === -1
-                                ) {
-                                    return;
-                                }
-
-                                evt.preventDefault();
-
-                                var nextUnselected = nextItem.nextElementSibling;
-                                while (nextUnselected) {
-                                    if (nextUnselected.getAttribute('aria-selected') != 'true') {
-                                        break;
-                                    }
-                                    nextUnselected = nextUnselected.nextElementSibling;
-                                }
-                                if (!nextUnselected) {
-                                    nextUnselected = nextItem.previousElementSibling;
-                                    while (nextUnselected) {
-                                        if (nextUnselected.getAttribute('aria-selected') != 'true') {
-                                            break;
-                                        }
-                                        nextUnselected = nextUnselected.previousElementSibling;
-                                    }
-                                }
-
-                                this.moveItems();
-
-                                if (!this.activeDescendant && nextUnselected) {
-                                    this.focusItem(nextUnselected);
-                                }
-                                break;
-
-                            case 'A':
-                            case 'a':
-                                // handle control + A
-                                if (evt.ctrlKey || evt.metaKey) {
-                                    if (this.multiselectable) {
-                                        this.selectRange(0, allOptions.length - 1);
-                                    }
-                                    evt.preventDefault();
-                                    break;
-                                }
-                            // fall through
-                            default:
-                                if (evt.key.length === 1) {
-                                    const itemToFocus = this.findItemToFocus(evt.key.toLowerCase());
-                                    if (itemToFocus) {
-                                        this.focusItem(itemToFocus);
-                                    }
-                                }
-                                break;
-                        }
-
-                        if (this.activeDescendant !== lastActiveId) {
-                            this.updateScroll();
-                        }
-                    }
-
-                    findItemToFocus(character) {
-                        const itemList = this.listboxNode.querySelectorAll('[role="option"]');
-                        let searchIndex = 0;
-
-                        if (!this.keysSoFar) {
-                            for (let i = 0; i < itemList.length; i++) {
-                                if (itemList[i].getAttribute('id') == this.activeDescendant) {
-                                    searchIndex = i;
-                                }
-                            }
-                        }
-
-                        this.keysSoFar += character;
-                        this.clearKeysSoFarAfterDelay();
-
-                        let nextMatch = this.findMatchInRange(
-                            itemList,
-                            searchIndex + 1,
-                            itemList.length
-                        );
-
-                        if (!nextMatch) {
-                            nextMatch = this.findMatchInRange(itemList, 0, searchIndex);
-                        }
-                        return nextMatch;
-                    }
-
-                    /* Return the index of the passed element within the passed array, or null if not found */
-                    getElementIndex(option, options) {
-                        const allOptions = Array.prototype.slice.call(options); // convert to array
-                        const optionIndex = allOptions.indexOf(option);
-
-                        return typeof optionIndex === 'number' ? optionIndex : null;
-                    }
-
-                    /* Return the next listbox option, if it exists; otherwise, returns null */
-                    findNextOption(currentOption) {
-                        const allOptions = Array.prototype.slice.call(
-                            this.listboxNode.querySelectorAll('[role="option"]')
-                        ); // get options array
-                        const currentOptionIndex = allOptions.indexOf(currentOption);
-                        let nextOption = null;
-
-                        if (currentOptionIndex > -1 && currentOptionIndex < allOptions.length - 1) {
-                            nextOption = allOptions[currentOptionIndex + 1];
-                        }
-
-                        return nextOption;
-                    }
-
-                    /* Return the previous listbox option, if it exists; otherwise, returns null */
-                    findPreviousOption(currentOption) {
-                        const allOptions = Array.prototype.slice.call(
-                            this.listboxNode.querySelectorAll('[role="option"]')
-                        ); // get options array
-                        const currentOptionIndex = allOptions.indexOf(currentOption);
-                        let previousOption = null;
-
-                        if (currentOptionIndex > -1 && currentOptionIndex > 0) {
-                            previousOption = allOptions[currentOptionIndex - 1];
-                        }
-
-                        return previousOption;
-                    }
-
-                    clearKeysSoFarAfterDelay() {
-                        if (this.keyClear) {
-                            clearTimeout(this.keyClear);
-                            this.keyClear = null;
-                        }
-                        this.keyClear = setTimeout(
-                            function () {
-                                this.keysSoFar = '';
-                                this.keyClear = null;
-                            }.bind(this),
-                            500
-                        );
-                    }
-
-                    findMatchInRange(list, startIndex, endIndex) {
-                        // Find the first item starting with the keysSoFar substring, searching in
-                        // the specified range of items
-                        for (let n = startIndex; n < endIndex; n++) {
-                            const label = list[n].innerText;
-                            if (label && label.toLowerCase().indexOf(this.keysSoFar) === 0) {
-                                return list[n];
-                            }
-                        }
-                        return null;
-                    }
-
-                    checkClickItem(evt) {
-                        if (evt.target.getAttribute('role') !== 'option') {
-                            return;
-                        }
-
-                        this.focusItem(evt.target);
-                        this.toggleSelectItem(evt.target);
-                        this.updateScroll();
-
-                        if (this.multiselectable && evt.shiftKey) {
-                            this.selectRange(this.startRangeIndex, evt.target);
-                        }
-                    }
-
-                    /**
-                     * Prevent text selection on shift + click for multi-select listboxes
-                     *
-                     * @param evt
-                     */
-                    checkMouseDown(evt) {
-                        if (
-                            this.multiselectable &&
-                            evt.shiftKey &&
-                            evt.target.getAttribute('role') === 'option'
-                        ) {
-                            evt.preventDefault();
-                        }
-                    }
-
-                    /**
-                     * @description
-                     *  Toggle the aria-selected value
-                     * @param element
-                     *  The element to select
-                     */
-                    toggleSelectItem(element) {
-                        if (this.multiselectable) {
-                            element.setAttribute(
-                                'aria-selected',
-                                element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
-                            );
-
-                            this.updateMoveButton();
-                        }
-                    }
-
-                    /**
-                     * @description
-                     *  Defocus the specified item
-                     * @param element
-                     *  The element to defocus
-                     */
-                    defocusItem(element) {
-                        if (!element) {
-                            return;
-                        }
-                        if (!this.multiselectable) {
-                            element.removeAttribute('aria-selected');
-                        }
-                        element.classList.remove('focused');
-                    }
-
-                    /**
-                     * @description
-                     *  Focus on the specified item
-                     * @param element
-                     *  The element to focus
-                     */
-                    focusItem(element) {
-                        this.defocusItem(document.getElementById(this.activeDescendant));
-                        if (!this.multiselectable) {
-                            element.setAttribute('aria-selected', 'true');
-                        }
-                        element.classList.add('focused');
-                        this.listboxNode.setAttribute('aria-activedescendant', element.id);
-                        this.activeDescendant = element.id;
-
-                        if (!this.multiselectable) {
-                            this.updateMoveButton();
-                        }
-
-                        this.checkUpDownButtons();
-                        this.handleFocusChange(element);
-                    }
-
-                    /**
-                     * Helper function to check if a number is within a range; no side effects.
-                     *
-                     * @param index
-                     * @param start
-                     * @param end
-                     * @returns {boolean}
-                     */
-                    checkInRange(index, start, end) {
-                        const rangeStart = start < end ? start : end;
-                        const rangeEnd = start < end ? end : start;
-
-                        return index >= rangeStart && index <= rangeEnd;
-                    }
-
-                    /**
-                     * Select a range of options
-                     *
-                     * @param start
-                     * @param end
-                     */
-                    selectRange(start, end) {
-                        // get start/end indices
-                        const allOptions = this.listboxNode.querySelectorAll('[role="option"]');
-                        const startIndex =
-                            typeof start === 'number'
-                                ? start
-                                : this.getElementIndex(start, allOptions);
-                        const endIndex =
-                            typeof end === 'number' ? end : this.getElementIndex(end, allOptions);
-
-                        for (let index = 0; index < allOptions.length; index++) {
-                            const selected = this.checkInRange(index, startIndex, endIndex);
-                            allOptions[index].setAttribute('aria-selected', selected + '');
-                        }
-
-                        this.updateMoveButton();
-                    }
-
-                    /**
-                     * Check for selected options and update moveButton, if applicable
-                     */
-                    updateMoveButton() {
-                        if (!this.moveButton) {
-                            return;
-                        }
-
-                        if (this.listboxNode.querySelector('[aria-selected="true"]')) {
-                            this.moveButton.setAttribute('aria-disabled', 'false');
-                        } else {
-                            this.moveButton.setAttribute('aria-disabled', 'true');
-                        }
-                    }
-
-                    /**
-                     * Check if the selected option is in view, and scroll if not
-                     */
-                    updateScroll() {
-                        const selectedOption = document.getElementById(this.activeDescendant);
-                        if (selectedOption) {
-                            const scrollBottom =
-                                this.listboxNode.clientHeight + this.listboxNode.scrollTop;
-                            const elementBottom =
-                                selectedOption.offsetTop + selectedOption.offsetHeight;
-                            if (elementBottom > scrollBottom) {
-                                this.listboxNode.scrollTop =
-                                    elementBottom - this.listboxNode.clientHeight;
-                            } else if (selectedOption.offsetTop < this.listboxNode.scrollTop) {
-                                this.listboxNode.scrollTop = selectedOption.offsetTop;
-                            }
-                            selectedOption.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-                        }
-                    }
-
-                    /**
-                     * @description
-                     *  Enable/disable the up/down arrows based on the activeDescendant.
-                     */
-                    checkUpDownButtons() {
-                        const activeElement = document.getElementById(this.activeDescendant);
-
-                        if (!this.moveUpDownEnabled) {
-                            return;
-                        }
-
-                        if (!activeElement) {
-                            this.upButton.setAttribute('aria-disabled', 'true');
-                            this.downButton.setAttribute('aria-disabled', 'true');
-                            return;
-                        }
-
-                        if (this.upButton) {
-                            if (activeElement.previousElementSibling) {
-                                this.upButton.setAttribute('aria-disabled', false);
-                            } else {
-                                this.upButton.setAttribute('aria-disabled', 'true');
-                            }
-                        }
-
-                        if (this.downButton) {
-                            if (activeElement.nextElementSibling) {
-                                this.downButton.setAttribute('aria-disabled', false);
-                            } else {
-                                this.downButton.setAttribute('aria-disabled', 'true');
-                            }
-                        }
-                    }
-
-                    /**
-                     * @description
-                     *  Add the specified items to the listbox. Assumes items are valid options.
-                     * @param items
-                     *  An array of items to add to the listbox
-                     */
-                    addItems(items) {
-                        if (!items || !items.length) {
-                            return;
-                        }
-
-                        items.forEach(
-                            function (item) {
-                                this.defocusItem(item);
-                                this.toggleSelectItem(item);
-                                this.listboxNode.append(item);
-                            }.bind(this)
-                        );
-
-                        if (!this.activeDescendant) {
-                            this.focusItem(items[0]);
-                        }
-
-                        this.handleItemChange('added', items);
-                    }
-
-                    /**
-                     * @description
-                     *  Remove all of the selected items from the listbox; Removes the focused items
-                     *  in a single select listbox and the items with aria-selected in a multi
-                     *  select listbox.
-                     * @returns {Array}
-                     *  An array of items that were removed from the listbox
-                     */
-                    deleteItems() {
-                        let itemsToDelete;
-
-                        if (this.multiselectable) {
-                            itemsToDelete = this.listboxNode.querySelectorAll(
-                                '[aria-selected="true"]'
-                            );
-                        } else if (this.activeDescendant) {
-                            itemsToDelete = [document.getElementById(this.activeDescendant)];
-                        }
-
-                        if (!itemsToDelete || !itemsToDelete.length) {
-                            return [];
-                        }
-
-                        itemsToDelete.forEach(
-                            function (item) {
-                                item.remove();
-
-                                if (item.id === this.activeDescendant) {
-                                    this.clearActiveDescendant();
-                                }
-                            }.bind(this)
-                        );
-
-                        this.handleItemChange('removed', itemsToDelete);
-
-                        return itemsToDelete;
-                    }
-
-                    clearActiveDescendant() {
-                        this.activeDescendant = null;
-                        this.listboxNode.setAttribute('aria-activedescendant', null);
-
-                        this.updateMoveButton();
-                        this.checkUpDownButtons();
-                    }
-
-                    /**
-                     * @description
-                     *  Shifts the currently focused item up on the list. No shifting occurs if the
-                     *  item is already at the top of the list.
-                     */
-                    moveUpItems() {
-                        if (!this.activeDescendant) {
-                            return;
-                        }
-
-                        const currentItem = document.getElementById(this.activeDescendant);
-                        const previousItem = currentItem.previousElementSibling;
-
-                        if (previousItem) {
-                            this.listboxNode.insertBefore(currentItem, previousItem);
-                            this.handleItemChange('moved_up', [currentItem]);
-                        }
-
-                        this.checkUpDownButtons();
-                    }
-
-                    /**
-                     * @description
-                     *  Shifts the currently focused item down on the list. No shifting occurs if
-                     *  the item is already at the end of the list.
-                     */
-                    moveDownItems() {
-                        if (!this.activeDescendant) {
-                            return;
-                        }
-
-                        var currentItem = document.getElementById(this.activeDescendant);
-                        var nextItem = currentItem.nextElementSibling;
-
-                        if (nextItem) {
-                            this.listboxNode.insertBefore(nextItem, currentItem);
-                            this.handleItemChange('moved_down', [currentItem]);
-                        }
-
-                        this.checkUpDownButtons();
-                    }
-
-                    /**
-                     * @description
-                     *  Delete the currently selected items and add them to the sibling list.
-                     */
-                    moveItems() {
-                        if (!this.siblingList) {
-                            return;
-                        }
-
-                        var itemsToMove = this.deleteItems();
-                        this.siblingList.addItems(itemsToMove);
-                    }
-
-                    /**
-                     * @description
-                     *  Enable Up/Down controls to shift items up and down.
-                     * @param upButton
-                     *   Up button to trigger up shift
-                     * @param downButton
-                     *   Down button to trigger down shift
-                     */
-                    enableMoveUpDown(upButton, downButton) {
-                        this.moveUpDownEnabled = true;
-                        this.upButton = upButton;
-                        this.downButton = downButton;
-                        upButton.addEventListener('click', this.moveUpItems.bind(this));
-                        downButton.addEventListener('click', this.moveDownItems.bind(this));
-                    }
-
-                    /**
-                     * @description
-                     *  Enable Move controls. Moving removes selected items from the current
-                     *  list and adds them to the sibling list.
-                     * @param button
-                     *   Move button to trigger delete
-                     * @param siblingList
-                     *   Listbox to move items to
-                     */
-                    setupMove(button, siblingList) {
-                        this.siblingList = siblingList;
-                        this.moveButton = button;
-                        button.addEventListener('click', this.moveItems.bind(this));
-                    }
-
-                    setHandleItemChange(handlerFn) {
-                        this.handleItemChange = handlerFn;
-                    }
-
-                    setHandleFocusChange(focusChangeHandler) {
-                        this.handleFocusChange = focusChangeHandler;
-                    }
-                };
-                /*
-                 *   This content is licensed according to the W3C Software License at
-                 *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-                 */
-
-                'use strict';
-
-                /**
-                 * @namespace aria
-                 * @description
-                 * The aria namespace is used to support sharing class definitions between example files
-                 * without causing eslint errors for undefined classes
-                 */
-                var aria = aria || {};
-
-                /**
-                 * ARIA Scrollable Listbox Example
-                 *
-                 * @function onload
-                 * @description Initialize the listbox example once the page has loaded
-                 */
-
-                window.addEventListener('load', function () {
-                    new aria.Listbox(document.getElementById('ss_elem_list'));
-                });
-
-        </script>
-    </div>
-    <div class="ly_inner">
-        <h2>초점분리 현상0 role button</h2>
-        <div>
-            <a href="javascript:; " class="item" role="button">
-                <div>
-                    <dl>
-                        <!-- 
-                            iOS: 내부 텍스트를 한 번에 읽어주고 버튼이라 함
-                            Android: 
-                        -->
-                        <dt>제품명</dt>
-                        <dd>달콤한딸기 500g</dd>
-                        <dt>가격</dt>
-                        <dd>10000<span style="font-weight:bold">원</span></dd>
-                    </dl>
+            <script>
+            // location을 변수명으로 사용해서 파일이 자꾸 삭제 되었다고 오류남ㅠ
+            var loca = document.querySelector('#menubar_wrapper');
+            // window.scrollTo(0, document.body.scrollHeight); 스크롤과 요소 사이즈
+            loca.addEventListener('click', function(){
+                window.scrollBy(0, 100);
+            })
+            </script>
+        </section> -->
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <!-- <section>
+            <h2>load CORS error test</h2>
+            <div class="call"></div>
+            <script>
+            // $('.call').load('./focus_blur_effect.html') // live server로 열면 작동하고 로컬로 열면 CORS 에러남
+            </script>
+        </section> -->
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>active test</h2>
+            <div class="flex-container">
+                <div class="flex-item">Lorem, ipsum.</div>
+                <div class="flex-item">BOX
+                    <!-- <div class="box">BOX</div> -->
                 </div>
-            </a>
-        </div>
-
-        <h2>초점분리 현상1 aria-label aria-hidden</h2>
-        <div>
-            <a href="javascript:;" class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
-                <div aria-hidden="true">
-                    <dl>
-                        <!-- 
-                            iOS: aria-label값을 읽고 aria-hidden="true"로 인해 내부태그는 읽지 않음
-                            Android: 
-                        -->
-                        <dt>제품명</dt>
-                        <dd>달콤한딸기 500g</dd>
-                        <dt>가격</dt>
-                        <dd>10000<span style="font-weight:bold">원</span></dd>
-                    </dl>
-                </div>
-            </a>
-        </div>
-
-        <h2>초점분리 현상2 role="text"</h2>
-        <div>
-            <a href="javascript:;" class="item">
-                <div role="text"><!-- role="text" ios에서만 사용 가능한 비공식 속성 -->
-                    <dl>
-                        <!-- 
-                            iOS: 내부텍스트는 동일하게 읽어주고 용어,정의 명시는 하지 않음
-                            Android: 
-                        -->
-                        <dt>제품명</dt>
-                        <dd>달콤한포도 500g</dd>
-                        <dt>가격</dt>
-                        <dd>10000<span style="font-weight:bold">원</span></dd>
-                    </dl>
-                </div>
-            </a>
-        </div>
-
-        <h2>초점분리 현상3 링크아닌요소 aria-label</h2>
-        <div>
-            <div class="item">
-                <div>
-                    <dl role="text">
-                        <!-- 
-                            iOS: aria-label 안읽음 /
-                            제품명, 설명 목록 시작,용어
-                            달콤한포도 500g, 설명
-                            가격, 용어
-                            10000 ,설명
-                            설명 목록 끝, 설명
-                            /
-                            Android: 
-                        -->
-                        <dt>제품명</dt>
-                        <dd>달콤한포도 500g</dd>
-                        <dt>가격</dt>
-                        <dd>10000<span>원</span></dd>
-                    </dl>
-                </div>
+                <div class="flex-item">Lorem, ipsum dolor.</div>
+                <div class="flex-item">Lorem, ipsum.</div>
+                <div class="flex-item">B</div>
+                <div class="flex-item">Lorem, ipsum document color.</div>
             </div>
-        </div>
-    </div>
+            <script>
+            /* Node list와 HTMLCollection의 차이 */
+            // * Node list는 .childesNodes *
+            // const container = document.querySelctor('.flex-container');
+            // container.childsNodes;
 
-    <div class="ly_inner">
-        <style>
-            *{margin:0; padding:0;}
-            body{padding:16px;}
-            .ir_txt{overflow:hidden; display:block; position:absolute; border:0; width:1px; height:1px; clip:rect(1px,1px,1px,1px)}
-            .list4 {border-top: 1px solid #888; border-bottom: 1px solid #ddd;}
-            ul{margin:0; padding:0;}
-            li{list-style:none;}
-            .list4-item {position:relative; display: flex; align-items: center; padding: 30px 0;}
-            .list4-item + .list4-item {border-top: 1px solid #ddd;}        
-    input{appearance:none; -webkit-appearance: none; -moz-appearance: none;}
-    /* input[type="checkbox"] */
-    .list4-check.custom .check_wrap{margin-right: 16px;}
-    .list4-check.custom input[type="checkbox"]{overflow:hidden; position:relative; width:24px; height:24px; border:1px solid #ddd;border-radius:50%;}
-    .list4-check.custom input[type="checkbox"]::before{content:''; position:absolute; width:100%; height:100%; background:url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_ccc.svg')}
-    .list4-check.custom input[type="checkbox"]:checked::before{content:''; position:absolute; width:100%; height:100%; background:#476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat;}
-    /* label */
-    .list4-check.custom .check_wrap label{position:absolute; top:0; left:0; width:100%; height:100%;}
-    /** 커스텀 끝*/
-            .check-dx{position:relative; width: 24px; height: 24px; margin-right:16px;}
-            .check-dx.check-only .check_default {display: block; width: 100%; height: 100%; cursor: pointer;}
-            .check_default input[type="checkbox"] {width: 24px; height: 24px; position: absolute; left: 0; top: 0; z-index: 1; opacity: 0; border-radius: 50%; margin: 0; padding: 0; cursor: pointer;}
-            .check_default input[type="checkbox"] + span {overflow: hidden;z-index: 0; display: block; width: 100%; height: 100%; padding-left: 0;}
-            .check_default input[type="checkbox"]:checked + span::before {background: #476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat center;}
+            // const list = document.querySelectorAll('.flex-item')
+            // for(var i = 0; i < list.length; i++){
+            //     // console.log(list[i].innerText);
+            //     list[4].innerText="Change!";
+            //     list[2].style.backgroundColor="black";
+            //     list[2].style.color="White";
+            //     list[0].classList.remove('flex-item'); // 0번 클래스 제거
+            // }
             
-            .check_default input[type="checkbox"] + span::before {content:''; position: absolute; left: 0; top: 0px; width: 24px; height: 24px; border: 1px solid #ccc; border-radius: 50%;}
-            .check_default input[type="checkbox"]:focus + span {
-        box-shadow: 0 0 0 2px rgba(72, 104, 225, 0.5);
-    }
-        </style>
-        <h2>label test ing</h2>
-        <div class="list4">
-            <ul class="list4-group">
-                <li class="list4-item">
-                    <div class="list4-check custom">
-                        <div class="check_wrap">
-                            <label class="check_default" for="check1"><span class="ir_txt">1번 커스텀레이블</span></label>
-                            <input type="checkbox" id="check1" name="checkN1" checked>
+            // * HTML Collection은 .children; *
+            // const list2 = document.getElementsByClassName('flex-item');
+            // for(var i = 0; i < list2.length; i++){
+            //     // console.log(list2[i].innerText);
+            //     list2[1].classList.remove('flex-item'); // 0~2번 클래스제거됨?
+            //     list2[3].style.backgroundColor="darkblue"; //3~4번 배경색바뀜?
+            // }
+            // remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <!-- <section>
+            <h2>arccodion test</h2>
+            <div class="slide_acco">
+                <dl class="slide_dl open">
+                    <dt><button type="button" aria-expanded="true" aria-controls="note1" id="acco1">유의사항</button><span class="blind">열기</span></dt>
+                    <dd id="accNote1" aria-labelledby="acc1">
+                    <ul>
+                        <li>조아조아조아 완전 재미있엉</li>
+                        <li>제이쿼리 다시하고</li>
+                        <li>자스가자 고고고고</li>
+                        <li>commodi officiis quia delectus nesciunt consequatur reprehenderit</li>
+                        <li>sequi aliquid soluta pariatur, veritatis sint? Dolor, facere vero!</li>
+                    </ul>
+                    </dd>
+                </dl>
+            </div>
+            <script>
+            function slide(){
+                let accBtn = $('#acco1'),
+                accParent = accBtn.parents('.slide_dl'),
+                accBlind = accParent.find('.blind'),
+                accNote = $('#accNote1');
+                
+                // $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
+                //     e.preventDefault();
+                //     $(accParent).toggleClass('open');
+                //     $(accNote).slideToggle();
+
+                //     if(accParent.hasClass('open')){
+                //         // console.log('close')
+                //         $(accBtn).attr('aria-expanded','false')
+                //         $(accBlind).text('열기')
+                //     }else{
+                //         // console.log('open')
+                //         $(accBtn).attr('aria-expanded','true')
+                //         $(accBlind).text('닫기')
+                //     }
+                //     if(e.keyCode === 32){
+                //     $(accParent).toggleClass('open');
+                //     }else{
+                //     $(accParent).removeClass('open');
+                //     }
+                // });
+                }
+                slide();
+                
+            (function(){
+                var accParent = document.querySelector('.slide_dl');
+                var accBtn = document.querySelector('#acco1');
+                var accBody = document.getElementById('accNote1');
+                var onAccParent = accParent.classList.contains('open');
+
+                // if(onAccParent == true){
+                //     console.log('있다')
+                //     accParent.classList.remove('open');
+                // } else {
+                //     console.log('없다')
+                //     accBtn.addEventListener('click', classAdd)
+                // accParent.classList.add('open');
+                // }
+
+                // function classAdd(){
+                // }
+
+                // function classRemove (){
+                // }
+
+            })();        
+
+                // 1. dt안에 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스&키보드spacebar) .slideToggle구현하기
+                // 2. 보이면 aria-expanded="true" 안보이면 "false" 
+                // 3. 키보드로 (엔터+스페이스)키로 동작하게 함
+                // 4. 열기, 닫기 텍스트 변경
+
+            </script>
+        </section> -->
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>Alert</h2>
+            <!--(S) Alert Box -->
+            <div class="alert_box">
+                <p></p>
+                <button type="button" onclick="toggle('none')">Close</button>
+            </div>
+            <button type="button" onclick="toggle('block', '아이디를 입력하세요', 'bg1')">아이디</button>
+            <button type="button" onclick="toggle('block', '패스워드를 입력하세요', 'bg2')">패스워드</button>
+            <!-- 코딩애플 -->
+            <script>
+                // JavaScript를 사용하는 이유: html 조작과 변경을 위해서
+                // 길게 작성해야하는 이유: 컴퓨터에게 명확히 일을 시키기 위해서
+                // 파라미터를 사용하는 이유: 파라미터에 주는 값에 따라 다르게 보여줄 수 있다
+                function toggle(stat, txt, bg) {
+                    document.querySelector('.alert_box').style.display = stat;
+                    document.querySelector('.alert_box p').innerHTML = txt;
+                    document.querySelector('.alert_box').className = `alert_box ${bg}`;
+
+                }
+            </script>
+            <!--(E) Alert Box -->
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <!-- <section>
+            <h2>font-size test</h2>
+            <div>body font size casading 16px</div>
+            <section class="section">
+                font size test 200% === 32px
+                <article class="article">
+                font size test 4.44444vw === 16px(viewport 360기준)
+                </article>
+            </section>
+            <article class="article">font size test 1.8rem === 18px (root font-size: 62.5%)</article>
+        </section> -->
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>textContent, innerHTML, innerText</h2>
+            <div class="list_wrap">
+                <ul>
+                    <li class="item"><a href="javascript:;" class="list">nventore aspernatur consectetur.</a></li>
+                    <li><a href="javascript:;" class="list">Lorem ipsum dolor sit amet elit.</a></li>
+                    <li><a href="javascript:;" class="list">Facere autem assumenda beatae culpa cupiditate iusto.</a></li>
+                </ul>
+                <!-- href="javascript:output();" -->
+                <script>
+                    const target = document.querySelectorAll('.list');
+                    // console.log(target)// NodeList
+                    const ele = [];
+                    for (let i = 0; i < target.length; i++) {
+                        ele.push({
+                            title: target[i],
+                            content: target[i].innerHTML = target[i],
+                        })
+                    }
+
+                    ele[1].title.style.color = 'green';
+
+                    let ele0 = ele[0].content.textContent = `<div>one(textContent)</div>`;
+                    let ele1 = ele[1].content.innerHTML = `<div>two(innerHTML)</div>`;
+                    let ele2 = ele[2].content.innerText = `<div>tree(innerText)</div>`;
+                </script>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <!-- <section>
+            <h2>배경 또는 이미지 반응형</h2>
+            <div class="rego1">bg cover: 가로값 기준으로 채우기</div>
+            <div class="rego2">bg contain: 세로값 기준으로 채우기</div>
+                       
+            <div class="lloggo_cover">
+                <div class="lloggo"></div>
+            </div>
+            
+            <div class="item">
+                <div class="logo">
+                    <div class="img">
+                    <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>키보드이벤트 key, code, keyCode</h2>
+            <div id="text-box">
+                <p>키보드의 키를 눌러 키보드 이벤트의 키와 코드 값이 각각 무엇인지 확인합니다.</p>
+                <div id="out"></div>
+            </div>
+            <!-- 
+            KeyboardEvent.code속성은 키보드의 물리적 키를 나타냅니다 
+            Browser compatibility - IE는 지원하지 않습니다
+            value - OS마다 나오는 코드
+            
+            keyboardEvent.key 속성은 키 이벤트에 해당하는 문자를 나타냅니다 
+            Browser compatibility - FF안드로이드, FF, IE Dead key는 지원하지 않습니다
+            value - 문자열 
+            
+            KeyboardEvent.keyCode
+            웹 표준에서 이미 제거되었거나 삭제 과정에 있거나 호환성 목적으로만 유지
+            .key, .code가 일부브라우저 지원이 되지 않으므로 조건문으로 .key또는 .code가 인식되지 않는 경우에 같이 사용하도록함
+            -->
+            <script>
+            // 키보드이벤트 key, code, keyCode 차이
+            // window.addEventListener("keydown", function (event) {
+            // const p = document.createElement("p");
+            // event.preventDefault();
+            // p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+            // document.getElementById("out").appendChild(p);
+            // }, true);
+            // window.addEventListener("keydown", function (event) {
+            // if (event.defaultPrevented) {
+            // return; // Should do nothing if the default action has been cancelled
+            // }
+
+            // var handled = false;
+            // if (event.key !== undefined) {
+            // // Handle the event with KeyboardEvent.key and set handled true.
+            // } else if (event.keyCode !== undefined) {
+            // // Handle the event with KeyboardEvent.keyCode and set handled true.
+            // }
+
+            // if (handled) {
+            // // Suppress "double action" if event handled
+            // event.preventDefault();
+            // }}, true);
+
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>프린트모드에서 로고 히든처리</h2>
+            <img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+            <button class="btn1" type="button">btn1</button>
+            <!-- @media print를 사용하는게 더 효율적 -->
+            <script>
+                // 프린트모드에서 로고 히든처리
+                window.addEventListener('load', function () {
+                const printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
+                const printBody = document.body;
+                const btn1 = document.querySelector('.btn1');
+                btn1.addEventListener('click', function () {
+                    printBody.removeChild(printLogo);
+                })
+            
+                });
+            </script>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <h2>접근성시작 1</h2>
+           <header>
+                <!-- header대신 div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
+                <button title="메뉴오픈" aria-label="메뉴 열기">
+                    <!-- aria-label속성이 있으면 보조기기는 내부텍스트, title 속성을 안읽어줌 -->
+                    완전메뉴<span>&gt;</span>
+                </button>
+                <nav>
+                    <h2>메인 메뉴</h2>
+                    <ul>
+                    <li></li>
+                    </ul>
+                    <button title="메뉴클로즈" aria-label="메뉴 닫기">
+                    <span aria-hidden="true">X<!-- 읽어 주지 않음 --></span>
+                    </button>
+                </nav>
+            </header>
+            <main>
+                <!-- main 대신 div로 작업하는 경우에는 role="main"속성을 활용한다 -->
+                <ul>
+                    <li>
+                    <a role="button" aria-haspopup="dialog" aria-pressed="false">
+                        <!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
+                        <!-- 
+                            aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
+                            aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
+                            -->
+                        <figure>
+                        <img src="http://placehold.it/200x200" alt="임시이미지">
+                        <figcaption>제품에 대한 자세한 설명글</figcaption>
+                        </figure>
+                    </a>
+                    <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
+                        <h3 id="dialog1Title">제품<span lang="en">Product</span></h3>
+                        <p style=" width:50%; word-break: break-all">제품설명 신한카드 공식쇼핑몰 올댓쇼핑 상품권부터 사무용품, 골프용품 까지 법인카드로, 법인포인트로 전 상품 구매가 가능합니다.blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</p>
+                        <dl>
+                        <dt>포화지방</dt>
+                        <dd>(1.8g)</dd>
+                        </dl>
+                        <button type="button" aria-label="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
+                    </div>
+                    </li>
+                </ul>
+            </main>
+            <footer>
+                <!-- footer 대신 div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
+            </footer>
+            <h2>필수입력안내 aria-required</h2>
+            <div class=“id-area”>
+                <label for=“user-email”>아이디</label>
+                <input type=“email” id=“user-email” aria-required=“true”>
+                <!--
+                보이스오버:
+                NVDA: 아이디 편집창 필요함 빈줄
+                -->
+            </div>
+
+            <h2>초점접근테스트</h2>
+            <p>aria-hidden은 보조기기 접근여부를 컨트롤 하는 속성이고 tabindex는 초점접근 컨트롤 요소이기에 aria-hidden이 있어도 초점 접근이 가능함</p>
+            <div id="skipNavi" aria-hidden="true">
+                <a href="javascript:;">본문바로가기</a>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <style>
+                    .listbox-area {
+                        display: grid;
+                        grid-gap: 2em;
+                        grid-template-columns: repeat(2, 1fr);
+                        padding: 20px;
+                        border: 1px solid #aaa;
+                        border-radius: 4px;
+                        background: #eee;
+                        }
+                        
+                        [role="listbox"] {
+                        margin: 1em 0 0;
+                        padding: 0;
+                        min-height: 18em;
+                        border: 1px solid #aaa;
+                        background: white;
+                        }
+                        
+                        [role="listbox"]#ss_elem_list {
+                        position: relative;
+                        max-height: 18em;
+                        overflow-y: auto;
+                        }
+                        
+                        [role="listbox"] + *,
+                        .listbox-label + * {
+                        margin-top: 1em;
+                        }
+                        
+                        [role="group"] {
+                        margin: 0;
+                        padding: 0;
+                        }
+                        
+                        [role="group"] > [role="presentation"] {
+                        display: block;
+                        margin: 0;
+                        padding: 0 0.5em;
+                        font-weight: bold;
+                        line-height: 2;
+                        background-color: #ccc;
+                        }
+                        
+                        [role="option"] {
+                        position: relative;
+                        display: block;
+                        margin: 2px;
+                        padding: 2px 1em 2px 1.5em;
+                        line-height: 1.8em;
+                        cursor: pointer;
+                        }
+                        
+                        [role="listbox"]:focus [role="option"].focused {
+                        background: #bde4ff;
+                        }
+                        
+                        [role="listbox"]:focus [role="option"].focused,
+                        [role="option"]:hover {
+                        outline: 2px solid currentcolor;
+                        }
+                        
+                        .move-right-btn span.checkmark::after {
+                        content: " →";
+                        }
+                        
+                        .move-left-btn span.checkmark::before {
+                        content: "← ";
+                        }
+                        
+                        [role="option"][aria-selected="true"] span.checkmark::before {
+                        position: absolute;
+                        left: 0.5em;
+                        content: "✓";
+                        }
+                        
+                        button[aria-haspopup="listbox"] {
+                        position: relative;
+                        padding: 5px 10px;
+                        width: 150px;
+                        border-radius: 0;
+                        text-align: left;
+                        }
+                        
+                        button[aria-haspopup="listbox"]::after {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        width: 0;
+                        height: 0;
+                        border: 8px solid transparent;
+                        border-top-color: currentcolor;
+                        border-bottom: 0;
+                        content: "";
+                        }
+                        
+                        button[aria-haspopup="listbox"][aria-expanded="true"]::after {
+                        position: absolute;
+                        right: 5px;
+                        top: 10px;
+                        width: 0;
+                        height: 0;
+                        border: 8px solid transparent;
+                        border-top: 0;
+                        border-bottom-color: currentcolor;
+                        content: "";
+                        }
+                        
+                        button[aria-haspopup="listbox"] + [role="listbox"] {
+                        position: absolute;
+                        margin: 0;
+                        width: 9.5em;
+                        max-height: 10em;
+                        border-top: 0;
+                        overflow-y: auto;
+                        }
+                        
+                        [role="toolbar"] {
+                        display: flex;
+                        }
+                        
+                        [role="toolbar"] > * {
+                        border: 1px solid #aaa;
+                        background: #ccc;
+                        }
+                        
+                        [role="toolbar"] > [aria-disabled="false"]:focus {
+                        background-color: #eee;
+                        }
+                        
+                        button {
+                        font-size: inherit;
+                        }
+                        
+                        button[aria-disabled="true"] {
+                        opacity: 0.5;
+                        }
+                        
+                        .annotate {
+                        color: #366ed4;
+                        font-style: italic;
+                        }
+                        
+                        .hidden {
+                        display: none;
+                        }
+                        
+                        .offscreen {
+                        position: absolute;
+                        width: 1px;
+                        height: 1px;
+                        overflow: hidden;
+                        clip: rect(1px 1px 1px 1px);
+                        clip: rect(1px, 1px, 1px, 1px);
+                        font-size: 14px;
+                        white-space: nowrap;
+                        }
+                        
+                        </style>
+                        <h2>리스트박스확인중</h2>
+                        <div class="listbox-area">
+                            <div>
+                                <span id="ss_elem" class="listbox-label">Transuranium elements:</span>
+                                <ul id="ss_elem_list" tabindex="0" role="listbox" aria-labelledby="ss_elem">
+                        
+                                    <li id="ss_elem_Cf" role="option" aria-selected="true">
+                                        <a href="javascript:;" role="button">
+                                        <span class="checkmark" aria-hidden="true"></span>
+                                        Californium</a>
+                                    </li>
+                                    <li id="ss_elem_Es" role="option" aria-selected="false">
+                                        <a href="javascript:;" role="button">
+                                        <span class="checkmark" aria-hidden="true"></span>
+                                        Einsteinium</a>
+                                    </li>
+                        
+                                    <li id="ss_elem_Hs" role="option" aria-selected="false">
+                                        <a href="javascript:;" role="button">
+                                        <span class="checkmark" aria-hidden="true"></span>
+                                        Hassium</a>
+                                    </li>
+                                    <li id="ss_elem_Mt" role="option" aria-selected="false">
+                                        <a href="javascript:;" role="button">
+                                        <span class="checkmark" aria-hidden="true"></span>
+                                        Meitnerium</a>
+                                    </li>
+                        
+                        
+                        
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <script>
+                                    /*
+                            *   This content is licensed according to the W3C Software License at
+                            *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+                            */
+                        
+                                    'use strict';
+                        
+                                    /**
+                                    * @namespace aria
+                                    * @description
+                                    * The aria namespace is used to support sharing class definitions between example files
+                                    * without causing eslint errors for undefined classes
+                                    */
+                                    var aria = aria || {};
+                        
+                                    /**
+                                    * @class
+                                    * @description
+                                    *  Listbox object representing the state and interactions for a listbox widget
+                                    * @param listboxNode
+                                    *  The DOM node pointing to the listbox
+                                    */
+                        
+                                    aria.Listbox = class Listbox {
+                                        constructor(listboxNode) {
+                                            this.listboxNode = listboxNode;
+                                            this.activeDescendant = this.listboxNode.getAttribute(
+                                                'aria-activedescendant'
+                                            );
+                                            this.multiselectable = this.listboxNode.hasAttribute(
+                                                'aria-multiselectable'
+                                            );
+                                            this.moveUpDownEnabled = false;
+                                            this.siblingList = null;
+                                            this.startRangeIndex = 0;
+                                            this.upButton = null;
+                                            this.downButton = null;
+                                            this.moveButton = null;
+                                            this.keysSoFar = '';
+                                            this.handleFocusChange = function () { };
+                                            this.handleItemChange = function () { };
+                                            this.registerEvents();
+                                        }
+                        
+                                        registerEvents() {
+                                            this.listboxNode.addEventListener('focus', this.setupFocus.bind(this));
+                                            this.listboxNode.addEventListener('keydown', this.checkKeyPress.bind(this));
+                                            this.listboxNode.addEventListener('click', this.checkClickItem.bind(this));
+                        
+                                            if (this.multiselectable) {
+                                                this.listboxNode.addEventListener(
+                                                    'mousedown',
+                                                    this.checkMouseDown.bind(this)
+                                                );
+                                            }
+                                        }
+                        
+                                        setupFocus() {
+                                            if (this.activeDescendant) {
+                                                const listitem = document.getElementById(this.activeDescendant);
+                                                listitem.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                                            }
+                                        }
+                        
+                                        focusFirstItem() {
+                                            var firstItem = this.listboxNode.querySelector('[role="option"]');
+                        
+                                            if (firstItem) {
+                                                this.focusItem(firstItem);
+                                            }
+                                        }
+                        
+                                        focusLastItem() {
+                                            const itemList = this.listboxNode.querySelectorAll('[role="option"]');
+                        
+                                            if (itemList.length) {
+                                                this.focusItem(itemList[itemList.length - 1]);
+                                            }
+                                        }
+                        
+                                        checkKeyPress(evt) {
+                                            const lastActiveId = this.activeDescendant;
+                                            const allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+                                            const currentItem =
+                                                document.getElementById(this.activeDescendant) || allOptions[0];
+                                            let nextItem = currentItem;
+                        
+                                            if (!currentItem) {
+                                                return;
+                                            }
+                        
+                                            switch (evt.key) {
+                                                case 'PageUp':
+                                                case 'PageDown':
+                                                    evt.preventDefault();
+                                                    if (this.moveUpDownEnabled) {
+                                                        if (evt.key === 'PageUp') {
+                                                            this.moveUpItems();
+                                                        } else {
+                                                            this.moveDownItems();
+                                                        }
+                                                    }
+                        
+                                                    break;
+                                                case 'ArrowUp':
+                                                case 'ArrowDown':
+                                                    evt.preventDefault();
+                                                    if (!this.activeDescendant) {
+                                                        // focus first option if no option was previously focused, and perform no other actions
+                                                        this.focusItem(currentItem);
+                                                        break;
+                                                    }
+                        
+                                                    if (this.moveUpDownEnabled && evt.altKey) {
+                                                        evt.preventDefault();
+                                                        if (evt.key === 'ArrowUp') {
+                                                            this.moveUpItems();
+                                                        } else {
+                                                            this.moveDownItems();
+                                                        }
+                                                        this.updateScroll();
+                                                        return;
+                                                    }
+                        
+                                                    if (evt.key === 'ArrowUp') {
+                                                        nextItem = this.findPreviousOption(currentItem);
+                                                    } else {
+                                                        nextItem = this.findNextOption(currentItem);
+                                                    }
+                        
+                                                    if (nextItem && this.multiselectable && event.shiftKey) {
+                                                        this.selectRange(this.startRangeIndex, nextItem);
+                                                    }
+                        
+                                                    if (nextItem) {
+                                                        this.focusItem(nextItem);
+                                                    }
+                        
+                                                    break;
+                        
+                                                case 'Home':
+                                                    evt.preventDefault();
+                                                    this.focusFirstItem();
+                        
+                                                    if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+                                                        this.selectRange(this.startRangeIndex, 0);
+                                                    }
+                                                    break;
+                        
+                                                case 'End':
+                                                    evt.preventDefault();
+                                                    this.focusLastItem();
+                        
+                                                    if (this.multiselectable && evt.shiftKey && evt.ctrlKey) {
+                                                        this.selectRange(this.startRangeIndex, allOptions.length - 1);
+                                                    }
+                                                    break;
+                        
+                                                case 'Shift':
+                                                    this.startRangeIndex = this.getElementIndex(currentItem, allOptions);
+                                                    break;
+                        
+                                                case ' ':
+                                                    evt.preventDefault();
+                                                    this.toggleSelectItem(nextItem);
+                                                    break;
+                        
+                                                case 'Backspace':
+                                                case 'Delete':
+                                                case 'Enter':
+                                                    if (!this.moveButton) {
+                                                        return;
+                                                    }
+                        
+                                                    var keyshortcuts = this.moveButton.getAttribute('aria-keyshortcuts');
+                                                    if (evt.key === 'Enter' && keyshortcuts.indexOf('Enter') === -1) {
+                                                        return;
+                                                    }
+                                                    if (
+                                                        (evt.key === 'Backspace' || evt.key === 'Delete') &&
+                                                        keyshortcuts.indexOf('Delete') === -1
+                                                    ) {
+                                                        return;
+                                                    }
+                        
+                                                    evt.preventDefault();
+                        
+                                                    var nextUnselected = nextItem.nextElementSibling;
+                                                    while (nextUnselected) {
+                                                        if (nextUnselected.getAttribute('aria-selected') != 'true') {
+                                                            break;
+                                                        }
+                                                        nextUnselected = nextUnselected.nextElementSibling;
+                                                    }
+                                                    if (!nextUnselected) {
+                                                        nextUnselected = nextItem.previousElementSibling;
+                                                        while (nextUnselected) {
+                                                            if (nextUnselected.getAttribute('aria-selected') != 'true') {
+                                                                break;
+                                                            }
+                                                            nextUnselected = nextUnselected.previousElementSibling;
+                                                        }
+                                                    }
+                        
+                                                    this.moveItems();
+                        
+                                                    if (!this.activeDescendant && nextUnselected) {
+                                                        this.focusItem(nextUnselected);
+                                                    }
+                                                    break;
+                        
+                                                case 'A':
+                                                case 'a':
+                                                    // handle control + A
+                                                    if (evt.ctrlKey || evt.metaKey) {
+                                                        if (this.multiselectable) {
+                                                            this.selectRange(0, allOptions.length - 1);
+                                                        }
+                                                        evt.preventDefault();
+                                                        break;
+                                                    }
+                                                // fall through
+                                                default:
+                                                    if (evt.key.length === 1) {
+                                                        const itemToFocus = this.findItemToFocus(evt.key.toLowerCase());
+                                                        if (itemToFocus) {
+                                                            this.focusItem(itemToFocus);
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                        
+                                            if (this.activeDescendant !== lastActiveId) {
+                                                this.updateScroll();
+                                            }
+                                        }
+                        
+                                        findItemToFocus(character) {
+                                            const itemList = this.listboxNode.querySelectorAll('[role="option"]');
+                                            let searchIndex = 0;
+                        
+                                            if (!this.keysSoFar) {
+                                                for (let i = 0; i < itemList.length; i++) {
+                                                    if (itemList[i].getAttribute('id') == this.activeDescendant) {
+                                                        searchIndex = i;
+                                                    }
+                                                }
+                                            }
+                        
+                                            this.keysSoFar += character;
+                                            this.clearKeysSoFarAfterDelay();
+                        
+                                            let nextMatch = this.findMatchInRange(
+                                                itemList,
+                                                searchIndex + 1,
+                                                itemList.length
+                                            );
+                        
+                                            if (!nextMatch) {
+                                                nextMatch = this.findMatchInRange(itemList, 0, searchIndex);
+                                            }
+                                            return nextMatch;
+                                        }
+                        
+                                        /* Return the index of the passed element within the passed array, or null if not found */
+                                        getElementIndex(option, options) {
+                                            const allOptions = Array.prototype.slice.call(options); // convert to array
+                                            const optionIndex = allOptions.indexOf(option);
+                        
+                                            return typeof optionIndex === 'number' ? optionIndex : null;
+                                        }
+                        
+                                        /* Return the next listbox option, if it exists; otherwise, returns null */
+                                        findNextOption(currentOption) {
+                                            const allOptions = Array.prototype.slice.call(
+                                                this.listboxNode.querySelectorAll('[role="option"]')
+                                            ); // get options array
+                                            const currentOptionIndex = allOptions.indexOf(currentOption);
+                                            let nextOption = null;
+                        
+                                            if (currentOptionIndex > -1 && currentOptionIndex < allOptions.length - 1) {
+                                                nextOption = allOptions[currentOptionIndex + 1];
+                                            }
+                        
+                                            return nextOption;
+                                        }
+                        
+                                        /* Return the previous listbox option, if it exists; otherwise, returns null */
+                                        findPreviousOption(currentOption) {
+                                            const allOptions = Array.prototype.slice.call(
+                                                this.listboxNode.querySelectorAll('[role="option"]')
+                                            ); // get options array
+                                            const currentOptionIndex = allOptions.indexOf(currentOption);
+                                            let previousOption = null;
+                        
+                                            if (currentOptionIndex > -1 && currentOptionIndex > 0) {
+                                                previousOption = allOptions[currentOptionIndex - 1];
+                                            }
+                        
+                                            return previousOption;
+                                        }
+                        
+                                        clearKeysSoFarAfterDelay() {
+                                            if (this.keyClear) {
+                                                clearTimeout(this.keyClear);
+                                                this.keyClear = null;
+                                            }
+                                            this.keyClear = setTimeout(
+                                                function () {
+                                                    this.keysSoFar = '';
+                                                    this.keyClear = null;
+                                                }.bind(this),
+                                                500
+                                            );
+                                        }
+                        
+                                        findMatchInRange(list, startIndex, endIndex) {
+                                            // Find the first item starting with the keysSoFar substring, searching in
+                                            // the specified range of items
+                                            for (let n = startIndex; n < endIndex; n++) {
+                                                const label = list[n].innerText;
+                                                if (label && label.toLowerCase().indexOf(this.keysSoFar) === 0) {
+                                                    return list[n];
+                                                }
+                                            }
+                                            return null;
+                                        }
+                        
+                                        checkClickItem(evt) {
+                                            if (evt.target.getAttribute('role') !== 'option') {
+                                                return;
+                                            }
+                        
+                                            this.focusItem(evt.target);
+                                            this.toggleSelectItem(evt.target);
+                                            this.updateScroll();
+                        
+                                            if (this.multiselectable && evt.shiftKey) {
+                                                this.selectRange(this.startRangeIndex, evt.target);
+                                            }
+                                        }
+                        
+                                        /**
+                                        * Prevent text selection on shift + click for multi-select listboxes
+                                        *
+                                        * @param evt
+                                        */
+                                        checkMouseDown(evt) {
+                                            if (
+                                                this.multiselectable &&
+                                                evt.shiftKey &&
+                                                evt.target.getAttribute('role') === 'option'
+                                            ) {
+                                                evt.preventDefault();
+                                            }
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Toggle the aria-selected value
+                                        * @param element
+                                        *  The element to select
+                                        */
+                                        toggleSelectItem(element) {
+                                            if (this.multiselectable) {
+                                                element.setAttribute(
+                                                    'aria-selected',
+                                                    element.getAttribute('aria-selected') === 'true' ? 'false' : 'true'
+                                                );
+                        
+                                                this.updateMoveButton();
+                                            }
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Defocus the specified item
+                                        * @param element
+                                        *  The element to defocus
+                                        */
+                                        defocusItem(element) {
+                                            if (!element) {
+                                                return;
+                                            }
+                                            if (!this.multiselectable) {
+                                                element.removeAttribute('aria-selected');
+                                            }
+                                            element.classList.remove('focused');
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Focus on the specified item
+                                        * @param element
+                                        *  The element to focus
+                                        */
+                                        focusItem(element) {
+                                            this.defocusItem(document.getElementById(this.activeDescendant));
+                                            if (!this.multiselectable) {
+                                                element.setAttribute('aria-selected', 'true');
+                                            }
+                                            element.classList.add('focused');
+                                            this.listboxNode.setAttribute('aria-activedescendant', element.id);
+                                            this.activeDescendant = element.id;
+                        
+                                            if (!this.multiselectable) {
+                                                this.updateMoveButton();
+                                            }
+                        
+                                            this.checkUpDownButtons();
+                                            this.handleFocusChange(element);
+                                        }
+                        
+                                        /**
+                                        * Helper function to check if a number is within a range; no side effects.
+                                        *
+                                        * @param index
+                                        * @param start
+                                        * @param end
+                                        * @returns {boolean}
+                                        */
+                                        checkInRange(index, start, end) {
+                                            const rangeStart = start < end ? start : end;
+                                            const rangeEnd = start < end ? end : start;
+                        
+                                            return index >= rangeStart && index <= rangeEnd;
+                                        }
+                        
+                                        /**
+                                        * Select a range of options
+                                        *
+                                        * @param start
+                                        * @param end
+                                        */
+                                        selectRange(start, end) {
+                                            // get start/end indices
+                                            const allOptions = this.listboxNode.querySelectorAll('[role="option"]');
+                                            const startIndex =
+                                                typeof start === 'number'
+                                                    ? start
+                                                    : this.getElementIndex(start, allOptions);
+                                            const endIndex =
+                                                typeof end === 'number' ? end : this.getElementIndex(end, allOptions);
+                        
+                                            for (let index = 0; index < allOptions.length; index++) {
+                                                const selected = this.checkInRange(index, startIndex, endIndex);
+                                                allOptions[index].setAttribute('aria-selected', selected + '');
+                                            }
+                        
+                                            this.updateMoveButton();
+                                        }
+                        
+                                        /**
+                                        * Check for selected options and update moveButton, if applicable
+                                        */
+                                        updateMoveButton() {
+                                            if (!this.moveButton) {
+                                                return;
+                                            }
+                        
+                                            if (this.listboxNode.querySelector('[aria-selected="true"]')) {
+                                                this.moveButton.setAttribute('aria-disabled', 'false');
+                                            } else {
+                                                this.moveButton.setAttribute('aria-disabled', 'true');
+                                            }
+                                        }
+                        
+                                        /**
+                                        * Check if the selected option is in view, and scroll if not
+                                        */
+                                        updateScroll() {
+                                            const selectedOption = document.getElementById(this.activeDescendant);
+                                            if (selectedOption) {
+                                                const scrollBottom =
+                                                    this.listboxNode.clientHeight + this.listboxNode.scrollTop;
+                                                const elementBottom =
+                                                    selectedOption.offsetTop + selectedOption.offsetHeight;
+                                                if (elementBottom > scrollBottom) {
+                                                    this.listboxNode.scrollTop =
+                                                        elementBottom - this.listboxNode.clientHeight;
+                                                } else if (selectedOption.offsetTop < this.listboxNode.scrollTop) {
+                                                    this.listboxNode.scrollTop = selectedOption.offsetTop;
+                                                }
+                                                selectedOption.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+                                            }
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Enable/disable the up/down arrows based on the activeDescendant.
+                                        */
+                                        checkUpDownButtons() {
+                                            const activeElement = document.getElementById(this.activeDescendant);
+                        
+                                            if (!this.moveUpDownEnabled) {
+                                                return;
+                                            }
+                        
+                                            if (!activeElement) {
+                                                this.upButton.setAttribute('aria-disabled', 'true');
+                                                this.downButton.setAttribute('aria-disabled', 'true');
+                                                return;
+                                            }
+                        
+                                            if (this.upButton) {
+                                                if (activeElement.previousElementSibling) {
+                                                    this.upButton.setAttribute('aria-disabled', false);
+                                                } else {
+                                                    this.upButton.setAttribute('aria-disabled', 'true');
+                                                }
+                                            }
+                        
+                                            if (this.downButton) {
+                                                if (activeElement.nextElementSibling) {
+                                                    this.downButton.setAttribute('aria-disabled', false);
+                                                } else {
+                                                    this.downButton.setAttribute('aria-disabled', 'true');
+                                                }
+                                            }
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Add the specified items to the listbox. Assumes items are valid options.
+                                        * @param items
+                                        *  An array of items to add to the listbox
+                                        */
+                                        addItems(items) {
+                                            if (!items || !items.length) {
+                                                return;
+                                            }
+                        
+                                            items.forEach(
+                                                function (item) {
+                                                    this.defocusItem(item);
+                                                    this.toggleSelectItem(item);
+                                                    this.listboxNode.append(item);
+                                                }.bind(this)
+                                            );
+                        
+                                            if (!this.activeDescendant) {
+                                                this.focusItem(items[0]);
+                                            }
+                        
+                                            this.handleItemChange('added', items);
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Remove all of the selected items from the listbox; Removes the focused items
+                                        *  in a single select listbox and the items with aria-selected in a multi
+                                        *  select listbox.
+                                        * @returns {Array}
+                                        *  An array of items that were removed from the listbox
+                                        */
+                                        deleteItems() {
+                                            let itemsToDelete;
+                        
+                                            if (this.multiselectable) {
+                                                itemsToDelete = this.listboxNode.querySelectorAll(
+                                                    '[aria-selected="true"]'
+                                                );
+                                            } else if (this.activeDescendant) {
+                                                itemsToDelete = [document.getElementById(this.activeDescendant)];
+                                            }
+                        
+                                            if (!itemsToDelete || !itemsToDelete.length) {
+                                                return [];
+                                            }
+                        
+                                            itemsToDelete.forEach(
+                                                function (item) {
+                                                    item.remove();
+                        
+                                                    if (item.id === this.activeDescendant) {
+                                                        this.clearActiveDescendant();
+                                                    }
+                                                }.bind(this)
+                                            );
+                        
+                                            this.handleItemChange('removed', itemsToDelete);
+                        
+                                            return itemsToDelete;
+                                        }
+                        
+                                        clearActiveDescendant() {
+                                            this.activeDescendant = null;
+                                            this.listboxNode.setAttribute('aria-activedescendant', null);
+                        
+                                            this.updateMoveButton();
+                                            this.checkUpDownButtons();
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Shifts the currently focused item up on the list. No shifting occurs if the
+                                        *  item is already at the top of the list.
+                                        */
+                                        moveUpItems() {
+                                            if (!this.activeDescendant) {
+                                                return;
+                                            }
+                        
+                                            const currentItem = document.getElementById(this.activeDescendant);
+                                            const previousItem = currentItem.previousElementSibling;
+                        
+                                            if (previousItem) {
+                                                this.listboxNode.insertBefore(currentItem, previousItem);
+                                                this.handleItemChange('moved_up', [currentItem]);
+                                            }
+                        
+                                            this.checkUpDownButtons();
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Shifts the currently focused item down on the list. No shifting occurs if
+                                        *  the item is already at the end of the list.
+                                        */
+                                        moveDownItems() {
+                                            if (!this.activeDescendant) {
+                                                return;
+                                            }
+                        
+                                            var currentItem = document.getElementById(this.activeDescendant);
+                                            var nextItem = currentItem.nextElementSibling;
+                        
+                                            if (nextItem) {
+                                                this.listboxNode.insertBefore(nextItem, currentItem);
+                                                this.handleItemChange('moved_down', [currentItem]);
+                                            }
+                        
+                                            this.checkUpDownButtons();
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Delete the currently selected items and add them to the sibling list.
+                                        */
+                                        moveItems() {
+                                            if (!this.siblingList) {
+                                                return;
+                                            }
+                        
+                                            var itemsToMove = this.deleteItems();
+                                            this.siblingList.addItems(itemsToMove);
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Enable Up/Down controls to shift items up and down.
+                                        * @param upButton
+                                        *   Up button to trigger up shift
+                                        * @param downButton
+                                        *   Down button to trigger down shift
+                                        */
+                                        enableMoveUpDown(upButton, downButton) {
+                                            this.moveUpDownEnabled = true;
+                                            this.upButton = upButton;
+                                            this.downButton = downButton;
+                                            upButton.addEventListener('click', this.moveUpItems.bind(this));
+                                            downButton.addEventListener('click', this.moveDownItems.bind(this));
+                                        }
+                        
+                                        /**
+                                        * @description
+                                        *  Enable Move controls. Moving removes selected items from the current
+                                        *  list and adds them to the sibling list.
+                                        * @param button
+                                        *   Move button to trigger delete
+                                        * @param siblingList
+                                        *   Listbox to move items to
+                                        */
+                                        setupMove(button, siblingList) {
+                                            this.siblingList = siblingList;
+                                            this.moveButton = button;
+                                            button.addEventListener('click', this.moveItems.bind(this));
+                                        }
+                        
+                                        setHandleItemChange(handlerFn) {
+                                            this.handleItemChange = handlerFn;
+                                        }
+                        
+                                        setHandleFocusChange(focusChangeHandler) {
+                                            this.handleFocusChange = focusChangeHandler;
+                                        }
+                                    };
+                                    /*
+                                        *   This content is licensed according to the W3C Software License at
+                                        *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+                                        */
+                        
+                                    'use strict';
+                        
+                                    /**
+                                    * @namespace aria
+                                    * @description
+                                    * The aria namespace is used to support sharing class definitions between example files
+                                    * without causing eslint errors for undefined classes
+                                    */
+                                    var aria = aria || {};
+                        
+                                    /**
+                                    * ARIA Scrollable Listbox Example
+                                    *
+                                    * @function onload
+                                    * @description Initialize the listbox example once the page has loaded
+                                    */
+                        
+                                    window.addEventListener('load', function () {
+                                        new aria.Listbox(document.getElementById('ss_elem_list'));
+                                    });
+                        
+                                </script> -->
+                            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <h2>Breadcrumb</h2>
+                <div id="ex1">
+                    <nav aria-label="Breadcrumb" class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a href="../../../..">WAI-ARIA Authoring Practices Guide (APG)</a>
+                            </li>
+                            <li>
+                                <a href="../../../">Patterns</a>
+                            </li>
+                            <li>
+                                <a href="../../">Breadcrumb Pattern</a>
+                            </li>
+                            <li>
+                                <a href="" aria-current="page">Breadcrumb Example</a>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                <h2>a에서만 현재스텝인지</h2>
+                <div id="ex1">
+                    <nav class="stepbar" aria-label="Stepbar">
+                        <ol>
+                            <li>
+                                <a href="javascript:;">1단계스텝</a>
+                                <!-- 보이스오버: 1단계스텝(txt), 링크, 목록시작, 랜드마크 -->
+                            </li>
+                            <li class="current">
+                                <a href="javascript:;" aria-current="step">2단계스텝</a>
+                                <!-- 보이스오버: 2단계스텝(txt), 현재단계, 링크 -->
+                            </li>
+                            <li>
+                                <a href="javascript:;">3단계스텝</a>
+                                <!-- 보이스오버: 3단계스텝(txt), 링크 -->
+                            </li>
+                            <li>
+                                <a href="javascript:;">4단계스텝</a>
+                                <!-- 보이스오버: 4단계스텝(txt), 링크, 목록 끝, 끝, 끝, Stepbar,탐색 -->
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+                
+                <h2>스텝(구) 목록에 step주기</h2>
+                <div class="flow_step" role="text">
+                    <ul><!--보이스오버: 1스텝,2스텝,3스텝,4스텝 현재1단계진행중 -->
+                        <li aria-current="step" class="current">1스텝</li> <!--톡백: 현재단계,1스텝, 4개중 1번째 항목4개-->
+                        <li>2스텝</li><!--톡백: 2스텝, 4개중 2번째 -->
+                        <li>3스텝</li>
+                        <li>4스텝</li>
+                    </ul>
+                    <span class="ir_txt">현재 1단계 진행중</span><!--톡백: 마지막에 읽어줌 -->
+                </div>
+                <h2>스텝(뉴)</h2>
+                <div class="flow_step bar">
+                    <ul role="text" aria-label="총 4 단계 중 1단계 진행중"><!--보이스오버: 총 4단계 중 1단계 진행 중-->
+                        <li aria-current="step" class="current">1단계</li><!--톡백: 총 4단계 중 1단계 진행 중-->
+                        <li>2단계</li>
+                        <li>3단계</li>
+                        <li>4단계</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <h2>초점분리 현상0 role button</h2>
+                <div>
+                    <a href="javascript:; " class="item" role="button">
+                        <div>
+                            <dl>
+                                <!-- 
+                                    iOS: 내부 텍스트를 한 번에 읽어주고 버튼이라 함
+                                    Android: 
+                                -->
+                                <dt>제품명</dt>
+                                <dd>달콤한딸기 500g</dd>
+                                <dt>가격</dt>
+                                <dd>10000<span style="font-weight:bold">원</span></dd>
+                            </dl>
+                        </div>
+                    </a>
+                </div>
+        
+                <h2>초점분리 현상1 aria-label aria-hidden</h2>
+                <div>
+                    <a href="javascript:;" class="item" aria-label="제품명 달콤한딸기 500g 가격 10000원">
+                        <div aria-hidden="true">
+                            <dl>
+                                <!-- 
+                                    iOS: aria-label값을 읽고 aria-hidden="true"로 인해 내부태그는 읽지 않음
+                                    Android: 
+                                -->
+                                <dt>제품명</dt>
+                                <dd>달콤한딸기 500g</dd>
+                                <dt>가격</dt>
+                                <dd>10000<span style="font-weight:bold">원</span></dd>
+                            </dl>
+                        </div>
+                    </a>
+                </div>
+        
+                <h2>초점분리 현상2 role="text"</h2>
+                <div>
+                    <a href="javascript:;" class="item">
+                        <div role="text"><!-- role="text" ios에서만 사용 가능한 비공식 속성 -->
+                            <dl>
+                                <!-- 
+                                    iOS: 내부텍스트는 동일하게 읽어주고 용어,정의 명시는 하지 않음
+                                    Android: 
+                                -->
+                                <dt>제품명</dt>
+                                <dd>달콤한포도 500g</dd>
+                                <dt>가격</dt>
+                                <dd>10000<span style="font-weight:bold">원</span></dd>
+                            </dl>
+                        </div>
+                    </a>
+                </div>
+        
+                <h2>초점분리 현상3 링크아닌요소 aria-label</h2>
+                <div>
+                    <div class="item">
+                        <div>
+                            <dl role="text">
+                                <!-- 
+                                    iOS: aria-label 안읽음 /
+                                    제품명, 설명 목록 시작,용어
+                                    달콤한포도 500g, 설명
+                                    가격, 용어
+                                    10000 ,설명
+                                    설명 목록 끝, 설명
+                                    /
+                                    Android: 
+                                -->
+                                <dt>제품명</dt>
+                                <dd>달콤한포도 500g</dd>
+                                <dt>가격</dt>
+                                <dd>10000<span>원</span></dd>
+                            </dl>
                         </div>
                     </div>
-                    <div class="list4-info">
-                        <div class="list4-tit" aria-hidden="true">1.암묵적레이블</div>
-                        <div class="list4-cardnum">4518-12**-****-4701</div>
-                        <div class="default-txt md-txt">
-                            <span>본인</span>
-                            <span>1227</span>
-                            <span class="ico_card_logo ct02" role="text">마스터 카드</span>
-                        </div>
-                        <div class="default-txt md-txt">발급월 2018-08</div>
-                    </div>
-                </li>            
-                <li class="list4-item">
-                    <div class="list4-check">
-                        <div class="check_wrap check-dx check-only">
-                            <label for="check1" class="check_default">
-                                <input type="checkbox" id="check1" name="checkN1" checked="" class="set_AutoComplete" autocomplete="off">
-                                <span role="text">1번 - 타이틀</span>
+                </div>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <div class="ly_inner">
+                <style>
+                    *{margin:0; padding:0;}
+                    body{padding:16px;}
+                    .ir_txt{overflow:hidden; display:block; position:absolute; border:0; width:1px; height:1px; clip:rect(1px,1px,1px,1px)}
+                    .list4 {border-top: 1px solid #888; border-bottom: 1px solid #ddd;}
+                    ul{margin:0; padding:0;}
+                    li{list-style:none;}
+                    .list4-item {position:relative; display: flex; align-items: center; padding: 30px 0;}
+                    .list4-item + .list4-item {border-top: 1px solid #ddd;}        
+            input{appearance:none; -webkit-appearance: none; -moz-appearance: none;}
+            /* input[type="checkbox"] */
+            .list4-check.custom .check_wrap{margin-right: 16px;}
+            .list4-check.custom input[type="checkbox"]{overflow:hidden; position:relative; width:24px; height:24px; border:1px solid #ddd;border-radius:50%;}
+            .list4-check.custom input[type="checkbox"]::before{content:''; position:absolute; width:100%; height:100%; background:url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_ccc.svg')}
+            .list4-check.custom input[type="checkbox"]:checked::before{content:''; position:absolute; width:100%; height:100%; background:#476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat;}
+            /* label */
+            .list4-check.custom .check_wrap label{position:absolute; top:0; left:0; width:100%; height:100%;}
+            /** 커스텀 끝*/
+                    .check-dx{position:relative; width: 24px; height: 24px; margin-right:16px;}
+                    .check-dx.check-only .check_default {display: block; width: 100%; height: 100%; cursor: pointer;}
+                    .check_default input[type="checkbox"] {width: 24px; height: 24px; position: absolute; left: 0; top: 0; z-index: 1; opacity: 0; border-radius: 50%; margin: 0; padding: 0; cursor: pointer;}
+                    .check_default input[type="checkbox"] + span {overflow: hidden;z-index: 0; display: block; width: 100%; height: 100%; padding-left: 0;}
+                    .check_default input[type="checkbox"]:checked + span::before {background: #476eff url('https://www.shinhancard.com/pconts/images/dx/com/icon_check_white.svg') no-repeat center;}
+                    
+                    .check_default input[type="checkbox"] + span::before {content:''; position: absolute; left: 0; top: 0px; width: 24px; height: 24px; border: 1px solid #ccc; border-radius: 50%;}
+                    .check_default input[type="checkbox"]:focus + span {
+                box-shadow: 0 0 0 2px rgba(72, 104, 225, 0.5);
+            }
+                </style>
+                <h2>label test</h2>
+                <div class="list4">
+                    <ul class="list4-group">
+                        <li class="list4-item">
+                            <div class="list4-check custom">
+                                <div class="check_wrap">
+                                    <label class="check_default" for="check1"><span class="ir_txt">1번 커스텀레이블</span></label>
+                                    <input type="checkbox" id="check1" name="checkN1" checked>
+                                </div>
+                            </div>
+                            <div class="list4-info">
+                                <div class="list4-tit" aria-hidden="true">1.암묵적레이블</div>
+                                <div class="list4-cardnum">4518-12**-****-4701</div>
+                                <div class="default-txt md-txt">
+                                    <span>본인</span>
+                                    <span>1227</span>
+                                    <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                                </div>
+                                <div class="default-txt md-txt">발급월 2018-08</div>
+                            </div>
+                        </li>            
+                        <li class="list4-item">
+                            <div class="list4-check">
+                                <div class="check_wrap check-dx check-only">
+                                    <label for="check1" class="check_default">
+                                        <input type="checkbox" id="check1" name="checkN1" checked="" class="set_AutoComplete" autocomplete="off">
+                                        <span role="text">1번 - 타이틀</span>
+                                    </label>
+                                </div>
+                            </div>
+        
+                            <div class="list4-info">
+                                <div class="list4-tit">1번 - 타이틀</div>
+                                <div class="list4-cardnum">4518-12**-****-4701</div>
+                                <div class="default-txt md-txt">
+                                    <span>본인</span>
+                                    <span>1227</span>
+                                    <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                                </div>
+                                <div class="default-txt md-txt">발급월 2018-08</div>
+                            </div>
+                        </li>
+                        <li class="list4-item">
+                            <div class="list4-check">
+                                <div class="check_wrap check-dx check-only">
+                                    <div class="check_default">
+                                        <input type="checkbox" id="check2" name="checkN2" class="set_AutoComplete" autocomplete="off">
+                                        <span role="text"></span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="list4-info">
+                                <label for="check2" class="list4-tit">2번 - 타이틀</label>
+                                <div class="list4-cardnum">4518-12**-****-4701</div>
+                                <div class="default-txt md-txt">
+                                    <span>본인</span>
+                                    <span>1227</span>
+                                    <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                                </div>
+                                <div class="default-txt md-txt">발급월 2018-08</div>
+                            </div>
+                        </li>
+                        <li class="list4-item">
+                            <div class="list4-check">
+                                <div class="check_wrap check-dx check-only">
+                                    <div class="check_default">
+                                        <input type="checkbox" id="check3" name="checkN3" class="set_AutoComplete" autocomplete="off">
+                                        <span role="text"></span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <label class="list4-info" for="check3">
+                                <div class="list4-tit">3번 - 타이틀</div>
+                                <div class="list4-cardnum">4518-12**-****-4701</div>
+                                <div class="default-txt md-txt">
+                                    <span>본인</span>
+                                    <span>1227</span>
+                                    <span class="ico_card_logo ct02" role="text">마스터 카드</span>
+                                </div>
+                                <div class="default-txt md-txt">발급월 2018-08</div>
                             </label>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section></section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section></section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+        <section>
+            <!-- flex-basis 차이 https://www.inflearn.com/questions/29818 -->
+            <h2>flex-basis, width</h2>
+            <div class="card">
+                <div class="img">
+                    <svg version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="red" />
 
-                    <div class="list4-info">
-                        <div class="list4-tit">1번 - 타이틀</div>
-                        <div class="list4-cardnum">4518-12**-****-4701</div>
-                        <div class="default-txt md-txt">
-                            <span>본인</span>
-                            <span>1227</span>
-                            <span class="ico_card_logo ct02" role="text">마스터 카드</span>
-                        </div>
-                        <div class="default-txt md-txt">발급월 2018-08</div>
-                    </div>
-                </li>
-                <li class="list4-item">
-                    <div class="list4-check">
-                        <div class="check_wrap check-dx check-only">
-                            <div class="check_default">
-                                <input type="checkbox" id="check2" name="checkN2" class="set_AutoComplete" autocomplete="off">
-                                <span role="text"></span>
-                            </div>
-                        </div>
-                    </div>
+                        <circle cx="150" cy="100" r="80" fill="green" />
 
-                    <div class="list4-info">
-                        <label for="check2" class="list4-tit">2번 - 타이틀</label>
-                        <div class="list4-cardnum">4518-12**-****-4701</div>
-                        <div class="default-txt md-txt">
-                            <span>본인</span>
-                            <span>1227</span>
-                            <span class="ico_card_logo ct02" role="text">마스터 카드</span>
-                        </div>
-                        <div class="default-txt md-txt">발급월 2018-08</div>
-                    </div>
-                </li>
-                <li class="list4-item">
-                    <div class="list4-check">
-                        <div class="check_wrap check-dx check-only">
-                            <div class="check_default">
-                                <input type="checkbox" id="check3" name="checkN3" class="set_AutoComplete" autocomplete="off">
-                                <span role="text"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <label class="list4-info" for="check3">
-                        <div class="list4-tit">3번 - 타이틀</div>
-                        <div class="list4-cardnum">4518-12**-****-4701</div>
-                        <div class="default-txt md-txt">
-                            <span>본인</span>
-                            <span>1227</span>
-                            <span class="ico_card_logo ct02" role="text">마스터 카드</span>
-                        </div>
-                        <div class="default-txt md-txt">발급월 2018-08</div>
-                    </label>
-                </li>
-            </ul>
-        </div>
-    </div>
+                        <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+                    </svg>
+                </div>
+                <div class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quod
+                    aliquam provident earum facere dolore asperiores dolores, nemo animi similique reiciendis
+                    magni. Odio molestiae expedita similique nisi asperiores enim dolorem.</div>
+                </div>
+            
+                <div class="clamp">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum asperiores corporis et architecto
+                    est officia earum eveniet maiores ex quo magnam enim magni in, vel atque dignissimos, odit totam
+                    aliquid?
+                </div>
+            </div>
+        </section>
+        <hr style="margin-top:1rem; margin-bottom:1rem; border-color:#f09;">
+    </main>
+    
+    <script>
+    "use strict";
+    // 실행컨텍스트 공부하기 (javascript 동작원리 및 순서)
+    </script>
+    
     <div class="ly_inner">
         <style>
             #box {
                 width: 300px;
                 height: 30px;
-                background-color: darkblue;
+                background-color:maroon;
+                color:#fff;
             }
             
         </style>
         
-        <div id="box" tabindex="0"></div>
+        <div id="box" tabindex="0">99</div>
         <script>
             const element = document.getElementById("box");
     

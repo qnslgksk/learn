@@ -1,3 +1,4 @@
+"use strict";
 function forbidScroll(stat){
     document.body.style.overflow = stat;
 }
