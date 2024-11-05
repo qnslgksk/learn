@@ -3,11 +3,626 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>learn repository 정리중</title>
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="description" content="{페이지디스크립션내용}">
+    <meta name="keywords" content="{키워드내용}">
+    <meta property="og:url" content="{SNS 공유URL}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{SNS 공유제목}">
+    <meta property="og:description" content="{SNS 공유내용}">
+    <meta property="og:image" content="{SNS 공유이미지}">
+    <meta property="og:site_name" content="{SNS공유 사이트제목}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="사이트명">
+    <meta property="twitter:title" content="{트위터공유제목}">
+    <meta property="twitter:description" content="{트위터공유내용}">
+    <meta property="twitter:image:src" content="{트위터공유이미지}">
+    <meta property="twitter:creator" content="{작성자}">
+    <!-- 오픈 그래프 종류? basic, optional, structured -->
+    <title>learn repository, 착한마크업- AOA11Y, VueTest.. my연습장 G:랑 합치는 중</title>
+    <link rel="canonical" href="{페이지대표URL}">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="./jsontxt.js"></script> -->
+    <style>
+        /* 공통으로 사용할 클래스*/
+        .blind{
+          overflow:hidden;
+          position: absolute;
+          top:0; left:0;
+          width: 1px;
+          height:1px;
+          clip-path: rect(0 0 0 0);
+          margin:-1px;
+          border:0;
+          clip-path:inset(50%);
+        }
+    
+        /* font-size test */
+        html {
+          font-size: 62.5%
+        }
+    
+        body {
+          font-size: 16px
+        }
+    
+        section {
+          font-size: 200%;
+        }
+    
+        section>article {
+          font-size: 4.44444vw
+        }
+    
+        article {
+          font-size: 1.8rem
+        }
+    
+        ul {
+          margin-top: 2.8rem;
+        }
+    
+        li:not(:last-child) {
+          background: coral;
+          margin-bottom: 2.8rem;
+        }
+        /* slide_acco */
+        .slide_acco .slide_dl button::after{
+          content:'';
+          position:absolute;
+          top:50%;
+          right:15px;
+          border: 10px solid #000;
+          border-right-color:transparent;
+          border-bottom-color:transparent;
+          border-left-color:transparent;      
+          transform: translateY(-20%);
+        }
+        .slide_acco .slide_dl.open button::after{
+          content:'';
+          position:absolute;
+          top:50%;
+          right:15px;
+          border: 10px solid #000;
+          border-top-color:transparent;
+          border-right-color:transparent;
+          border-left-color:transparent;      
+          transform: translateY(-80%);
+        }
+        .slide_acco .slide_dl{
+          border:1px solid #ddd;
+        }
+        .slide_acco dt button{
+          display:block;
+          position: relative;
+          width:100%;
+          padding:20px 15px;
+          background: #e4decf;
+          border:0;
+          text-align: left;
+          font-size:1.6rem;
+          text-decoration: none;
+        
+        }
+        .slide_acco .slide_dl.open dd{display:block;}
+        .slide_acco .slide_dl dd{display: none; margin:0;}
+        .slide_acco dd ul{
+          margin:0;
+          padding:0;
+          list-style:none;
+        }
+        /* trigger 다시이해하기 */
+        .testEle {
+          width: 100px;
+          height: 100px;
+          background: #f80;
+          text-align: center;
+          color: #fff;
+          display: table-cell;
+          vertical-align: middle;
+          cursor: pointer;
+        }
+    
+        #testEle2.testEle {
+          height: 24px;
+          background: #333;
+        }
+        /* size: cover, contain 반응형 test */
+        .rego1{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / cover}
+        .rego2{ padding:10rem; background:url(https://www.shinhancard.com/pconts/images/dx/event/2022/220405_thepreview_evt_info_02.png) no-repeat left top / contain}
+    
+        /* 이미지 반응형(배경) */
+        .lloggo_cover {
+          width: 70%;
+        }
+    
+        .lloggo {
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding-top: 16.9%;
+          background: url(https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png) no-repeat left top / 100% auto;
+        }
+    
+        /* 이미지 반응형(이미지) */
+        .item {
+          width: 50%
+        }
+    
+        .item .logo {
+          overflow: hidden;
+          position: relative;
+          padding-top: 19.6%; /* 이미지 비율% */
+          border: 1px solid red;
+        }
+    
+        .item .logo .img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: translate(50%, 50%);
+          border: 1px solid red;
+        }
+    
+        .item .logo .img img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          max-width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          border: 1px solid red;
+        }
+    
+        #text-box{border:1px solid #f80}
+        /* 프린트모드에서 로고 히든처리 */  
+        @media print {
+          .content_print {
+            display: none;
+          }
+        }
+        /* 키보드이벤트 key, code, keyCode 차이 */
+        #out {
+          border: 1px solid #333;
+        }  
+        .clamp{width: clamp(280px, 70%, 800px); background: #f80;}
+    
+    
+    /* card */
+        .card{
+          display:flex;
+          flex-wrap:wrap;
+          border: 1px solid rgb(245, 201, 8);
+        }
+        .card .img{
+          flex:1 1 210px;
+          /* aspect-ratio: 1 / 1; ie 지원안함ㅋ*/
+        }
+        .card .img img{
+          max-width: 100%;
+        }
+        .card .content{
+          flex: 1 1 200px;
+        }
+    
+        /* Alert Box */
+          .alert_box{display:none}
+          .alert_box.bg1{background-color:#f80}
+          .alert_box.bg2{background-color:#f09}
+        
+        /* flex-container */
+        .flex-container {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .flex-item {
+                width: 33.33333%;
+                /* flex: 0 33.33333%; */
+                box-sizing: border-box;
+                padding: 5px;
+                color: white;
+                background: mediumseagreen;
+            }
+            .box {
+                width: 50vw;
+                background: red;
+            }
+    
+        #menubar_wrapper{
+          height:200px;
+          text-align:center;
+        }
+      </style>
 </head>
 
 <body>
+    <div id="menubar_wrapper">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate beatae dolorum facilis ducimus velit, molestias iure? Dolore, ducimus iure ut hic harum incidunt blanditiis autem sapiente ratione fugiat nulla 
+      </div>
+      <script>
+      // window안에 있는 location을 변수명으로 사용해서 파일이 자꾸 삭제 되었다고 오류남ㅠ
+      //var location;
+        var loca = document.querySelector('#menubar_wrapper');
+        window.scrollTo(0, document.body.scrollHeight)
+      </script>
+      <div class="call"></div>
+      <script>
+        // $('.call').load('./focus_blur_effect.html') // live server로 열면 작동하고 로컬로 열면 CORS 에러남
+      </script>
+      <div class="flex-container">
+            <div class="flex-item">Lorem, ipsum.</div>
+            <div class="flex-item">
+                <div class="box">BOX</div>
+            </div>
+            <div class="flex-item">Lorem, ipsum dolor.</div>
+            <div class="flex-item">Lorem, ipsum.</div>
+            <div class="flex-item">B</div>
+            <div class="flex-item">Lorem, ipsum dolor.</div>
+      </div>
+      <!-- https://www.inflearn.com/questions/29818 -->
+      <script>
+      // node list
+      // .childesNodes
+      let list = document.querySelectorAll('.flex-item')
+       for(var i = 0; i < list.length; i++){
+         console.log(list[i].innerText);
+         list[4].style.background="yelllow"
+         list[0].classList.remove('flex-item');//0번만 클래스 제거됨
+      }
+      const container = document.querySelctor('.flex-container');
+      container.childsNodes;
+      container.childsNodes;
+      
+      
+    
+    
+      // HTML Collection
+      // .children;
+      //  let list2 = document.getElementsByClassName('flex-item')
+      //  for(var i = 0; i < list2.length; i++){
+      //    console.log(list2[i].innerText);
+      //    list2[3].style.background="blue"
+      //    list2[1].classList.remove('flex-item'); //1,2번 클래스제거됨
+      //  }
+    
+      </script>
+    
+      <!-- slide_acco -->
+      <div class="slide_acco">
+        <dl class="slide_dl open">
+          <dt><button type="button" aria-expanded="true" aria-controls="note1" id="acc1">유의사항</button><span class="blind">열기</span></dt>
+          <dd id="accNote1" aria-labelledby="acc1">
+            <ul>
+              <li>조아조아조아 완전 재미있엉</li>
+              <li>제이쿼리 다시하고</li>
+              <li>자스가자 고고고고</li>
+              <li>commodi officiis quia delectus nesciunt consequatur reprehenderit</li>
+              <li>sequi aliquid soluta pariatur, veritatis sint? Dolor, facere vero!</li>
+            </ul>
+          </dd>
+        </dl>
+        <script>
+          
+            function slide(){
+            let accBtn = $('#acco1'),
+            accParent = accBtn.parents('.slide_dl'),
+            accBlind = accParent.find('.blind'),
+            accNote = $('#note1');
+            
+            $(document).off('click keydown', accBtn).on('click keydown', accBtn, (e)=>{
+              e.preventDefault();
+              $(accParent).toggleClass('on');
+              $(accNote).slideToggle();
+    
+               if(accParent.hasClass('on')){
+                 // console.log('close')
+                 $(accBtn).attr('aria-expanded','false')
+                 $(accBlind).text('열기')
+               }else{
+                 // console.log('open')
+                 $(accBtn).attr('aria-expanded','true')
+                 $(accBlind).text('닫기')
+               }
+             if(e.keyCode === 32){
+               $(accParent).toggleClass('on');
+             }else{
+               $(accParent).removeClass('on');
+             }
+            })
+          }
+          slide();
+          
+          // (function(){
+          //   var accParent = document.querySelector('.slide_dl');
+          //   var accBtn = document.querySelector('#acc1');
+          //   var accBody = document.getElementById('accNote1');
+          //   var onAccParent = accParent.classList.contains('open');
+            
+          //   if(onAccParent == true){
+          //       console.log('있다')
+          //       accParent.classList.remove('open');
+          //   } else {
+          //       console.log('없다')
+          //       accBtn.addEventListener('click', classAdd)
+          //     accParent.classList.add('open');
+          //   }
+         
+                    
+          //   function classAdd(){
+             
+          //   }
+            
+          //   function classRemove (){
+             
+          //   }
+    
+          // })();
+          
+    
+          // 1. dt안에 버튼을 누르면 dd가 보였다 안보였다 한다.(마우스로) .slideToggle구현하기
+          // 2. 보이면 aria-expanded="true" 안보이면 "false" 
+          // 3. 키보드로 (엔터+스페이스)키로 동작하게 함
+          // 4. 열기, 닫기 텍스트 변경
+    
+        </script>
+      </div>
+    
+      <div class="card">
+        <div class="img">
+          <img src="https://assets.styleship.com/fila/data/banner/%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%A9%94%EC%9D%B8%EB%B0%B0%EB%84%88_10_1.jpg" alt="">
+        </div>
+        <div class="content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quod aliquam provident earum facere dolore asperiores dolores, nemo animi similique reiciendis magni. Odio molestiae expedita similique nisi asperiores enim dolorem.</div>
+      </div>
+    
+      <div class="clamp">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum asperiores corporis et architecto est officia earum eveniet maiores ex quo magnam enim magni in, vel atque dignissimos, odit totam aliquid?
+      </div>
+      <!-- remove()노드를 없애는것-제거, hide() 보이지 않게 숨기는 것 -숨기기 -->
+      
+      <!--(S) Alert Box -->
+      
+      <div class="alert_box">
+        <p>Alert</p>
+        <button type="button" onclick="toggle('none')">Close</button>
+      </div>
+      <button type="button" onclick="toggle('block', '아이디를 입력하세요', 'bg1')">아이디</button>
+      <button type="button" onclick="toggle('block', '패스워드를 입력하세요', 'bg2')">패스워드</button>
+      <!-- 코딩애플 -->
+      <script>
+        // JavaScript를 사용하는 이유: html 조작과 변경을 위해서
+        // 길게 작성해야하는 이유: 컴퓨터에게 명확히 일을 시키기 위해서
+        // 파라미터를 사용하는 이유: 파라미터에 주는 값에 따라 다르게 보여줄 수 있다
+        function toggle(state, txt, bg){
+          document.querySelector('.alert_box').style.display = state;
+          document.querySelector('.alert_box p').innerHTML = txt;
+          document.querySelector('.alert_box').className = `alert_box ${bg}`;
+    
+        }
+      </script>
+      <!--(E) Alert Box -->
+    
+    
+      <!-- (S) font-size test -->
+      font size test 16px
+      <section>
+        font size test 200% === 32px
+        <article>
+          font size test 4.44444vw === 16px(viewport 360)
+        </article>
+      </section>
+      <article>font size test 1.8rem === 18px (root font-size: 62.5%)</article>
+      
+      <div class="list_wrap">
+        <ul>
+          <li><a class="list">nventore aspernatur consectetur.</a></li>
+          <li class="item"><a class="list">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></li>
+          <li><a class="list">Facere autem assumenda beatae culpa cupiditate iusto.</a></li>
+        </ul>
+        <!-- href="javascript:output();" -->
+        <script>
+          const target = document.querySelectorAll('.list');
+          // console.log(target)
+          const ele = [];
+    
+          for(let i=0; i<target.length; i++){
+            ele.push({
+              title: target[i],
+              content: target[i].innerHTML = target[i],
+            })
+          }
+    
+          ele[1].title.style.color = 'blue';
+    
+          let ele0 = ele[0].content.textContent = `<div>one(textContent)</div>`;
+          let ele1 = ele[1].content.innerHTML = `<div>two(innerHTML)</div>`;
+          let ele2 = ele[2].content.innerText = `<div>tree(innerText)</div>`;
+        </script>
+      </div>
+      <!-- (E) font-size test -->
+      
+      <!-- (S) size: cover, contain 반응형 test -->
+      <div class="rego1">cover</div>
+      <div class="rego2">contain</div>
+      <!-- (E) size: cover, contain 반응형 test -->
+    
+    
+      <!-- (S) 이미지 반응형(배경) -->
+      <div class="lloggo_cover">
+        <div class="lloggo"></div>
+      </div>
+      <!-- (E) 이미지 반응형(배경) -->
+    
+    
+      <!-- (S) 이미지 반응형(이미지) -->
+      <div class="item">
+        <div class="logo">
+          <div class="img">
+            <img src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+          </div>
+        </div>
+      </div>
+    <!-- (E) 이미지 반응형(이미지) -->
+    
+    
+    <!-- (S) 키보드이벤트 key, code, keyCode 차이 -->
+      <!-- 
+      KeyboardEvent.code속성은 키보드의 물리적 키를 나타냅니다 
+      Browser compatibility - IE는 지원하지 않습니다
+      value - OS마다 나오는 코드
+    -->
+      <!-- 
+      keyboardEvent.key 속성은 키 이벤트에 해당하는 문자를 나타냅니다 
+      Browser compatibility - FF안드로이드, FF, IE Dead key는 지원하지 않습니다
+      value - 문자열 
+    -->
+      <!-- 
+      KeyboardEvent.keyCode
+      웹 표준에서 이미 제거되었거나 삭제 과정에 있거나 호환성 목적으로만 유지
+      .key, .code가 일부브라우저 지원이 되지 않으므로 조건문으로 .key또는 .code가 인식되지 않는 경우에 같이 사용하도록함
+    예시)
+      window.addEventListener("keydown", function (event) {
+      if (event.defaultPrevented) {
+        return; // Should do nothing if the default action has been cancelled
+      }
+    
+      var handled = false;
+      if (event.key !== undefined) {
+        // Handle the event with KeyboardEvent.key and set handled true.
+      } else if (event.keyCode !== undefined) {
+        // Handle the event with KeyboardEvent.keyCode and set handled true.
+      }
+    
+      if (handled) {
+        // Suppress "double action" if event handled
+        event.preventDefault();
+      }
+    }, true);
+     -->
+     <div id="text-box">
+      <p>Press keys on the keyboard to see what the KeyboardEvent's key and code
+        values are for each one.</p>
+      <div id="out">
+      </div>
+    </div>
+    <!-- <iframe class="sample-code-frame" title="KeyboardEvent 샘플 운동" id="frame_exercising_keyboardevent" width="600" height="300" src="https://yari-demos.prod.mdn.mozit.cloud/en-US/docs/Web/API/KeyboardEvent/code/_sample_.exercising_keyboardevent.html" loading="lazy"></iframe> -->
+    <!-- (E) 키보드이벤트 key, code, keyCode 차이 -->
+    
+    <!-- (S) Vue 연습 -->
+    <div id="root">
+      <h1>Vue는 변하는 데이터 중심적으로 사고해야 함</h1>
+      <div v-if="like">좋아요를 눌렀습니다</div>
+      <button v-else v-on:click="onlike">Like</button>
+    </div>
+    <!-- (E) Vue 연습 -->
+    
+    <!-- (S) 프린트모드에서 로고 히든처리 -->
+    <img class="img content_print" src="https://www.shinhancard.com/pconts/images/common/shinhancard_logo.png" alt="">
+    <button class="btn1" type="button">btn1</button>
+    <!-- (E) 프린트모드에서 로고 히든처리 -->
+    
+    
+    <!-- (S) 착한마크업- AOA11Y -->
+    <header>
+    <!-- header대신 div로 작업하는 경우에는 role="banner"속성을 활용한다 -->
+      <button title="메뉴 열기" aria-label="메뉴 열기">
+        <!-- aria-label속성을 읽어주도록 함 --><span>&gt;</span>
+      </button>
+      <nav>
+        <h2>메인 메뉴</h2>
+        <ul>
+          <li></li>
+        </ul>
+        <button title="메뉴 닫기" aria-label="메뉴 닫기">
+          <!-- aria-label속성을 읽어주도록 함 --><span aria-hidden="true">X
+            <!-- 읽어 주지 않음 -->
+          </span>
+        </button>
+      </nav>
+    </header>
+    <main>
+      <!-- main 대신 div로 작업하는 경우에는 role="main"속성을 활용한다 -->
+      <ul>
+        <li>
+          <a role="button" aria-haspopup="dialog" aria-pressed="false">
+            <!-- 의미상 버튼이 맞지만 표준에 맞지 않아 a태그로 수정 후 role="button" -->
+            <!-- 
+                  aria-haspopup="dialog" - 버튼을 누르면 다이어로그팝업이 나오는 것을 알림
+                  aria-pressed="false" - 버튼이 눌렸는지에 대한 상태를 알림
+                  -->
+            <figure>
+              <img src="" alt="제품명">
+              <figcaption>제품명</figcaption>
+            </figure>
+          </a>
+          <div role="dialog" aria-modal="true" aria-labelledby="dialog1Title">
+            <h3 id="dialog1Title">제품명 <span lang="en">Product</span></h3>
+            <p style=" width:50%; word-break: break-all">제품설명 신한카드 공식쇼핑몰 올댓쇼핑 상품권부터 사무용품, 골프용품 까지 법인카드로, 법인포인트로 전 상품 구매가 가능합니다.blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah</p>
+            <dl>
+              <dt>포화지방</dt>
+              <dd>(1.8g)</dd>
+            </dl>
+            <button type="button" aria-label="정보 패널 닫기" title="닫기"><span aria-hidden="true">X</span></button>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <!-- footer 대신 div로 작업하는 경우에는 role="contentinfo"속성을 활용한다 -->
+    </footer>
+    <!-- (E) 착한마크업- AOA11Y -->
+    
+    
+      <script>
+      "use strict";
+    
+      // 키보드이벤트 key, code, keyCode 차이
+      // window.addEventListener("keydown", function (event) {
+      //   const p = document.createElement("p");
+      //   event.preventDefault();
+      //   p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}' | keyCode='${event.keyCode}'`;
+      //   document.getElementById("out").appendChild(p);
+      // }, true);
+    
+        
+    
+        // Vue 연습 https://kr.vuejs.org/v2/guide/index.html
+        // const app = new Vue({
+        //   el: '#root',
+        //   data: {
+        //     like: false,
+        //   },
+        //   methods: {
+        //     onlike() {
+        //       this.like = true;
+        //     },
+    
+        //   },
+        // })
+    
+        // 프린트모드에서 로고 히든처리
+        window.addEventListener('load', function () {
+          const printLogo = document.querySelector('.content_print');// print모드에만 있는 클래스 선택
+          const printBody = document.body;
+          const btn1 = document.querySelector('.btn1');
+          btn1.addEventListener('click', function () {
+            printBody.removeChild(printLogo);
+          })
+    
+        });
+    
+    
+        // 실행컨텍스트 공부하기 (javascript 동작원리 및 순서)
+      </script>
+    <hr style="color:#f09">
     <h2>장애유형</h2>
     <div class=“id-area”>
         <label for=“user-email”>아이디</label>
@@ -1277,11 +1892,16 @@ button[aria-disabled="true"] {
             
         </script>
     </div>
-
-
-  
-
-    
+    <!-- 함수위임과 클로저, 스코프, 콜스택, js분석, 접근성js -->
+    <script>
+        function clo(fn){
+            return function(a, b){
+                return fn(a, b);
+            }
+        }
+        var s = clo(function(a, b){ return a + b}) // s(5, 3)
+        var m = clo(function(a, b){ return a - b}) // m(5, 3)
+    </script>    
 </body>
 
 </html>
