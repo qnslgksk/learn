@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* CSS Document */
+
+.slider-multithumb {
+  padding: 6px;
+  width: 350px;
+  touch-action: pan-y;
+}
+
+.slider-multithumb svg {
+  forced-color-adjust: auto;
+}
+
+.slider-multithumb .slider-group {
+  color: black;
+}
+
+.slider-multithumb .slider-group .value {
+  font-size: 80%;
+  color: currentcolor;
+  fill: currentcolor;
+}
+
+.slider-multithumb .slider-group .rail {
+  stroke: currentcolor;
+  stroke-width: 2px;
+  fill-opacity: 0;
+}
+
+.slider-multithumb .slider-group .range {
+  fill: currentcolor;
+  opacity: 0.4;
+}
+
+.slider-multithumb .slider-group .thumb {
+  stroke-opacity: 0;
+  stroke-width: 2px;
+  fill: currentcolor;
+}
+
+.slider-multithumb .slider-group .focus-ring {
+  stroke-opacity: 0;
+  fill-opacity: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Focus and hover styling */
+
+.slider-multithumb .slider-group g.rail,
+.slider-multithumb .slider-group g.focus {
+  color: currentcolor;
+}
+
+.slider-multithumb .slider-group.active g.rail {
+  opacity: 0.8;
+}
+
+.slider-multithumb .slider-group.active g.range {
+  fill: #005a9c;
+  fill-opacity: 1;
+}
+
+.slider-multithumb [role="slider"]:focus {
+  outline: none;
+  color: #005a9c;
+}
+
+.slider-multithumb [role="slider"]:hover .focus-ring {
+  stroke: currentcolor;
+  stroke-width: 1px;
+  stroke-opacity: 0.8;
+}
+
+.slider-multithumb [role="slider"]:hover .focus-ring,
+.slider-multithumb [role="slider"]:focus .focus-ring {
+  stroke: currentcolor;
+  stroke-opacity: 1;
+  stroke-width: 3px;
+}
+
+.slider-multithumb [role="slider"]:focus .thumb {
+  stroke: currentcolor;
+}
+
+.slider-multithumb [role="slider"]:focus .value {
+  color: currentcolor;
+  font-weight: bold;
+}
+    </style>
+</head>
+<body>
+
+    <div id="ex1">
+        <h3>Hotel Price Range (in <abbr title="United States Dollars">USD</abbr>)</h3>
+        <div class="slider-multithumb">
+            <svg role="none" class="slider-group" width="360" height="80">
+                <g aria-hidden="true" class="rail">
+                    <rect height="6" width="328" y="42" x="10" rx="3"></rect>
+                </g>
+                <g aria-hidden="true" class="range">
+                    <rect height="6" width="232" y="42" x="92"></rect>
+                </g>
+                <g class="minimum" role="slider" tabindex="0" aria-valuemin="0" aria-valuenow="100" aria-valuemax="400"
+                    aria-label="Hotel Minimum Price in US dollars">
+                    <text class="value" y="24" x="77.02188873291016">$100</text>
+                    <rect class="focus-ring" height="64" width="44" y="5" rx="5.5" x="69"></rect>
+                    <polygon class="thumb" points="78,31 106,45 78,59"></polygon>
+                </g>
+                <g class="maximum" role="slider" tabindex="0" aria-valuemin="100" aria-valuenow="400" aria-valuemax="400"
+                    aria-label="Hotel Maximum Price in US dollars">
+                    <text class="value" y="24" x="309.0218963623047">$400</text>
+                    <rect class="focus-ring" height="64" width="44" y="5" rx="5.5" x="303"></rect>
+                    <polygon class="thumb" points="310,45 338,31 338,59"></polygon>
+                </g>
+            </svg>
+        </div>
+    </div>
+    
+
+    <script>
+        // function SliderMultithumb(domNode) {
+        //         // 초기화
+        //         var slider = {
+        //             isMoving: false,
+        //             movingSliderNode: false,
+        //             domNode: domNode,
+        //             svgNode: domNode.querySelector('svg'),
+        //             railNode: domNode.querySelector('.rail rect'),
+        //             rangeNode: domNode.querySelector('.range rect'),
+        //             minSliderNode: domNode.querySelector('[role=slider].minimum'),
+        //             maxSliderNode: domNode.querySelector('[role=slider].maximum'),
+        //             minSliderValueNode: domNode.querySelector('[role=slider].minimum .value'),
+        //             maxSliderValueNode: domNode.querySelector('[role=slider].maximum .value'),
+        //             minSliderFocusNode: domNode.querySelector('[role=slider].minimum .focus-ring'),
+        //             maxSliderFocusNode: domNode.querySelector('[role=slider].maximum .focus-ring'),
+        //             minSliderThumbNode: domNode.querySelector('[role=slider].minimum .thumb'),
+        //             maxSliderThumbNode: domNode.querySelector('[role=slider].maximum .thumb'),
+        //             svgPoint: domNode.querySelector('svg').createSVGPoint(),
+        //             svgWidth: 360,
+        //             svgHeight: 80,
+        //             valueTop: 24,
+        //             valueHeight: domNode.querySelector('[role=slider].minimum .value').getBoundingClientRect().height,
+        //             railHeight: 6,
+        //             railWidth: 300,
+        //             railY: 42,
+        //             railX: 10,
+        //             thumbTop: 31,
+        //             thumbHeight: 28,
+        //             thumbWidth: 28,
+        //             thumb2Width: 56,
+        //             focusOffset: 8,
+        //             sliderMinValue: null,
+        //             sliderMaxValue: null,
+        //             sliderDiffValue: null,
+        //             minSliderRight: 0,
+        //             maxSliderLeft: 300
+        //         };
+
+        //         slider.thumbMiddle = slider.thumbTop + slider.thumbHeight / 2;
+        //         slider.thumbBottom = slider.thumbTop + slider.thumbHeight;
+        //         slider.focusY = slider.valueTop - slider.valueHeight - slider.focusOffset + 2;
+        //         slider.focusWidth = slider.thumbWidth + 2 * slider.focusOffset;
+        //         slider.focusHeight = slider.thumbBottom - slider.focusY + slider.focusOffset + 2;
+        //         slider.focusRadius = slider.focusWidth / 8;
+
+        //         slider.svgNode.setAttribute('width', slider.svgWidth);
+        //         slider.svgNode.setAttribute('height', slider.svgHeight);
+
+        //         slider.minSliderFocusNode.setAttribute('y', slider.focusY);
+        //         slider.maxSliderFocusNode.setAttribute('y', slider.focusY);
+        //         slider.minSliderFocusNode.setAttribute('width', slider.focusWidth);
+        //         slider.maxSliderFocusNode.setAttribute('width', slider.focusWidth);
+        //         slider.minSliderFocusNode.setAttribute('height', slider.focusHeight);
+        //         slider.maxSliderFocusNode.setAttribute('height', slider.focusHeight);
+        //         slider.minSliderFocusNode.setAttribute('rx', slider.focusRadius);
+        //         slider.maxSliderFocusNode.setAttribute('rx', slider.focusRadius);
+
+        //         slider.minSliderValueNode.setAttribute('y', slider.valueTop);
+        //         slider.maxSliderValueNode.setAttribute('y', slider.valueTop);
+
+        //         slider.railNode.setAttribute('y', slider.railY);
+        //         slider.railNode.setAttribute('x', slider.railX);
+        //         slider.railNode.setAttribute('height', slider.railHeight);
+        //         slider.railNode.setAttribute('width', slider.railWidth + slider.thumbWidth);
+        //         slider.railNode.setAttribute('rx', slider.railHeight / 2);
+
+        //         slider.rangeNode.setAttribute('y', slider.railY);
+        //         slider.rangeNode.setAttribute('x', slider.railX / 2);
+        //         slider.rangeNode.setAttribute('height', slider.railHeight);
+        //         slider.rangeNode.setAttribute('width', 0);
+
+        //         slider.sliderMinValue = getValueMin(slider.minSliderNode);
+        //         slider.sliderMaxValue = getValueMax(slider.maxSliderNode);
+        //         slider.sliderDiffValue = slider.sliderMaxValue - slider.sliderMinValue;
+
+        //         // Helper Functions
+        //         function getSVGPoint(event) {
+        //             slider.svgPoint.x = event.clientX;
+        //             slider.svgPoint.y = event.clientY;
+        //             return slider.svgPoint.matrixTransform(slider.svgNode.getScreenCTM().inverse());
+        //         }
+
+        //         function getValue(sliderNode) {
+        //             return parseInt(sliderNode.getAttribute('aria-valuenow'), 10);
+        //         }
+
+        //         function getValueMin(sliderNode) {
+        //             return parseInt(sliderNode.getAttribute('aria-valuemin'), 10);
+        //         }
+
+        //         function getValueMax(sliderNode) {
+        //             return parseInt(sliderNode.getAttribute('aria-valuemax'), 10);
+        //         }
+
+        //         function moveSliderTo(sliderNode, value) {
+        //             // 구현 내용은 class와 동일
+        //         }
+
+        //         function onSliderKeydown(event) {
+        //             // 키보드 동작 처리
+        //         }
+
+        //         function onSliderFocus(event) {
+        //             event.currentTarget.classList.add('focus');
+        //             slider.svgNode.classList.add('active');
+        //         }
+
+        //         function onSliderBlur(event) {
+        //             event.currentTarget.classList.remove('focus');
+        //             slider.svgNode.classList.remove('active');
+        //         }
+
+        //         function onSliderPointerdown(event) {
+        //             slider.isMoving = true;
+        //             slider.movingSliderNode = event.currentTarget;
+        //             event.preventDefault();
+        //             event.stopPropagation();
+        //             slider.movingSliderNode.focus();
+        //         }
+
+        //         function onPointermove(event) {
+        //             if (slider.isMoving && slider.movingSliderNode && slider.domNode.contains(event.target)) {
+        //                 // 마우스 이동 처리
+        //             }
+        //         }
+
+        //         function onPointerup() {
+        //             slider.isMoving = false;
+        //             slider.movingSliderNode = false;
+        //         }
+
+        //         // Event Listeners
+        //         slider.minSliderNode.addEventListener('keydown', onSliderKeydown);
+        //         slider.minSliderNode.addEventListener('pointerdown', onSliderPointerdown);
+        //         slider.minSliderNode.addEventListener('focus', onSliderFocus);
+        //         slider.minSliderNode.addEventListener('blur', onSliderBlur);
+
+        //         slider.maxSliderNode.addEventListener('keydown', onSliderKeydown);
+        //         slider.maxSliderNode.addEventListener('pointerdown', onSliderPointerdown);
+        //         slider.maxSliderNode.addEventListener('focus', onSliderFocus);
+        //         slider.maxSliderNode.addEventListener('blur', onSliderBlur);
+
+        //         document.addEventListener('pointermove', onPointermove);
+        //         document.addEventListener('pointerup', onPointerup);
+
+        //         // 초기 슬라이더 설정
+        //         moveSliderTo(slider.minSliderNode, getValue(slider.minSliderNode));
+        //         moveSliderTo(slider.maxSliderNode, getValue(slider.maxSliderNode));
+
+        //         return slider;
+        //     }
+
+        //     // 초기화
+        //     window.addEventListener('load', function () {
+        //         var slidersMultithumb = document.querySelectorAll('.slider-multithumb');
+        //         for (var i = 0; i < slidersMultithumb.length; i++) {
+        //             SliderMultithumb(slidersMultithumb[i]);
+        //         }
+        //     });
+
+    </script>
+    <script>
+        /*
+     *   This content is licensed according to the W3C Software License at
+     *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+     *
+     *   File:   slider-multithumb.js
+     *
+     *   Desc:   A dual slider widget that implements ARIA Authoring Practices
+     */
+
+            'use strict';
+            class SliderMultithumb {
+                constructor(domNode) {
+                    this.isMoving = false;
+                    this.movingSliderNode = false;
+
+                    this.domNode = domNode;
+
+                    this.svgNode = domNode.querySelector('svg');
+                    this.svgPoint = this.svgNode.createSVGPoint();
+
+                    this.railNode = domNode.querySelector('.rail rect');
+                    this.rangeNode = domNode.querySelector('.range rect');
+
+                    this.minSliderNode = domNode.querySelector('[role=slider].minimum');
+                    this.maxSliderNode = domNode.querySelector('[role=slider].maximum');
+
+                    this.minSliderValueNode = this.minSliderNode.querySelector('.value');
+                    this.maxSliderValueNode = this.maxSliderNode.querySelector('.value');
+
+                    this.minSliderFocusNode = this.minSliderNode.querySelector('.focus-ring');
+                    this.maxSliderFocusNode = this.maxSliderNode.querySelector('.focus-ring');
+
+                    this.minSliderThumbNode = this.minSliderNode.querySelector('.thumb');
+                    this.maxSliderThumbNode = this.maxSliderNode.querySelector('.thumb');
+
+                    // Dimensions of the slider focus ring, thumb and rail
+
+                    this.svgWidth = 360;
+                    this.svgHeight = 80;
+
+                    this.valueTop = 24;
+                    this.valueHeight = this.minSliderValueNode.getBoundingClientRect().height;
+
+                    this.railHeight = 6;
+                    this.railWidth = 300;
+                    this.railY = 42;
+                    this.railX = 10;
+
+                    this.thumbTop = 31;
+                    this.thumbHeight = 28;
+                    this.thumbWidth = 28;
+                    this.thumb2Width = 2 * this.thumbWidth;
+                    this.thumbMiddle = this.thumbTop + this.thumbHeight / 2;
+                    this.thumbBottom = this.thumbTop + this.thumbHeight;
+
+                    this.focusOffset = 8;
+                    this.focusY = this.valueTop - this.valueHeight - this.focusOffset + 2;
+                    this.focusWidth = this.thumbWidth + 2 * this.focusOffset;
+                    this.focusHeight = this.thumbBottom - this.focusY + this.focusOffset + 2;
+                    this.focusRadius = this.focusWidth / 8;
+
+                    this.svgNode.setAttribute('width', this.svgWidth);
+                    this.svgNode.setAttribute('height', this.svgHeight);
+
+                    this.minSliderFocusNode.setAttribute('y', this.focusY);
+                    this.maxSliderFocusNode.setAttribute('y', this.focusY);
+                    this.minSliderFocusNode.setAttribute('width', this.focusWidth);
+                    this.maxSliderFocusNode.setAttribute('width', this.focusWidth);
+                    this.minSliderFocusNode.setAttribute('height', this.focusHeight);
+                    this.maxSliderFocusNode.setAttribute('height', this.focusHeight);
+                    this.minSliderFocusNode.setAttribute('rx', this.focusRadius);
+                    this.maxSliderFocusNode.setAttribute('rx', this.focusRadius);
+
+                    this.minSliderValueNode.setAttribute('y', this.valueTop);
+                    this.maxSliderValueNode.setAttribute('y', this.valueTop);
+
+                    this.railNode.setAttribute('y', this.railY);
+                    this.railNode.setAttribute('x', this.railX);
+                    this.railNode.setAttribute('height', this.railHeight);
+                    this.railNode.setAttribute('width', this.railWidth + this.thumbWidth);
+                    this.railNode.setAttribute('rx', this.railHeight / 2);
+
+                    this.rangeNode.setAttribute('y', this.railY);
+                    this.rangeNode.setAttribute('x', this.railX / 2);
+                    this.rangeNode.setAttribute('height', this.railHeight);
+                    this.rangeNode.setAttribute('width', 0);
+
+                    this.sliderMinValue = this.getValueMin(this.minSliderNode);
+                    this.sliderMaxValue = this.getValueMax(this.maxSliderNode);
+                    this.sliderDiffValue = this.sliderMaxValue - this.sliderMinValue;
+
+                    this.minSliderRight = 0;
+                    this.maxSliderLeft = this.railWidth;
+
+                    this.minSliderNode.addEventListener(
+                        'keydown',
+                        this.onSliderKeydown.bind(this)
+                    );
+                    this.minSliderNode.addEventListener(
+                        'pointerdown',
+                        this.onSliderPointerdown.bind(this)
+                    );
+
+                    this.minSliderNode.addEventListener('focus', this.onSliderFocus.bind(this));
+                    this.minSliderNode.addEventListener('blur', this.onSliderBlur.bind(this));
+
+                    this.maxSliderNode.addEventListener(
+                        'keydown',
+                        this.onSliderKeydown.bind(this)
+                    );
+                    this.maxSliderNode.addEventListener(
+                        'pointerdown',
+                        this.onSliderPointerdown.bind(this)
+                    );
+
+                    // bind a pointermove event handler to move pointer
+                    document.addEventListener('pointermove', this.onPointermove.bind(this));
+
+                    // bind a pointerup event handler to stop tracking pointer movements
+                    document.addEventListener('pointerup', this.onPointerup.bind(this));
+
+                    this.maxSliderNode.addEventListener('focus', this.onSliderFocus.bind(this));
+                    this.maxSliderNode.addEventListener('blur', this.onSliderBlur.bind(this));
+
+                    this.moveSliderTo(this.minSliderNode, this.getValue(this.minSliderNode));
+                    this.moveSliderTo(this.maxSliderNode, this.getValue(this.maxSliderNode));
+                }
+
+                getSVGPoint(event) {
+                    this.svgPoint.x = event.clientX;
+                    this.svgPoint.y = event.clientY;
+                    return this.svgPoint.matrixTransform(this.svgNode.getScreenCTM().inverse());
+                }
+
+                getValue(sliderNode) {
+                    return parseInt(sliderNode.getAttribute('aria-valuenow'));
+                }
+
+                getValueMin(sliderNode) {
+                    return parseInt(sliderNode.getAttribute('aria-valuemin'));
+                }
+
+                getValueMax(sliderNode) {
+                    return parseInt(sliderNode.getAttribute('aria-valuemax'));
+                }
+
+                isMinSlider(sliderNode) {
+                    return this.minSliderNode === sliderNode;
+                }
+
+                isInRange(sliderNode, value) {
+                    let valueMin = this.getValueMin(sliderNode);
+                    let valueMax = this.getValueMax(sliderNode);
+                    return value <= valueMax && value >= valueMin;
+                }
+
+                isOutOfRange(value) {
+                    let valueMin = this.getValueMin(this.minSliderNode);
+                    let valueMax = this.getValueMax(this.maxSliderNode);
+                    return value > valueMax || value < valueMin;
+                }
+
+                getXFromThumb(node) {
+                    var points = node.getAttribute('points').split(',');
+                    return parseInt(points[0]);
+                }
+
+                moveSliderTo(sliderNode, value) {
+                    var valueMax,
+                        valueMin,
+                        pos,
+                        x,
+                        points = '',
+                        width,
+                        dollarValue;
+
+                    if (this.isMinSlider(sliderNode)) {
+                        valueMin = this.getValueMin(this.minSliderNode);
+                        valueMax = this.getValueMax(this.minSliderNode);
+                    } else {
+                        valueMin = this.getValueMin(this.maxSliderNode);
+                        valueMax = this.getValueMax(this.maxSliderNode);
+                    }
+
+                    value = Math.min(Math.max(value, valueMin), valueMax);
+
+                    sliderNode.setAttribute('aria-valuenow', value);
+                    dollarValue = '$' + value;
+
+                    pos = this.railX;
+                    pos += Math.round(
+                        (value * (this.railWidth - this.thumbWidth)) /
+                        (this.sliderMaxValue - this.sliderMinValue)
+                    );
+
+                    if (this.isMinSlider(sliderNode)) {
+                        // update ARIA attributes
+                        this.minSliderValueNode.textContent = dollarValue;
+                        this.maxSliderNode.setAttribute('aria-valuemin', value);
+
+                        // move the SVG focus ring and thumb elements
+                        x = pos - this.focusOffset - 1;
+                        this.minSliderFocusNode.setAttribute('x', x);
+
+                        points = `${pos},${this.thumbTop}`;
+                        points += ` ${pos + this.thumbWidth},${this.thumbMiddle}`;
+                        points += ` ${pos},${this.thumbBottom}`;
+                        this.minSliderThumbNode.setAttribute('points', points);
+
+                        // Position value
+                        width = this.minSliderValueNode.getBoundingClientRect().width;
+                        pos = pos + (this.thumbWidth - width) / 2;
+                        if (pos + width > this.maxSliderLeft - 2) {
+                            pos = this.maxSliderLeft - width - 2;
+                        }
+                        this.minSliderValueNode.setAttribute('x', pos);
+                        this.minSliderRight = pos;
+                    } else {
+                        // update label and ARIA attributes
+                        this.maxSliderValueNode.textContent = dollarValue;
+                        this.minSliderNode.setAttribute('aria-valuemax', value);
+
+                        // move the SVG focus ring and thumb elements
+                        x = pos + this.thumbWidth - this.focusOffset + 1;
+                        this.maxSliderFocusNode.setAttribute('x', x);
+
+                        points = `${pos + this.thumbWidth},${this.thumbMiddle}`;
+                        points += ` ${pos + this.thumb2Width},${this.thumbTop}`;
+                        points += ` ${pos + this.thumb2Width},${this.thumbBottom}`;
+                        this.maxSliderThumbNode.setAttribute('points', points);
+
+                        width = this.maxSliderValueNode.getBoundingClientRect().width;
+                        pos = pos + this.thumbWidth + (this.thumbWidth - width) / 2;
+                        if (pos - width < this.minSliderRight + 2) {
+                            pos = this.minSliderRight + width + 2;
+                        }
+
+                        this.maxSliderValueNode.setAttribute('x', pos);
+                        this.maxSliderLeft = pos;
+                    }
+
+                    // Set range rect
+
+                    x = this.getXFromThumb(this.minSliderThumbNode) + this.thumbWidth / 2;
+                    width =
+                        this.getXFromThumb(this.maxSliderThumbNode) - x + this.thumbWidth / 2;
+                    this.rangeNode.setAttribute('x', x);
+                    this.rangeNode.setAttribute('width', width);
+                }
+
+                onSliderKeydown(event) {
+                    var flag = false;
+                    var sliderNode = event.currentTarget;
+                    var value = this.getValue(sliderNode);
+                    var valueMin = this.getValueMin(sliderNode);
+                    var valueMax = this.getValueMax(sliderNode);
+
+                    switch (event.key) {
+                        case 'ArrowLeft':
+                        case 'ArrowDown':
+                            this.moveSliderTo(sliderNode, value - 1);
+                            flag = true;
+                            break;
+
+                        case 'ArrowRight':
+                        case 'ArrowUp':
+                            this.moveSliderTo(sliderNode, value + 1);
+                            flag = true;
+                            break;
+
+                        case 'PageDown':
+                            this.moveSliderTo(sliderNode, value - 10);
+                            flag = true;
+                            break;
+
+                        case 'PageUp':
+                            this.moveSliderTo(sliderNode, value + 10);
+                            flag = true;
+                            break;
+
+                        case 'Home':
+                            this.moveSliderTo(sliderNode, valueMin);
+                            flag = true;
+                            break;
+
+                        case 'End':
+                            this.moveSliderTo(sliderNode, valueMax);
+                            flag = true;
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    if (flag) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                }
+
+                onSliderFocus(event) {
+                    event.currentTarget.classList.add('focus');
+                    this.svgNode.classList.add('active');
+                }
+
+                onSliderBlur(event) {
+                    event.currentTarget.classList.remove('focus');
+                    this.svgNode.classList.remove('active');
+                }
+
+                onSliderPointerdown(event) {
+                    this.isMoving = true;
+                    this.movingSliderNode = event.currentTarget;
+                    this.isMinSliderMoving = this.isMinSlider(event.currentTarget);
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    // Set focus to the clicked handle
+                    this.movingSliderNode.focus();
+                }
+
+                onPointermove(event) {
+                    if (
+                        this.isMoving &&
+                        this.movingSliderNode &&
+                        this.domNode.contains(event.target)
+                    ) {
+                        var x = this.getSVGPoint(event).x - this.railX;
+                        if (this.isMinSliderMoving) {
+                            x = Math.max(0, x - this.thumbWidth / 3);
+                        } else {
+                            x = Math.max(0, x - (5 * this.thumbWidth) / 3);
+                        }
+                        x = Math.min(x, this.railWidth - this.thumbWidth);
+                        var value = Math.round(
+                            (x * this.sliderDiffValue) / (this.railWidth - this.thumbWidth)
+                        );
+                        this.moveSliderTo(this.movingSliderNode, value);
+
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                }
+
+                onPointerup() {
+                    this.isMoving = false;
+                    this.movingSliderNode = false;
+                }
+            }
+
+            // Initialize Multithumb Slider widgets on the page
+            window.addEventListener('load', function () {
+                var slidersMultithumb = document.querySelectorAll('.slider-multithumb');
+
+                for (let i = 0; i < slidersMultithumb.length; i++) {
+                    new SliderMultithumb(slidersMultithumb[i]);
+                }
+            });
+
+    </script>
+</body>
+</html>
